@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motor Cortex - Interactive Brain Model</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            color: #333;
+        }
+        header {
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            
+        }
+        .title {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        .nav-links {
+            display: flex;
+            gap: 15px;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            padding: 40px;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        .explanation {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .toggle-buttons {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .toggle-buttons button {
+            background: #6a11cb;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin: 0 10px;
+            font-size: 1rem;
+        }
+        .toggle-buttons button:hover {
+            background: #5b0fa6;
+        }
+        .text {
+            display: none;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-top: 20px;
+        }
+        .text.active {
+            display: block;
+        }
+        footer {
+            background: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        footer a {
+            color: #6a11cb;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="title">Motor Cortex</div>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="explore_brain_nav.html">Brain Regions</a>
+    </div>
+</header>
+
+<section class="content">
+    <h2 class="section-title">Motor Cortex</h2>
+    <div class="toggle-buttons">
+        <button onclick="showText('simple')">Simple Explanation</button>
+        <button onclick="showText('complex')">Complex Explanation</button>
+    </div>
+    <div class="text" id="simple">
+        <p>The motor cortex is a part of your brain that helps control your body’s movements. Located in the back part of the frontal lobe, it works like a command center, sending signals to your muscles to help you walk, run, and even smile. For example, when you decide to pick up a cup, your motor cortex sends instructions to your arm and hand to make it happen.</p>
+        <p>It doesn’t just control big movements like jumping or waving—it also handles smaller, more precise ones, like writing your name or tying your shoes. Different parts of the motor cortex control specific areas of your body, which helps ensure your movements are smooth and coordinated.</p>
+        <p>Without the motor cortex, your muscles wouldn’t know what to do, making even the simplest tasks impossible. From playing sports to drawing a picture, the motor cortex is always active, making sure you can move the way you want to.</p>
+    </div>
+    <div class="text" id="complex">
+        <p>The motor cortex, situated in the posterior portion of the frontal lobe, is primarily responsible for planning, controlling, and executing voluntary movements. It is divided into several regions, including the primary motor cortex, which directly communicates with the spinal cord to activate specific muscles.</p>
+        <p>The motor cortex is organized somatotopically, meaning different areas correspond to specific parts of the body—a concept represented by the motor homunculus. Larger areas, such as those controlling the hands and face, occupy more space due to the need for fine motor skills and precision.</p>
+        <p>Beyond basic movement, the motor cortex interacts with other brain regions, such as the cerebellum and basal ganglia, to refine and coordinate actions. Damage to the motor cortex can lead to motor deficits, such as paralysis or loss of fine motor control. Despite its specialized role, the motor cortex works in conjunction with other brain regions to enable smooth, purposeful movements essential for daily activities.</p>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2025 NeuroPrint | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+</footer>
+
+<script>
+    function showText(type) {
+        document.getElementById('simple').classList.remove('active');
+        document.getElementById('complex').classList.remove('active');
+        document.getElementById(type).classList.add('active');
+    }
+</script>
+
+</body>
+</html>

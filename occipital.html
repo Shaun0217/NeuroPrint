@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Occipital Lobe - Interactive Brain Model</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            color: #333;
+        }
+        header {
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .title {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        .nav-links {
+            display: flex;
+            gap: 15px;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            padding: 40px;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        .explanation {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .toggle-buttons {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .toggle-buttons button {
+            background: #6a11cb;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin: 0 10px;
+            font-size: 1rem;
+        }
+        .toggle-buttons button:hover {
+            background: #5b0fa6;
+        }
+        .text {
+            display: none;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-top: 20px;
+        }
+        .text.active {
+            display: block;
+        }
+        footer {
+            background: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        footer a {
+            color: #6a11cb;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="title">Occipital Lobe</div>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="explore_brain_nav.html">Brain Regions</a>
+    </div>
+</header>
+
+<section class="content">
+    <h2 class="section-title">Occipital Lobe</h2>
+    <div class="toggle-buttons">
+        <button onclick="showText('simple')">Simple Explanation</button>
+        <button onclick="showText('complex')">Complex Explanation</button>
+    </div>
+    <div class="text" id="simple">
+        <p>The occipital lobe is the part of the brain located at the back of your head. It acts as the brain's "vision center," helping you understand and process everything you see. When light enters your eyes, the information travels as signals through nerves to the occipital lobe. This lobe figures out the details, like the shape of objects, their colors, and their movements. For example, when you look at a tree, the occipital lobe helps you recognize its green leaves, brown trunk, and how the branches sway in the wind.</p>
+        <p>Beyond helping you see, the occipital lobe works with other parts of the brain to make sense of what you’re looking at. It helps you remember images, like recognizing your favorite toy or a friend’s face. The occipital lobe also works quickly—it processes millions of bits of information every second! Without it, you would see the world as a jumbled mess, and things wouldn’t make sense.</p>
+        <p>This amazing part of the brain helps keep us safe by letting us spot danger and navigate our environment. Whether it’s reading a book, watching a movie, or playing a game, the occipital lobe is always working hard behind the scenes.</p>
+    </div>
+    <div class="text" id="complex">
+        <p>The occipital lobe, situated at the posterior region of the brain, is primarily responsible for visual processing. It serves as the central hub for interpreting visual information sent from the retina via the optic nerves. This information reaches the primary visual cortex (V1), located within the occipital lobe, where basic attributes such as edges, motion, light intensity, and color are processed.</p>
+        <p>Beyond basic processing, the occipital lobe collaborates extensively with other brain regions. For example, it interacts with the temporal lobe to recognize faces, objects, and scenes, integrating visual information with memory. This connection helps explain how you can instantly recognize familiar environments or recall visual details from your past. Similarly, its connections with the parietal lobe enable spatial awareness and coordination, which are crucial for tasks like catching a ball or navigating crowded spaces.</p>
+        <p>Moreover, the occipital lobe’s functions extend into cognitive domains. Its interpretation of visual stimuli often guides decision-making and problem-solving. For instance, visual cues can inform complex tasks such as reading graphs, interpreting patterns, or even understanding social cues like facial expressions. Damage to the occipital lobe can result in conditions such as cortical blindness, visual field defects, or difficulties in recognizing objects (visual agnosia). Despite being a highly specialized region, its role in integrating sensory input with higher cognitive processes underscores its critical importance to our daily functioning.</p>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2025 NeuroPrint | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+</footer>
+
+<script>
+    function showText(type) {
+        document.getElementById('simple').classList.remove('active');
+        document.getElementById('complex').classList.remove('active');
+        document.getElementById(type).classList.add('active');
+    }
+</script>
+
+</body>
+</html>

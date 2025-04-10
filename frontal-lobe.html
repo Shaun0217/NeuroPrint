@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontal Lobe - Interactive Brain Model</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            color: #333;
+        }
+        header {
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .title {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        .nav-links {
+            display: flex;
+            gap: 15px;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            padding: 40px;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        .explanation {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .toggle-buttons {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .toggle-buttons button {
+            background: #6a11cb;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin: 0 10px;
+            font-size: 1rem;
+        }
+        .toggle-buttons button:hover {
+            background: #5b0fa6;
+        }
+        .text {
+            display: none;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-top: 20px;
+        }
+        .text.active {
+            display: block;
+        }
+        footer {
+            background: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        footer a {
+            color: #6a11cb;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="title">Frontal Lobe</div>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="explore_brain_nav.html">Brain Regions</a>
+    </div>
+</header>
+
+<section class="content">
+    <h2 class="section-title">Frontal Lobe</h2>
+    <div class="toggle-buttons">
+        <button onclick="showText('simple')">Simple Explanation</button>
+        <button onclick="showText('complex')">Complex Explanation</button>
+    </div>
+    <div class="text" id="simple">
+        <p>The frontal lobe is located at the front of the brain and is responsible for many essential tasks, like decision-making, problem-solving, and controlling your movements. It’s like the brain’s “command center,” helping you think, plan, and organize your actions. For example, when you decide what to eat for lunch or how to solve a puzzle, your frontal lobe is hard at work.</p>
+        <p>Besides helping you think, the frontal lobe plays a big role in emotions and social behavior. It helps you understand how others feel, control your impulses, and make decisions that consider long-term consequences. Without it, you might struggle with things like expressing emotions or staying focused on a goal.</p>
+        <p>Whether you’re writing an essay, playing sports, or just having a conversation, the frontal lobe is constantly at work, keeping you in control and helping you achieve your goals. It’s one of the most advanced parts of your brain and is key to what makes you, you!</p>
+    </div>
+    <div class="text" id="complex">
+        <p>The frontal lobe, located in the anterior portion of the brain, is essential for higher cognitive functions and voluntary motor control. It houses the primary motor cortex, which directs precise movements, and the prefrontal cortex, which governs complex behaviors like decision-making, planning, and regulating emotions.</p>
+        <p>This lobe also manages executive functions, including working memory, attention, and multitasking. For instance, when solving a problem, the frontal lobe analyzes the situation, considers options, and chooses the best course of action. Additionally, it plays a critical role in language production through Broca’s area, which is located in the left frontal lobe.</p>
+        <p>Damage to the frontal lobe can result in difficulties with motor skills, speech, and cognitive functions. For example, individuals may struggle with impulse control, memory retention, or understanding social cues. Despite these challenges, the frontal lobe’s ability to adapt and reorganize itself underscores its importance in maintaining cognitive and emotional health, demonstrating its incredible flexibility and resilience.</p>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2025 NeuroPrint | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+</footer>
+
+<script>
+    function showText(type) {
+        document.getElementById('simple').classList.remove('active');
+        document.getElementById('complex').classList.remove('active');
+        document.getElementById(type).classList.add('active');
+    }
+</script>
+
+</body>
+</html>
