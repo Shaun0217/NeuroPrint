@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeuroPrint</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            z-index: 1000;
+            height: 50px; /* Adjusted height */
+        }
+        header .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .menu-button {
+            font-size: 1.5rem; /* Reduced font size */
+            cursor: pointer;
+            color: white;
+            background: none;
+            border: none;
+            z-index: 1100; /* Keep button on top of the overlay */
+        }
+
+        .menu-button:focus {
+            outline: none;
+        }
+
+        .title {
+            font-size: 1.25rem; /* Adjusted text size for title */
+            margin: 0;
+        }
+
+        .logo img {
+            height: 40px; /* Adjusted logo size */
+        }
+
+        #menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        #menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        #menu-overlay a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+            margin: 10px 0;
+        }
+
+        #menu-overlay a:hover {
+            text-decoration: underline;
+        }
+
+        .hero {
+            background: url('brain-hero.jpg') center/cover no-repeat;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+        }
+        @media (max-width: 600px) {
+    .hero h1 {
+        font-size: 1.75rem;
+        text-align: center;
+        padding: 0 10px;
+    }
+}
+
+        .section {
+            padding: 40px;
+        }
+        @media (max-width: 768px) {
+    .features {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .feature {
+        width: 90%;
+        max-width: 400px;
+    }
+}
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        @media (max-width: 600px) {
+    .hero {
+        height: 250px;
+    }
+}
+
+        .features {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        @media (max-width: 600px) {
+    header .logo {
+        font-size: 1.2rem;
+    }
+
+    .menu-button {
+        font-size: 1.2rem;
+    }
+}
+
+        .feature {
+            flex: 1;
+            min-width: 300px;
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        @media (max-width: 600px) {
+    .section {
+        padding: 20px 15px;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .cta {
+        padding: 20px 15px;
+    }
+}
+
+        .feature img {
+            width: 80px;
+            margin-bottom: 15px;
+        }
+        @media (max-width: 600px) {
+    .region-link {
+        padding: 15px;
+        font-size: 1rem;
+    }
+
+    .hover-card {
+        display: none !important; /* Tooltips are hard on touch */
+    }
+}
+
+        .cta {
+            background: #2575fc;
+            color: white;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .cta button {
+            background: #6a11cb;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        .cta button:hover {
+            background: #5b0fa6;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer a {
+            color: #6a11cb;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .brain-regions {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .region-link {
+            position: relative;
+            margin: 10px;
+            padding: 10px 20px;
+            background: #f5f5f5;
+            border-radius: 8px;
+            text-align: center;
+            transition: background 0.3s ease;
+        }
+
+        .region-link a {
+            text-decoration: none;
+            font-weight: bold;
+            color: #2575fc;
+        }
+
+        .region-link:hover {
+            background: #e0e7ff;
+        }
+
+        .hover-card {
+            display: none;
+            position: absolute;
+            bottom: 120%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 300px;
+            padding: 10px;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #333;
+            z-index: 10;
+        }
+
+        .region-link:hover .hover-card {
+            display: block;
+        }
+
+        .request-model-button {
+            background: #6a11cb;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+
+        .request-model-button:hover {
+            background: #5b0fa6;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">NeuroPrint</div>
+    <button class="menu-button" onclick="toggleMenu()">☰</button>
+</header>
+
+<div id="menu-overlay">
+    <a href="about.html" >About</a>
+    <a href="explore_brain_nav.html">Explore Brain Regions</a>
+    <a href="games_nav.html">Games</a>
+    <a href="request_model.html">Request a Model</a>
+    <!---
+    <a href="fundraisers.html">Fundraisers</a>
+    
+    <a href="blog.html">Blog</a>
+-->
+    <a href="contact.html">Contact</a>
+
+</div>
+
+<div class="hero">
+    <h1>Explore the Wonders of the Human Brain</h1>
+</div>
+
+<section class="section" id="features">
+    <h2 class="section-title">Key Features</h2>
+    <div class="features">
+        <div class="feature">
+            <img src="brain_icon.png" alt="3D Model">
+            <h3>3D Brain Models</h3>
+            <p>Visualize the brain with detailed 3D-printed models showcasing anatomy and functionality.</p>
+        </div>
+        <div class="feature">
+            <img src="png_qr.png" alt="Interactive QR Codes">
+            <h3>Interactive QR Codes</h3>
+            <p>Scan to learn about brain regions and their roles in memory, emotion, and movement.</p>
+        </div>
+        <div class="feature">
+            <img src="education_picture.png" alt="Educational Outreach">
+            <h3>Educational Outreach</h3>
+            <p>Engage students with workshops and resources designed to inspire the next generation of neuroscientists.</p>
+        </div>
+    </div>
+</section>
+
+<div class="cta">
+    <h2>Join Us in Exploring the Brain</h2>
+    <p>Want to learn more or get involved? Connect with us today!</p>
+    <button onclick="location.href='contact.html'">Contact Us</button>
+</div>
+
+<footer>
+    <p>&copy; 2025 NeuroPrint | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+</footer>
+
+<script>
+    const body = document.body;
+
+    function toggleMenu() {
+        const menuOverlay = document.getElementById('menu-overlay');
+        const isActive = menuOverlay.classList.contains('active');
+
+        if (isActive) {
+            menuOverlay.classList.remove('active');
+            body.style.overflow = ''; // Restore scrolling
+        } else {
+            menuOverlay.classList.add('active');
+            body.style.overflow = 'hidden'; // Disable scrolling
+        }
+    }
+
+    function navigateToSection(event, sectionId) {
+        event.preventDefault();
+        const menuOverlay = document.getElementById('menu-overlay');
+        const section = document.getElementById(sectionId);
+
+        if (section) {
+            section.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        menuOverlay.classList.remove('active');
+        body.style.overflow = ''; // Restore scrolling
+    }
+</script>
+
+</body>
+</html>
