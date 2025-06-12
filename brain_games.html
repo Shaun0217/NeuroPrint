@@ -80,6 +80,14 @@
         .hidden {
             display: none;
         }
+        a {
+    color: #6a11cb;
+    text-decoration: underline;
+    font-weight: bold;
+}
+a:hover {
+    color: #2575fc;
+}
     </style>
 </head>
 <body>
@@ -98,7 +106,7 @@
             <p>Test your reaction speed and learn about your motor cortex!</p>
             <button id="reaction-btn">Start Test</button>
             <div class="result" id="reaction-result"></div>
-            <div class="info" id="reaction-info">Your **motor cortex** controls voluntary movements and reacts to stimuli.</div>
+            <div class="info" id="reaction-info">Your <a href="motor_cortex.html">motor cortex</a> controls voluntary movements and reacts to stimuli.</div>
         </div>
 
         <!-- Memory Test -->
@@ -107,7 +115,7 @@
             <p>Challenge your memory and learn about the hippocampus!</p>
             <button onclick="startMemoryTest()">Start Test</button>
             <div class="result" id="memory-result"></div>
-            <div class="info" id="memory-info">Your **hippocampus** is responsible for short-term and long-term memory.</div>
+            <div class="info" id="memory-info">Your hippocampus is responsible for short-term and long-term memory.</div>
         </div>
 
         <!-- Focus Test -->
@@ -116,7 +124,7 @@
             <p>Test your attention span and learn about the parietal lobe!</p>
             <button onclick="startFocusTest()">Start Test</button>
             <div class="result" id="focus-result"></div>
-            <div class="info" id="focus-info">Your **parietal lobe** helps you focus on important details and ignore distractions.</div>
+            <div class="info" id="focus-info">Your <a href="parietal.html">parietal lobe</a> helps you focus on important details and ignore distractions.</div>
         </div>
 
         <!-- Pattern Matching Test -->
@@ -130,7 +138,7 @@
                 <button id="submit-pattern-btn">Submit</button>
             </div>
             <div class="result" id="pattern-result"></div>
-            <div class="info" id="pattern-info">Your **occipital lobe** processes visual patterns and recognition.</div>
+            <div class="info" id="pattern-info">Your <a href="occipital.html">occipital lobe</a> processes visual patterns and recognition.</div>
         </div>
     </div>
 
