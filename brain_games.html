@@ -13,6 +13,57 @@
             text-align: center;
             background: #f8f9fa;
         }
+        @media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        height: auto;
+        text-align: center;
+        padding: 15px 10px;
+    }
+
+    header nav {
+        margin-top: 10px;
+    }
+
+    header nav a {
+        display: block;
+        margin: 5px 0;
+    }
+}
+@media (max-width: 600px) {
+    .game-section button,
+    #pattern-input,
+    #submit-pattern-btn {
+        width: 100%;
+        font-size: 1rem;
+    }
+
+    #pattern-input {
+        margin: 10px 0;
+        padding: 8px;
+    }
+}
+@media (max-width: 600px) {
+    .game-section h2 {
+        font-size: 1.4rem;
+    }
+
+    .game-section p,
+    .info,
+    .result {
+        font-size: 0.95rem;
+    }
+
+    .main-content {
+        padding: 10px;
+    }
+
+    .game-section {
+        padding: 15px;
+        margin: 15px 0;
+    }
+}
+
 
         header {
             background: linear-gradient(to right, #6a11cb, #2575fc);
@@ -193,6 +244,35 @@
                 document.getElementById("pattern-result").textContent = userAnswer === pattern.answer ? "Correct!" : `Incorrect! The answer was ${pattern.answer}.`;
             };
         });
+    
+    const body = document.body;
+
+    function toggleMenu() {
+        const menuOverlay = document.getElementById('menu-overlay');
+        const isActive = menuOverlay.classList.contains('active');
+
+        if (isActive) {
+            menuOverlay.classList.remove('active');
+            body.style.overflow = ''; // Restore scrolling
+        } else {
+            menuOverlay.classList.add('active');
+            body.style.overflow = 'hidden'; // Disable scrolling
+        }
+    }
+
+    function navigateToSection(event, sectionId) {
+        event.preventDefault();
+        const menuOverlay = document.getElementById('menu-overlay');
+        const section = document.getElementById(sectionId);
+
+        if (section) {
+            section.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        menuOverlay.classList.remove('active');
+        body.style.overflow = ''; // Restore scrolling
+    }
+
     </script>
 </body>
 </html>

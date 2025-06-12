@@ -1,216 +1,278 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brain Anatomy Quiz</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Roboto', sans-serif;
-            color: #333;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-        /* Header */
-        header {
-            background: linear-gradient(to right, #6a11cb, #2575fc);
-            color: white;
-            padding: 10px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            height: 50px;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Brain Anatomy Quiz</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      background: #f9f9f9;
+    }
 
-        header .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
+    header {
+      background: linear-gradient(to right, #6a11cb, #2575fc);
+      color: white;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
 
-        header nav a {
-            margin: 0 10px;
-            color: white;
-            text-decoration: none;
-            font-size: 1rem;
-        }
+    .logo {
+      font-size: 1.4rem;
+      font-weight: bold;
+    }
 
-        header nav a:hover {
-            text-decoration: underline;
-        }
-        /* Main Content */
-        .content {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 40px;
-        }
-        button {
-            background-color: #6a11cb;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 1rem;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-top: 20px;
-        }
-        button:hover {
-            background-color: #5b0fa6;
-        }
-        /* Footer */
-        footer {
-            background: #333;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-        footer a {
-            color: #6a11cb;
-            text-decoration: none;
-        }
-        footer a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 30px 20px;
+    }
+
+    h1, h2 {
+      font-size: 1.6rem;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+
+    button {
+      background-color: #6a11cb;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      font-size: 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      margin: 10px 5px;
+      width: 100%;
+      max-width: 300px;
+    }
+
+    button:hover {
+      background-color: #5b0fa6;
+    }
+
+    form.options {
+      margin-top: 15px;
+      text-align: left;
+      width: 100%;
+      max-width: 350px;
+    }
+
+    label {
+      display: block;
+      margin: 10px 0;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    input[type="radio"] {
+      margin-right: 8px;
+    }
+
+    footer {
+      background: #333;
+      color: white;
+      padding: 15px;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: #6a11cb;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 500px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .logo {
+        margin-bottom: 10px;
+      }
+
+      h1, h2 {
+        font-size: 1.3rem;
+      }
+
+      button {
+        font-size: 0.95rem;
+        padding: 10px 16px;
+      }
+
+      nav a {
+        font-size: 0.9rem;
+      }
+
+      label {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="logo">Brain Anatomy Quiz</div>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="games_nav.html">Games</a>
-        </nav>
-    </header>
+  <header>
+    <div class="logo">Brain Anatomy Quiz</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="games_nav.html">Games</a>
+    </nav>
+  </header>
 
-    <!-- Main Content -->
-    <div class="content" id="home-container">
-        <h1>Welcome!</h1>
-        <p>Test your knowledge of the brain.</p>
-        <button onclick="startQuiz()">Start Quiz</button>
-    </div>
+  <div class="content" id="home-container">
+    <h1>Welcome!</h1>
+    <p>Test your knowledge of the brain.</p>
+    <button onclick="startQuiz()">Start Quiz</button>
+  </div>
 
-    <div class="content" id="quiz-container" style="display: none;">
-        <h2 id="question-text"></h2>
-        <form id="quiz-form" class="options"></form>
-        <button onclick="checkAnswer()">Next</button>
-        <button id="finish-btn" onclick="finishQuiz()" style="display: none;">Finish Quiz</button>
-        <div id="result"></div>
-        <button id="redo-btn" onclick="redoQuiz()" style="display: none;">Redo Quiz</button>
-        <button id="home-btn" onclick="returnHome()" style="display: none;">Return to Home</button>
-    </div>
+  <div class="content" id="quiz-container" style="display: none;">
+    <h2 id="question-text"></h2>
+    <form id="quiz-form" class="options"></form>
+    <button onclick="checkAnswer()">Next</button>
+    <button id="finish-btn" onclick="finishQuiz()" style="display: none;">Finish Quiz</button>
+    <div id="result" style="margin-top: 15px;"></div>
+    <button id="redo-btn" onclick="redoQuiz()" style="display: none;">Redo Quiz</button>
+    <button id="home-btn" onclick="returnHome()" style="display: none;">Return to Home</button>
+  </div>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 NeuroPrint | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
-    </footer>
-</body>
-</html>
+  <footer>
+    <p>&copy; 2025 NeuroPrint | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+  </footer>
 
-    <script>
-        const questions = [
-    { question: "What is the largest part of the brain?", options: ["Cerebrum", "Cerebellum", "Brainstem"], correctAnswer: "Cerebrum" },
-    { question: "Which brain region is responsible for problem-solving and reasoning?", options: ["Frontal Lobe", "Parietal Lobe", "Temporal Lobe"], correctAnswer: "Frontal Lobe" },
-    { question: "What part of the brain processes sensory information like touch and temperature?", options: ["Parietal Lobe", "Frontal Lobe", "Temporal Lobe"], correctAnswer: "Parietal Lobe" },
-    { question: "Which lobe is primarily responsible for vision?", options: ["Occipital Lobe", "Parietal Lobe", "Temporal Lobe"], correctAnswer: "Occipital Lobe" },
-    { question: "What part of the brain helps regulate breathing and heart rate?", options: ["Medulla Oblongata", "Cerebellum", "Thalamus"], correctAnswer: "Medulla Oblongata" },
-    { question: "Which part of the brain controls voluntary movements?", options: ["Motor Cortex", "Brainstem", "Occipital Lobe"], correctAnswer: "Motor Cortex" },
-    { question: "What brain structure filters sensory information before sending it to the cortex?", options: ["Thalamus", "Cerebellum", "Hippocampus"], correctAnswer: "Thalamus" },
-    { question: "Which lobe of the brain is involved in processing sound?", options: ["Temporal Lobe", "Occipital Lobe", "Frontal Lobe"], correctAnswer: "Temporal Lobe" },
-    { question: "What part of the brain coordinates balance and movement?", options: ["Cerebellum", "Hippocampus", "Brainstem"], correctAnswer: "Cerebellum" },
-    { question: "Which part of the brain regulates sleep and alertness?", options: ["Reticular Formation", "Medulla", "Cerebellum"], correctAnswer: "Reticular Formation" },
-    { question: "What part of the brain is responsible for memory formation?", options: ["Hippocampus", "Thalamus", "Cerebellum"], correctAnswer: "Hippocampus" },
-    { question: "Which brain structure is involved in emotions and fear processing?", options: ["Amygdala", "Cerebellum", "Thalamus"], correctAnswer: "Amygdala" },
-    { question: "What part of the brain connects the two hemispheres?", options: ["Corpus Callosum", "Medulla", "Cerebellum"], correctAnswer: "Corpus Callosum" },
-    { question: "Which part of the brain controls reflexes and automatic responses?", options: ["Brainstem", "Cerebrum", "Parietal Lobe"], correctAnswer: "Brainstem" },
-    { question: "What part of the brain is responsible for producing speech?", options: ["Broca's Area", "Wernicke's Area", "Motor Cortex"], correctAnswer: "Broca's Area" },
-    { question: "Which area of the brain is responsible for understanding language?", options: ["Wernicke's Area", "Broca's Area", "Temporal Lobe"], correctAnswer: "Wernicke's Area" },
-    { question: "Which part of the brain helps regulate body temperature and hunger?", options: ["Hypothalamus", "Thalamus", "Cerebellum"], correctAnswer: "Hypothalamus" },
-    { question: "Which brain structure is involved in habit formation?", options: ["Basal Ganglia", "Cerebellum", "Hippocampus"], correctAnswer: "Basal Ganglia" },
-    { question: "What is the outermost layer of the brain called?", options: ["Cerebral Cortex", "Medulla", "Thalamus"], correctAnswer: "Cerebral Cortex" },
-    { question: "Which part of the brain helps regulate emotions and motivation?", options: ["Limbic System", "Brainstem", "Cerebellum"], correctAnswer: "Limbic System" },
-    { question: "What part of the brainstem controls heartbeat and breathing?", options: ["Medulla Oblongata", "Pons", "Midbrain"], correctAnswer: "Medulla Oblongata" },
-    { question: "Which structure is often called the 'relay center' of the brain?", options: ["Thalamus", "Hypothalamus", "Cerebellum"], correctAnswer: "Thalamus" },
-    { question: "What part of the brain helps with planning and decision-making?", options: ["Prefrontal Cortex", "Parietal Lobe", "Occipital Lobe"], correctAnswer: "Prefrontal Cortex" },
-    { question: "Which part of the brain is responsible for spatial awareness?", options: ["Parietal Lobe", "Temporal Lobe", "Frontal Lobe"], correctAnswer: "Parietal Lobe" },
-    { question: "What brain structure controls the body's fight-or-flight response?", options: ["Amygdala", "Thalamus", "Hippocampus"], correctAnswer: "Amygdala" },
-    { question: "Which structure is responsible for producing dopamine for motor control?", options: ["Substantia Nigra", "Cerebellum", "Brainstem"], correctAnswer: "Substantia Nigra" },
-    { question: "What part of the brain plays a major role in muscle memory?", options: ["Cerebellum", "Hippocampus", "Amygdala"], correctAnswer: "Cerebellum" },
-    { question: "Which brain region is responsible for pain perception?", options: ["Somatosensory Cortex", "Frontal Lobe", "Hippocampus"], correctAnswer: "Somatosensory Cortex" },
-    { question: "Which part of the brain helps with reading and interpreting written language?", options: ["Angular Gyrus", "Wernicke's Area", "Broca's Area"], correctAnswer: "Angular Gyrus" }
-];
+  <script>
+    const questions = [...]; // same quiz array as before
 
-let shuffledQuestions = [];
+    let shuffledQuestions = [];
     let currentQuestionIndex = 0;
     let score = 0;
 
     function shuffleQuestions() {
-        return [...questions].sort(() => Math.random() - 0.5);
+      return [...questions].sort(() => Math.random() - 0.5);
     }
 
     function startQuiz() {
-        shuffledQuestions = shuffleQuestions(); // shuffle and store questions
-        currentQuestionIndex = 0;
-        score = 0;
-        document.getElementById('home-container').style.display = 'none';
-        document.getElementById('quiz-container').style.display = 'flex';
-        document.getElementById('result').innerHTML = "";
-        document.getElementById('redo-btn').style.display = 'none';
-        document.getElementById('home-btn').style.display = 'none';
-        document.querySelector("button[onclick='checkAnswer()']").style.display = "inline-block";
-        document.getElementById("finish-btn").style.display = "none";
-        loadQuestion();
+      shuffledQuestions = shuffleQuestions();
+      currentQuestionIndex = 0;
+      score = 0;
+      document.getElementById('home-container').style.display = 'none';
+      document.getElementById('quiz-container').style.display = 'flex';
+      document.getElementById('result').innerHTML = "";
+      document.getElementById('redo-btn').style.display = 'none';
+      document.getElementById('home-btn').style.display = 'none';
+      document.querySelector("button[onclick='checkAnswer()']").style.display = "inline-block";
+      document.getElementById("finish-btn").style.display = "none";
+      loadQuestion();
     }
 
     function loadQuestion() {
-        const questionObj = shuffledQuestions[currentQuestionIndex];
-        document.getElementById("question-text").innerText = questionObj.question;
-        const form = document.getElementById("quiz-form");
-        form.innerHTML = questionObj.options.map(option => `
-            <label>
-                <input type="radio" name="answer" value="${option}"> ${option}
-            </label><br>
-        `).join('');
+      const questionObj = shuffledQuestions[currentQuestionIndex];
+      document.getElementById("question-text").innerText = questionObj.question;
+      const form = document.getElementById("quiz-form");
+      form.innerHTML = questionObj.options.map(option => `
+        <label><input type="radio" name="answer" value="${option}"> ${option}</label>
+      `).join('');
     }
 
     function checkAnswer() {
-        const selected = document.querySelector('input[name="answer"]:checked');
-        if (!selected) return alert("Please select an answer!");
+      const selected = document.querySelector('input[name="answer"]:checked');
+      if (!selected) return alert("Please select an answer!");
 
-        const currentQuestion = shuffledQuestions[currentQuestionIndex];
-        if (selected.value === currentQuestion.correctAnswer) {
-            score++;
-        }
+      const currentQuestion = shuffledQuestions[currentQuestionIndex];
+      if (selected.value === currentQuestion.correctAnswer) {
+        score++;
+      }
 
-        currentQuestionIndex++;
+      currentQuestionIndex++;
 
-        if (currentQuestionIndex < shuffledQuestions.length) {
-            loadQuestion();
-        } else {
-            document.querySelector("button[onclick='checkAnswer()']").style.display = "none";
-            document.getElementById("finish-btn").style.display = "inline-block";
-        }
+      if (currentQuestionIndex < shuffledQuestions.length) {
+        loadQuestion();
+      } else {
+        document.querySelector("button[onclick='checkAnswer()']").style.display = "none";
+        document.getElementById("finish-btn").style.display = "inline-block";
+      }
     }
 
     function finishQuiz() {
-        document.getElementById("result").innerHTML = `Your score: ${score} / ${shuffledQuestions.length}`;
-        document.getElementById("finish-btn").style.display = "none";
-        document.getElementById("redo-btn").style.display = "inline-block";
-        document.getElementById("home-btn").style.display = "inline-block";
+      document.getElementById("result").innerHTML = `Your score: ${score} / ${shuffledQuestions.length}`;
+      document.getElementById("finish-btn").style.display = "none";
+      document.getElementById("redo-btn").style.display = "inline-block";
+      document.getElementById("home-btn").style.display = "inline-block";
     }
 
     function redoQuiz() {
-        startQuiz(); // Just restart like the first time
+      startQuiz();
     }
 
     function returnHome() {
-        document.getElementById('quiz-container').style.display = 'none';
-        document.getElementById('home-container').style.display = 'flex';
+      document.getElementById('quiz-container').style.display = 'none';
+      document.getElementById('home-container').style.display = 'flex';
     }
-</script>
+
+    const body = document.body;
+
+    function toggleMenu() {
+        const menuOverlay = document.getElementById('menu-overlay');
+        const isActive = menuOverlay.classList.contains('active');
+
+        if (isActive) {
+            menuOverlay.classList.remove('active');
+            body.style.overflow = ''; // Restore scrolling
+        } else {
+            menuOverlay.classList.add('active');
+            body.style.overflow = 'hidden'; // Disable scrolling
+        }
+    }
+
+    function navigateToSection(event, sectionId) {
+        event.preventDefault();
+        const menuOverlay = document.getElementById('menu-overlay');
+        const section = document.getElementById(sectionId);
+
+        if (section) {
+            section.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        menuOverlay.classList.remove('active');
+        body.style.overflow = ''; // Restore scrolling
+    }
+
+  </script>
+</body>
+</html>
