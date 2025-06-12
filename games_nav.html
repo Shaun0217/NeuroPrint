@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -139,3 +140,146 @@
 
 </body>
 </html>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brain Games</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        header {
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 50px;
+        }
+
+        header .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        header nav a {
+            margin: 0 10px;
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        header nav a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            padding: 40px;
+            text-align: center;
+        }
+        .content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        .games-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+        .game-card {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            width: 300px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .game-card:hover {
+            transform: scale(1.05);
+        }
+        .game-card img {
+            width: 100px;
+            margin-bottom: 15px;
+        }
+        .game-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        .game-card p {
+            font-size: 1rem;
+            margin-bottom: 20px;
+            color: #666;
+        }
+        .game-card button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background: #6a11cb;
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+        .game-card button:hover {
+            background: #5b0fa6;
+        }
+        footer {
+            background: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        footer a {
+            color: #6a11cb;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Games</div>
+        <nav>
+            <a href="index.html">Home</a>
+        </nav>
+    </header>
+
+<div class="content">
+    <h1>Have Fun While Learning!</h1>
+    <p>Explore our interactive games designed to challenge your brain and test your knowledge.</p>
+    <div class="games-container">
+        <div class="game-card">
+            <img src="brain_quiz_logo.png.png" alt="Brain Quiz Icon">
+            <h3>Brain Quiz</h3>
+            <p>Test your knowledge of neuroscience with challenging and fun questions.</p>
+            <button onclick="location.href='brain_quiz.html'">Play Now</button>
+        </div>
+        <div class="game-card">
+            <img src="brain_games_logo.png" alt="Brain Games Icon">
+            <h3>Brain Games</h3>
+            <p>Engage your mind with puzzles, memory challenges, and logic exercises.</p>
+            <button onclick="location.href='brain_games.html'">Play Now</button>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2025 NeuroPrint | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+</footer>
+
+</body>
+</html>
+>>>>>>> 5dd10968efeab93d538b20ae6ad90222cc43357b
