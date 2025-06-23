@@ -87,17 +87,86 @@
         footer a:hover {
             text-decoration: underline;
         }
+        header {
+  background: linear-gradient(to right, #6a11cb, #2575fc);
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 1000;
+  height: 50px;
+}
+
+header .logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.menu-button {
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: white;
+  background: none;
+  border: none;
+  z-index: 1100;
+}
+
+.menu-button:focus {
+  outline: none;
+}
+
+#menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+#menu-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+#menu-overlay a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+  margin: 10px 0;
+}
+
+#menu-overlay a:hover {
+  text-decoration: underline;
+}
+
     </style>
 </head>
 <body>
 
 <header>
-    <div class="title">Temporal Lobe</div>
-    <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="explore_brain_nav.html">Brain Regions</a>
-    </div>
+  <div class="logo">NeuroPrint</div>
+  <button class="menu-button" onclick="toggleMenu()">☰</button>
 </header>
+
+<div id="menu-overlay">
+    <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="explore_brain_nav.html">Explore Brain Regions</a>
+  <a href="games_nav.html">Games</a>
+  <a href="request_model.html">Request a Model</a>
+  <a href="contact.html">Contact</a>
+</div>
 
 <section class="content">
     <h2 class="section-title">Temporal Lobe</h2>

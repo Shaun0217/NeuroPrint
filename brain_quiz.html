@@ -9,11 +9,10 @@
     body {
       margin: 0;
       font-family: 'Roboto', sans-serif;
-      color: #333;
+      background: #f9f9f9;
       display: flex;
       flex-direction: column;
       min-height: 100vh;
-      background: #f9f9f9;
     }
 
     header {
@@ -21,29 +20,56 @@
       color: white;
       padding: 10px 20px;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      flex-wrap: wrap;
+      align-items: center;
+      position: relative;
+      z-index: 1000;
     }
 
     .logo {
-      font-size: 1.4rem;
-      font-weight: bold;
+      font-size: 1.5rem;
+      font-weight: 700;
     }
 
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    nav a {
+    .menu-button {
+      font-size: 1.8rem;
+      cursor: pointer;
       color: white;
-      text-decoration: none;
-      font-size: 1rem;
+      background: none;
+      border: none;
+      z-index: 1100;
     }
 
-    nav a:hover {
+    #menu-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    #menu-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    #menu-overlay a {
+      color: white;
+      font-size: 1.5rem;
+      margin: 10px 0;
+      text-decoration: none;
+    }
+
+    #menu-overlay a:hover {
       text-decoration: underline;
     }
 
@@ -54,46 +80,38 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 30px 20px;
+      padding: 40px 20px;
     }
 
     h1, h2 {
-      font-size: 1.6rem;
       margin-bottom: 10px;
     }
 
-    p {
-      font-size: 1rem;
-    }
-
-    button {
-      background-color: #6a11cb;
+    .button, .submit-button {
+      background: #6a11cb;
       color: white;
       border: none;
-      padding: 12px 20px;
+      border-radius: 5px;
+      padding: 10px 20px;
       font-size: 1rem;
-      border-radius: 6px;
       cursor: pointer;
-      margin: 10px 5px;
+      transition: background 0.3s ease;
+      margin: 5px;
+    }
+
+    .button:hover, .submit-button:hover {
+      background: #5b0fa6;
+    }
+
+    .options {
+      max-width: 400px;
       width: 100%;
-      max-width: 300px;
-    }
-
-    button:hover {
-      background-color: #5b0fa6;
-    }
-
-    form.options {
-      margin-top: 15px;
       text-align: left;
-      width: 100%;
-      max-width: 350px;
     }
 
     label {
       display: block;
       margin: 10px 0;
-      font-size: 1rem;
       cursor: pointer;
     }
 
@@ -101,11 +119,16 @@
       margin-right: 8px;
     }
 
+    .progress {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
     footer {
       background: #333;
       color: white;
-      padding: 15px;
       text-align: center;
+      padding: 20px;
       font-size: 0.9rem;
     }
 
@@ -117,59 +140,100 @@
     footer a:hover {
       text-decoration: underline;
     }
+    header {
+  background: linear-gradient(to right, #6a11cb, #2575fc);
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 1000;
+  height: 50px;
+}
 
-    @media (max-width: 500px) {
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
+header .logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
 
-      .logo {
-        margin-bottom: 10px;
-      }
+.menu-button {
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: white;
+  background: none;
+  border: none;
+  z-index: 1100;
+}
 
-      h1, h2 {
-        font-size: 1.3rem;
-      }
+.menu-button:focus {
+  outline: none;
+}
 
-      button {
-        font-size: 0.95rem;
-        padding: 10px 16px;
-      }
+#menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
 
-      nav a {
-        font-size: 0.9rem;
-      }
+#menu-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
 
-      label {
-        font-size: 0.95rem;
-      }
-    }
+#menu-overlay a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+  margin: 10px 0;
+}
+
+#menu-overlay a:hover {
+  text-decoration: underline;
+}
   </style>
 </head>
 <body>
   <header>
-    <div class="logo">Brain Anatomy Quiz</div>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="games_nav.html">Games</a>
-    </nav>
+    <div class="logo">NeuroPrint</div>
+    <button class="menu-button" onclick="toggleMenu()">☰</button>
   </header>
+
+  <div id="menu-overlay">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="explore_brain_nav.html">Explore Brain Regions</a>
+    <a href="games_nav.html">Games</a>
+    <a href="request_model.html">Request a Model</a>
+    <a href="contact.html">Contact</a>
+  </div>
 
   <div class="content" id="home-container">
     <h1>Welcome!</h1>
     <p>Test your knowledge of the brain.</p>
-    <button onclick="startQuiz()">Start Quiz</button>
+    <button class="button" onclick="startQuiz()">Start Quiz</button>
   </div>
 
   <div class="content" id="quiz-container" style="display: none;">
+    <div class="progress" id="progress-text"></div>
     <h2 id="question-text"></h2>
     <form id="quiz-form" class="options"></form>
-    <button onclick="checkAnswer()">Next</button>
-    <button id="finish-btn" onclick="finishQuiz()" style="display: none;">Finish Quiz</button>
+    <button class="button" onclick="checkAnswer()">Next</button>
+    <button class="button" id="finish-btn" onclick="finishQuiz()" style="display: none;">Finish Quiz</button>
     <div id="result" style="margin-top: 15px;"></div>
-    <button id="redo-btn" onclick="redoQuiz()" style="display: none;">Redo Quiz</button>
-    <button id="home-btn" onclick="returnHome()" style="display: none;">Return to Home</button>
+    <button class="button" id="redo-btn" onclick="redoQuiz()" style="display: none;">Try Again</button>
+    <button class="button" id="home-btn" onclick="returnHome()" style="display: none;">Back to Home</button>
   </div>
 
   <footer>
@@ -177,36 +241,69 @@
   </footer>
 
   <script>
-    const questions = [...]; // same quiz array as before
+    const questions = [
+      {
+        question: "Which part of the brain controls vision?",
+        options: ["Frontal lobe", "Parietal lobe", "Occipital lobe", "Temporal lobe"],
+        correctAnswer: "Occipital lobe"
+      },
+      {
+        question: "What part of the brain is responsible for balance?",
+        options: ["Cerebellum", "Brain stem", "Hippocampus", "Thalamus"],
+        correctAnswer: "Cerebellum"
+      },
+      {
+        question: "Which part of the neuron receives incoming signals?",
+        options: ["Axon", "Dendrite", "Synapse", "Myelin sheath"],
+        correctAnswer: "Dendrite"
+      },
+      {
+        question: "Which neurotransmitter is associated with reward?",
+        options: ["Dopamine", "Serotonin", "GABA", "Glutamate"],
+        correctAnswer: "Dopamine"
+      },
+      {
+        question: "What lobe is involved in decision making?",
+        options: ["Temporal", "Frontal", "Parietal", "Occipital"],
+        correctAnswer: "Frontal"
+      },
+      {
+        question: "Which part connects the brain to the spinal cord?",
+        options: ["Cerebellum", "Brain stem", "Amygdala", "Thalamus"],
+        correctAnswer: "Brain stem"
+      }
+    ];
 
     let shuffledQuestions = [];
     let currentQuestionIndex = 0;
     let score = 0;
 
-    function shuffleQuestions() {
-      return [...questions].sort(() => Math.random() - 0.5);
+    function toggleMenu() {
+      const overlay = document.getElementById("menu-overlay");
+      overlay.classList.toggle("active");
+      document.body.style.overflow = overlay.classList.contains("active") ? "hidden" : "";
     }
 
     function startQuiz() {
-      shuffledQuestions = shuffleQuestions();
+      shuffledQuestions = [...questions].sort(() => Math.random() - 0.5);
       currentQuestionIndex = 0;
       score = 0;
-      document.getElementById('home-container').style.display = 'none';
-      document.getElementById('quiz-container').style.display = 'flex';
-      document.getElementById('result').innerHTML = "";
-      document.getElementById('redo-btn').style.display = 'none';
-      document.getElementById('home-btn').style.display = 'none';
-      document.querySelector("button[onclick='checkAnswer()']").style.display = "inline-block";
+      document.getElementById("home-container").style.display = "none";
+      document.getElementById("quiz-container").style.display = "flex";
+      document.getElementById("redo-btn").style.display = "none";
+      document.getElementById("home-btn").style.display = "none";
       document.getElementById("finish-btn").style.display = "none";
+      document.querySelector("button[onclick='checkAnswer()']").style.display = "inline-block";
       loadQuestion();
     }
 
     function loadQuestion() {
-      const questionObj = shuffledQuestions[currentQuestionIndex];
-      document.getElementById("question-text").innerText = questionObj.question;
+      const current = shuffledQuestions[currentQuestionIndex];
+      document.getElementById("question-text").innerText = current.question;
+      document.getElementById("progress-text").innerText = `Question ${currentQuestionIndex + 1} of ${shuffledQuestions.length}`;
       const form = document.getElementById("quiz-form");
-      form.innerHTML = questionObj.options.map(option => `
-        <label><input type="radio" name="answer" value="${option}"> ${option}</label>
+      form.innerHTML = current.options.map(opt => `
+        <label><input type="radio" name="answer" value="${opt}"> ${opt}</label>
       `).join('');
     }
 
@@ -214,13 +311,11 @@
       const selected = document.querySelector('input[name="answer"]:checked');
       if (!selected) return alert("Please select an answer!");
 
-      const currentQuestion = shuffledQuestions[currentQuestionIndex];
-      if (selected.value === currentQuestion.correctAnswer) {
+      if (selected.value === shuffledQuestions[currentQuestionIndex].correctAnswer) {
         score++;
       }
 
       currentQuestionIndex++;
-
       if (currentQuestionIndex < shuffledQuestions.length) {
         loadQuestion();
       } else {
@@ -230,7 +325,21 @@
     }
 
     function finishQuiz() {
-      document.getElementById("result").innerHTML = `Your score: ${score} / ${shuffledQuestions.length}`;
+      const total = shuffledQuestions.length;
+      let feedback = "";
+      const percentage = (score / total) * 100;
+
+      if (percentage === 100) {
+        feedback = "Perfect! You're a brain expert!";
+      } else if (percentage >= 80) {
+        feedback = "Great job! Almost there!";
+      } else if (percentage >= 50) {
+        feedback = "Good effort! Keep studying!";
+      } else {
+        feedback = "Don't worry! Keep learning and try again!";
+      }
+
+      document.getElementById("result").innerHTML = `Score: ${score} / ${total}<br>${feedback}`;
       document.getElementById("finish-btn").style.display = "none";
       document.getElementById("redo-btn").style.display = "inline-block";
       document.getElementById("home-btn").style.display = "inline-block";
@@ -241,38 +350,9 @@
     }
 
     function returnHome() {
-      document.getElementById('quiz-container').style.display = 'none';
-      document.getElementById('home-container').style.display = 'flex';
+      document.getElementById("quiz-container").style.display = "none";
+      document.getElementById("home-container").style.display = "flex";
     }
-
-    const body = document.body;
-
-    function toggleMenu() {
-        const menuOverlay = document.getElementById('menu-overlay');
-        const isActive = menuOverlay.classList.contains('active');
-
-        if (isActive) {
-            menuOverlay.classList.remove('active');
-            body.style.overflow = ''; // Restore scrolling
-        } else {
-            menuOverlay.classList.add('active');
-            body.style.overflow = 'hidden'; // Disable scrolling
-        }
-    }
-
-    function navigateToSection(event, sectionId) {
-        event.preventDefault();
-        const menuOverlay = document.getElementById('menu-overlay');
-        const section = document.getElementById(sectionId);
-
-        if (section) {
-            section.scrollIntoView({ behavior: 'smooth' });
-        }
-
-        menuOverlay.classList.remove('active');
-        body.style.overflow = ''; // Restore scrolling
-    }
-
   </script>
 </body>
 </html>

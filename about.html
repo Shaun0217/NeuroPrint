@@ -20,6 +20,7 @@
             flex-wrap: wrap;
             justify-content: space-between;
             align-items: center;
+            height: 50px;
         }
 
         header .logo {
@@ -195,31 +196,84 @@
             border: none;
             z-index: 1100; /* Keep button on top of the overlay */
         }
+        header {
+  background: linear-gradient(to right, #6a11cb, #2575fc);
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 1000;
+  height: 50px;
+}
+
+header .logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.menu-button {
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: white;
+  background: none;
+  border: none;
+  z-index: 1100;
+}
+
+.menu-button:focus {
+  outline: none;
+}
+
+#menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+#menu-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+#menu-overlay a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+  margin: 10px 0;
+}
+
+#menu-overlay a:hover {
+  text-decoration: underline;
+}
 
     </style>
 </head>
 <body>
     <header>
-        <div class="logo">About</div>
-        <nav>
-            <a href="index.html">Home</a>
-        </nav>
-         <!--<button class="menu-button" onclick="toggleMenu()">☰</button>-->
-    </header>
-<!---
-    <div id="menu-overlay">
-    <a href="about.html" >About</a>
-    <a href="explore_brain_nav.html">Explore Brain Regions</a>
-    <a href="games_nav.html">Games</a>
-    <a href="request_model.html">Request a Model</a>
-    <!---
-    <a href="fundraisers.html">Fundraisers</a>
-    
-    <a href="blog.html">Blog</a>
+  <div class="logo">NeuroPrint</div>
+  <button class="menu-button" onclick="toggleMenu()">☰</button>
+</header>
 
-    <a href="contact.html">Contact</a>
-    <button onclick="toggleMenu()" style="position: absolute; top: 20px; right: 20px; font-size: 2rem; background: none; border: none; color: white; cursor: pointer;">×</button>
-    -->
+<div id="menu-overlay">
+    <a href="index.html">Home</a>
+  <a href="explore_brain_nav.html">Explore Brain Regions</a>
+  <a href="games_nav.html">Games</a>
+  <a href="request_model.html">Request a Model</a>
+  <a href="contact.html">Contact</a>
+  
 </div>
 
     <div class="hero">
@@ -248,40 +302,21 @@
         <p>&copy; 2025 NeuroPrint | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
     </footer>
 
-    <!--
-    <script>
-    const body = document.body;
+   <script>
+  const body = document.body;
 
-    function toggleMenu() {
+  function toggleMenu() {
     const menuOverlay = document.getElementById('menu-overlay');
-    const hamburgerBtn = document.getElementById('hamburger-btn');
     const isActive = menuOverlay.classList.contains('active');
 
     if (isActive) {
-        menuOverlay.classList.remove('active');
-        hamburgerBtn.style.display = 'block';
-        body.style.overflow = ''; // Restore scrolling
+      menuOverlay.classList.remove('active');
+      body.style.overflow = '';
     } else {
-        menuOverlay.classList.add('active');
-        hamburgerBtn.style.display = 'none';
-        body.style.overflow = 'hidden'; // Disable scrolling
+      menuOverlay.classList.add('active');
+      body.style.overflow = 'hidden';
     }
-}
-
-    function navigateToSection(event, sectionId) {
-        event.preventDefault();
-        const menuOverlay = document.getElementById('menu-overlay');
-        const section = document.getElementById(sectionId);
-
-        if (section) {
-            section.scrollIntoView({ behavior: 'smooth' });
-        }
-
-        menuOverlay.classList.remove('active');
-        body.style.overflow = ''; // Restore scrolling
-    }
-    
+  }
 </script>
--->
 </body>
 </html>

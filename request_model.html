@@ -68,26 +68,27 @@
         label {
             font-weight: 500;
         }
-        input, select, button {
-            font-family: 'Roboto', sans-serif;
-            font-size: 1rem;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            width: 100%;
-            box-sizing: border-box;
-        }
-        button {
-            background: #6a11cb;
-            color: white;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-            font-weight: 500;
-        }
-        button:hover {
-            background: #5b0fa6;
-        }
+        input, select, .submit-button {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+        .submit-button {
+    background: #6a11cb;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.submit-button:hover {
+    background: #5b0fa6;
+}
         .conditional {
             display: none;
         }
@@ -116,16 +117,87 @@
         .back-home a:hover {
             text-decoration: underline;
         }
+        header {
+  background: linear-gradient(to right, #6a11cb, #2575fc);
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 1000;
+  height: 50px;
+}
+
+header .logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.menu-button {
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: white;
+  background: none;
+  border: none;
+  z-index: 1100;
+}
+
+.menu-button:focus {
+  outline: none;
+}
+
+#menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+#menu-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+#menu-overlay a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+  margin: 10px 0;
+}
+
+#menu-overlay a:hover {
+  text-decoration: underline;
+}
+
     </style>
 </head>
 <body>
 
 <header>
-    <div class="logo">Request a Model</div>
-    <nav>
-        <a href="index.html">Home</a>
-    </nav>
+  <div class="logo">NeuroPrint</div>
+  <button class="menu-button" onclick="toggleMenu()">☰</button>
 </header>
+
+<div id="menu-overlay">
+    <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="explore_brain_nav.html">Explore Brain Regions</a>
+  <a href="games_nav.html">Games</a>
+  <a href="request_model.html">Request a Model</a>
+  <a href="contact.html">Contact</a>
+</div>
+
 
 <div class="hero">
     <h1>Request a Model</h1>
@@ -184,7 +256,7 @@
             <input type="number" id="donation" name="donation" placeholder="Enter amount" min="1">
         </div>
 
-        <button type="submit">Submit Request</button>
+        <button type="submit" class="submit-button">Submit Request</button>
     </form>
     <div class="back-home">
         <a href="index.html">Back to Home</a>
