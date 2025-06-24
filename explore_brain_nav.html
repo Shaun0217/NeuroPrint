@@ -133,12 +133,21 @@
     }
 
     /* Mobile Optimizations */
-    @media (max-width: 600px) {
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-        height: auto;
-      }
+  @media (max-width: 600px) {
+  header {
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    height: 50px !important;
+  }
+
+  .logo {
+    font-size: 1.3rem; /* Optional: Slightly smaller logo on small screens */
+  }
+
+  .menu-button {
+    font-size: 1.5rem;
+  }
 
       .hero {
         height: 180px;
@@ -228,7 +237,8 @@ header .logo {
 <body>
   <header>
   <div class="logo">NeuroPrint</div>
-  <button class="menu-button" onclick="toggleMenu()">☰</button>
+  <button class="menu-button" id="menu-toggle" onclick="toggleMenu()">☰</button>
+
 </header>
 
 <div id="menu-overlay">
@@ -284,32 +294,22 @@ header .logo {
   </footer>
   <script>
     const body = document.body;
+  const menuOverlay = document.getElementById('menu-overlay');
+  const menuToggle = document.getElementById('menu-toggle');
 
-    function toggleMenu() {
-        const menuOverlay = document.getElementById('menu-overlay');
-        const isActive = menuOverlay.classList.contains('active');
+  function toggleMenu() {
+    const isActive = menuOverlay.classList.contains('active');
 
-        if (isActive) {
-            menuOverlay.classList.remove('active');
-            body.style.overflow = ''; // Restore scrolling
-        } else {
-            menuOverlay.classList.add('active');
-            body.style.overflow = 'hidden'; // Disable scrolling
-        }
+    if (isActive) {
+      menuOverlay.classList.remove('active');
+      body.style.overflow = '';
+      menuToggle.textContent = '☰';
+    } else {
+      menuOverlay.classList.add('active');
+      body.style.overflow = 'hidden';
+      menuToggle.textContent = '✕'; // This is the "X" symbol
     }
-
-    function navigateToSection(event, sectionId) {
-        event.preventDefault();
-        const menuOverlay = document.getElementById('menu-overlay');
-        const section = document.getElementById(sectionId);
-
-        if (section) {
-            section.scrollIntoView({ behavior: 'smooth' });
-        }
-
-        menuOverlay.classList.remove('active');
-        body.style.overflow = ''; // Restore scrolling
-    }
+  }
 </script>
 </body>
 </html>

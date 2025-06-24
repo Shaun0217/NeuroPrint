@@ -156,13 +156,14 @@ header .logo {
 
 <header>
   <div class="logo">NeuroPrint</div>
-  <button class="menu-button" onclick="toggleMenu()">☰</button>
+  <button class="menu-button" id="menu-toggle" onclick="toggleMenu()">☰</button>
+
 </header>
 
 <div id="menu-overlay">
     <a href="index.html">Home</a>
   <a href="about.html">About</a>
-  <a href="explore_brain_nav.html">Explore Brain Regions</a>
+  <a href="explore_brain_nav.html">Brain Regions</a>
   <a href="games_nav.html">Games</a>
   <a href="request_model.html">Request a Model</a>
   <a href="contact.html">Contact</a>
@@ -204,32 +205,22 @@ header .logo {
     }
 
     const body = document.body;
+  const menuOverlay = document.getElementById('menu-overlay');
+  const menuToggle = document.getElementById('menu-toggle');
 
-    function toggleMenu() {
-        const menuOverlay = document.getElementById('menu-overlay');
-        const isActive = menuOverlay.classList.contains('active');
+  function toggleMenu() {
+    const isActive = menuOverlay.classList.contains('active');
 
-        if (isActive) {
-            menuOverlay.classList.remove('active');
-            body.style.overflow = ''; // Restore scrolling
-        } else {
-            menuOverlay.classList.add('active');
-            body.style.overflow = 'hidden'; // Disable scrolling
-        }
+    if (isActive) {
+      menuOverlay.classList.remove('active');
+      body.style.overflow = '';
+      menuToggle.textContent = '☰';
+    } else {
+      menuOverlay.classList.add('active');
+      body.style.overflow = 'hidden';
+      menuToggle.textContent = '✕'; // This is the "X" symbol
     }
-
-    function navigateToSection(event, sectionId) {
-        event.preventDefault();
-        const menuOverlay = document.getElementById('menu-overlay');
-        const section = document.getElementById(sectionId);
-
-        if (section) {
-            section.scrollIntoView({ behavior: 'smooth' });
-        }
-
-        menuOverlay.classList.remove('active');
-        body.style.overflow = ''; // Restore scrolling
-    }
+  }
 
 </script>
 

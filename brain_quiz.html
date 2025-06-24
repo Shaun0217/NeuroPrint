@@ -207,13 +207,14 @@ header .logo {
 <body>
   <header>
     <div class="logo">NeuroPrint</div>
-    <button class="menu-button" onclick="toggleMenu()">☰</button>
+    <button class="menu-button" id="menu-toggle" onclick="toggleMenu()">☰</button>
+
   </header>
 
   <div id="menu-overlay">
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
-    <a href="explore_brain_nav.html">Explore Brain Regions</a>
+    <a href="explore_brain_nav.html">Brain Regions</a>
     <a href="games_nav.html">Games</a>
     <a href="request_model.html">Request a Model</a>
     <a href="contact.html">Contact</a>
@@ -242,47 +243,183 @@ header .logo {
 
   <script>
     const questions = [
-      {
-        question: "Which part of the brain controls vision?",
-        options: ["Frontal lobe", "Parietal lobe", "Occipital lobe", "Temporal lobe"],
-        correctAnswer: "Occipital lobe"
-      },
-      {
-        question: "What part of the brain is responsible for balance?",
-        options: ["Cerebellum", "Brain stem", "Hippocampus", "Thalamus"],
-        correctAnswer: "Cerebellum"
-      },
-      {
-        question: "Which part of the neuron receives incoming signals?",
-        options: ["Axon", "Dendrite", "Synapse", "Myelin sheath"],
-        correctAnswer: "Dendrite"
-      },
-      {
-        question: "Which neurotransmitter is associated with reward?",
-        options: ["Dopamine", "Serotonin", "GABA", "Glutamate"],
-        correctAnswer: "Dopamine"
-      },
-      {
-        question: "What lobe is involved in decision making?",
-        options: ["Temporal", "Frontal", "Parietal", "Occipital"],
-        correctAnswer: "Frontal"
-      },
-      {
-        question: "Which part connects the brain to the spinal cord?",
-        options: ["Cerebellum", "Brain stem", "Amygdala", "Thalamus"],
-        correctAnswer: "Brain stem"
-      }
-    ];
+  {
+    question: "Which part of the brain controls vision?",
+    options: ["Frontal lobe", "Parietal lobe", "Occipital lobe", "Temporal lobe"],
+    correctAnswer: "Occipital lobe"
+  },
+  {
+    question: "What part of the brain is responsible for balance?",
+    options: ["Cerebellum", "Brain stem", "Hippocampus", "Thalamus"],
+    correctAnswer: "Cerebellum"
+  },
+  {
+    question: "Which part of the neuron receives incoming signals?",
+    options: ["Axon", "Dendrite", "Synapse", "Myelin sheath"],
+    correctAnswer: "Dendrite"
+  },
+  {
+    question: "Which neurotransmitter is associated with reward?",
+    options: ["Dopamine", "Serotonin", "GABA", "Glutamate"],
+    correctAnswer: "Dopamine"
+  },
+  {
+    question: "What lobe is involved in decision making?",
+    options: ["Temporal", "Frontal", "Parietal", "Occipital"],
+    correctAnswer: "Frontal"
+  },
+  {
+    question: "Which part connects the brain to the spinal cord?",
+    options: ["Cerebellum", "Brain stem", "Amygdala", "Thalamus"],
+    correctAnswer: "Brain stem"
+  },
+  {
+    question: "Which brain structure is crucial for forming new memories?",
+    options: ["Cerebellum", "Amygdala", "Hippocampus", "Thalamus"],
+    correctAnswer: "Hippocampus"
+  },
+  {
+    question: "What is the main function of the amygdala?",
+    options: ["Hearing", "Emotion", "Balance", "Vision"],
+    correctAnswer: "Emotion"
+  },
+  {
+    question: "Which lobe processes touch and spatial awareness?",
+    options: ["Temporal", "Parietal", "Frontal", "Occipital"],
+    correctAnswer: "Parietal"
+  },
+  {
+    question: "What does the myelin sheath do?",
+    options: ["Store neurotransmitters", "Transmit impulses", "Protect the brain", "Speed up signal transmission"],
+    correctAnswer: "Speed up signal transmission"
+  },
+  {
+    question: "Which part of the brain regulates heart rate and breathing?",
+    options: ["Cerebellum", "Medulla oblongata", "Hypothalamus", "Thalamus"],
+    correctAnswer: "Medulla oblongata"
+  },
+  {
+    question: "Which brain region regulates hunger and body temperature?",
+    options: ["Hypothalamus", "Cerebellum", "Pons", "Thalamus"],
+    correctAnswer: "Hypothalamus"
+  },
+  {
+    question: "Which neurotransmitter plays a role in mood and sleep?",
+    options: ["Dopamine", "Serotonin", "Acetylcholine", "Glutamate"],
+    correctAnswer: "Serotonin"
+  },
+  {
+    question: "What structure relays sensory signals to the cerebral cortex?",
+    options: ["Hypothalamus", "Thalamus", "Midbrain", "Amygdala"],
+    correctAnswer: "Thalamus"
+  },
+  {
+    question: "Which side of the brain is typically more involved in logic and language?",
+    options: ["Right", "Left", "Both equally", "Neither"],
+    correctAnswer: "Left"
+  },
+  {
+    question: "What is the gap between two neurons called?",
+    options: ["Axon", "Dendrite", "Node", "Synapse"],
+    correctAnswer: "Synapse"
+  },
+  {
+    question: "Which brain part is most associated with motor coordination?",
+    options: ["Cerebellum", "Thalamus", "Frontal lobe", "Occipital lobe"],
+    correctAnswer: "Cerebellum"
+  },
+  {
+    question: "Which brain wave type is most active during deep sleep?",
+    options: ["Alpha", "Beta", "Delta", "Theta"],
+    correctAnswer: "Delta"
+  },
+  {
+    question: "Which part of the brain is responsible for processing sound?",
+    options: ["Occipital lobe", "Frontal lobe", "Temporal lobe", "Parietal lobe"],
+    correctAnswer: "Temporal lobe"
+  },
+  {
+    question: "What type of cell supports and insulates neurons?",
+    options: ["Microglia", "Astrocyte", "Oligodendrocyte", "Glial cell"],
+    correctAnswer: "Glial cell"
+  },
+  {
+    question: "What does the corpus callosum do?",
+    options: ["Connects brain to spinal cord", "Processes memory", "Joins left and right hemispheres", "Regulates breathing"],
+    correctAnswer: "Joins left and right hemispheres"
+  },
+  {
+    question: "Which part of the brain is associated with fear responses?",
+    options: ["Hippocampus", "Amygdala", "Pons", "Cerebrum"],
+    correctAnswer: "Amygdala"
+  },
+  {
+    question: "What is neuroplasticity?",
+    options: ["Growth of neurons", "The brain’s ability to reorganize itself", "Brain degeneration", "Formation of the spinal cord"],
+    correctAnswer: "The brain’s ability to reorganize itself"
+  },
+  {
+    question: "Which structure controls voluntary muscle movements?",
+    options: ["Frontal lobe", "Cerebellum", "Motor cortex", "Thalamus"],
+    correctAnswer: "Motor cortex"
+  },
+  {
+    question: "What are the wrinkles on the brain’s surface called?",
+    options: ["Sulci", "Gyri", "Neurons", "Cortex"],
+    correctAnswer: "Gyri"
+  },
+  {
+    question: "Which part of the brain is involved in language comprehension?",
+    options: ["Broca’s area", "Wernicke’s area", "Temporal pole", "Occipital lobe"],
+    correctAnswer: "Wernicke’s area"
+  },
+  {
+    question: "Which brain region is associated with speech production?",
+    options: ["Temporal lobe", "Wernicke’s area", "Broca’s area", "Brain stem"],
+    correctAnswer: "Broca’s area"
+  },
+  {
+    question: "What is the outermost layer of the brain called?",
+    options: ["White matter", "Cortex", "Medulla", "Spinal cord"],
+    correctAnswer: "Cortex"
+  },
+  {
+    question: "Which of these protects the brain from toxins in the blood?",
+    options: ["Skull", "CSF", "Blood-brain barrier", "Meninges"],
+    correctAnswer: "Blood-brain barrier"
+  },
+  {
+    question: "Which neurotransmitter is most associated with muscle contraction?",
+    options: ["Dopamine", "Serotonin", "GABA", "Acetylcholine"],
+    correctAnswer: "Acetylcholine"
+  },
+  {
+    question: "Which part of the brain helps regulate the sleep-wake cycle?",
+    options: ["Pineal gland", "Cerebellum", "Pons", "Medulla"],
+    correctAnswer: "Pineal gland"
+  }
+];
+
 
     let shuffledQuestions = [];
     let currentQuestionIndex = 0;
     let score = 0;
 
     function toggleMenu() {
-      const overlay = document.getElementById("menu-overlay");
-      overlay.classList.toggle("active");
-      document.body.style.overflow = overlay.classList.contains("active") ? "hidden" : "";
-    }
+  const overlay = document.getElementById("menu-overlay");
+  const menuToggle = document.getElementById("menu-toggle");
+  const isActive = overlay.classList.contains("active");
+
+  if (isActive) {
+    overlay.classList.remove("active");
+    document.body.style.overflow = "";
+    menuToggle.textContent = "☰"; // Switch back to hamburger
+  } else {
+    overlay.classList.add("active");
+    document.body.style.overflow = "hidden";
+    menuToggle.textContent = "✕"; // Show X
+  }
+}
 
     function startQuiz() {
       shuffledQuestions = [...questions].sort(() => Math.random() - 0.5);
