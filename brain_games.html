@@ -14,23 +14,23 @@
             background: #f8f9fa;
         }
         @media (max-width: 600px) {
-    header {
-        flex-direction: column;
-        height: auto;
-        text-align: center;
-        padding: 15px 10px;
-        height: 50px;
-    }
+  header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    padding: 10px 20px;
+  }
 
-    header nav {
-        margin-top: 10px;
-    }
+  .menu-button {
+    font-size: 1.5rem;
+  }
 
-    header nav a {
-        display: block;
-        margin: 5px 0;
-    }
+  .logo {
+    font-size: 1.3rem;
+  }
 }
+
 @media (max-width: 600px) {
     .game-section button,
     #pattern-input,

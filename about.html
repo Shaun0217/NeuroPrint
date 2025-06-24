@@ -13,15 +13,17 @@
         }
 
         header {
-            background: linear-gradient(to right, #6a11cb, #2575fc);
-            color: white;
-            padding: 10px 20px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-            height: 50px;
-        }
+  background: linear-gradient(to right, #6a11cb, #2575fc);
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 1000;
+  height: 50px;
+  flex-wrap: nowrap; /* ✅ Ensures items stay in one row */
+}
 
         header .logo {
             font-size: 1.5rem;
