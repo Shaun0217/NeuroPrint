@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Teacher Resources | NeuroPrint</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      color: #333;
+      background-color: #f5f5f5;
+    }
+    header {
+      background: linear-gradient(to right, #6a11cb, #2575fc);
+      color: white;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 50px;
+    }
+    header .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    .menu-button {
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: white;
+      background: none;
+      border: none;
+    }
+    #menu-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    #menu-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    #menu-overlay a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.5rem;
+      margin: 10px 0;
+    }
+    #menu-overlay a:hover {
+      text-decoration: underline;
+    }
+    .content {
+      padding: 40px;
+      text-align: center;
+    }
+    .content h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+    .content p {
+      font-size: 1.2rem;
+      color: #666;
+      margin-bottom: 40px;
+    }
+    .resources-container {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .resource-card {
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      width: 300px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.2s;
+    }
+    .resource-card:hover {
+      transform: scale(1.05);
+    }
+    .resource-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+    .resource-card p {
+      font-size: 1rem;
+      margin-bottom: 15px;
+      color: #555;
+    }
+    .resource-card a {
+      display: inline-block;
+      padding: 10px 20px;
+      background: #6a11cb;
+      color: white;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .resource-card a:hover {
+      background: #5b0fa6;
+    }
+    footer {
+      background: #333;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    footer a {
+      color: #6a11cb;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">NeuroPrint</div>
+  <button class="menu-button" id="menu-toggle" onclick="toggleMenu()">☰</button>
+</header>
+
+<div id="menu-overlay">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="explore_brain_nav.html">Brain Regions</a>
+  <a href="request_model.html">Request a Model</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<div class="content">
+  <h1>Resources for Teachers</h1>
+  <p>Download worksheets, lesson plans, and more to bring neuroscience to your classroom.</p>
+
+  <div class="resources-container">
+    <div class="resource-card">
+      <h3>Brain Worksheet Pack</h3>
+      <p>A printable set of diagrams and fill-in-the-blank activities.</p>
+      <a href="NeuroPrint_Resource_Kit.docx.pdf" download>Download PDF</a>
+    </div>
+    <div class="resource-card">
+      <h3>Teacher Guide</h3>
+      <p>Suggested activities, lesson pacing, and model integration tips.</p>
+      <a href="NeuroPrint_Teacher_Guide.docx" download>Download DOCX</a>
+    </div>
+    <div class="resource-card">
+      <h3>Student Quiz (Editable)</h3>
+      <p>A ready-to-print or customize quiz covering brain anatomy basics.</p>
+      <a href="NeuroPrint_Brain_Quiz.docx" download>Download Quiz</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>&copy; 2025 NeuroPrint | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+</footer>
+
+<script>
+  const body = document.body;
+  const menuOverlay = document.getElementById('menu-overlay');
+  const menuToggle = document.getElementById('menu-toggle');
+
+  function toggleMenu() {
+    const isActive = menuOverlay.classList.contains('active');
+    if (isActive) {
+      menuOverlay.classList.remove('active');
+      body.style.overflow = '';
+      menuToggle.textContent = '☰';
+    } else {
+      menuOverlay.classList.add('active');
+      body.style.overflow = 'hidden';
+      menuToggle.textContent = '✕';
+    }
+  }
+</script>
+
+</body>
+</html>
