@@ -26,41 +26,50 @@
       font-weight: bold;
     }
     .menu-button {
-      font-size: 1.5rem;
-      cursor: pointer;
-      color: white;
-      background: none;
-      border: none;
-    }
-    #menu-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.9);
-      color: white;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity 0.3s ease, visibility 0.3s ease;
-    }
-    #menu-overlay.active {
-      opacity: 1;
-      visibility: visible;
-    }
-    #menu-overlay a {
-      color: white;
-      text-decoration: none;
-      font-size: 1.5rem;
-      margin: 10px 0;
-    }
-    #menu-overlay a:hover {
-      text-decoration: underline;
-    }
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: white;
+  background: none;
+  border: none;
+  z-index: 1100;
+}
+
+.menu-button:focus {
+  outline: none;
+}
+
+#menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+#menu-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+#menu-overlay a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+  margin: 10px 0;
+}
+
+#menu-overlay a:hover {
+  text-decoration: underline;
+}
     .content {
       padding: 40px;
       text-align: center;
