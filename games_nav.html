@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brain Games | NeuroPrint</title>
+  <meta name="description" content="Test your brain knowledge with the NeuroPrint anatomy quiz and cognitive mini-games.">
+  <link rel="icon" type="image/png" href="resized_logo.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <div class="logo-container">
+      <img src="resized_logo.png" alt="NeuroPrint Logo" class="logo-img">
+      <span class="logo-text">NeuroPrint</span>
+    </div>
+    <nav class="desktop-nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="explore_brain_nav.html">Brain Regions</a>
+      <a href="games_nav.html" class="active">Games</a>
+      <a href="request_model.html">Request a Model</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <button class="menu-button" id="menu-toggle" onclick="toggleMenu()">☰</button>
+  </header>
+
+  <div id="menu-overlay">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="explore_brain_nav.html">Brain Regions</a>
+    <a href="games_nav.html">Games</a>
+    <a href="request_model.html">Request a Model</a>
+    <a href="contact.html">Contact</a>
+    <a href="resources.html">For Teachers</a>
+  </div>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero" style="padding-bottom: 50px;">
+      <p style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent-neuro); margin-bottom: 20px;">Interactive Learning</p>
+      <h1>Put your brain to the test.</h1>
+      <p>Reinforce what you've learned with a comprehensive anatomy quiz and three cognitive mini-games, each one targeting a different brain system.</p>
+    </section>
+
+    <div style="border-top: 1px solid var(--border-subtle); max-width: 1200px; margin: 0 auto;"></div>
+
+    <!-- GAME CARDS -->
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title">Choose your activity</h2>
+        <p class="section-subtitle">The quiz tests recall. The games test performance. Both reinforce learning from different angles.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+
+        <!-- Quiz card — wider/feature -->
+        <div style="background: var(--bg-navy); border-radius: 8px; padding: 50px 40px; display: flex; flex-direction: column; justify-content: space-between; min-height: 320px;">
+          <div>
+            <div style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-neuro); margin-bottom: 16px;">Knowledge Test</div>
+            <h3 style="color: var(--text-warm); font-size: 1.6rem; margin-bottom: 12px;">Anatomy Quiz</h3>
+            <p style="color: var(--text-muted-dark); font-size: 0.95rem; max-width: 40ch; margin-bottom: 30px;">31 randomized questions covering brain structures, neuron types, and lobe functions. Immediate scoring with explanations.</p>
+          </div>
+          <button class="btn" style="background: var(--accent-neuro); color: var(--text-warm); align-self: flex-start;" onclick="location.href='brain_quiz.html'">Start Quiz →</button>
+        </div>
+
+        <!-- Games card -->
+        <div style="background: var(--bg-white); border: 1px solid var(--border-subtle); border-radius: 8px; padding: 50px 40px; display: flex; flex-direction: column; justify-content: space-between; min-height: 320px;">
+          <div>
+            <div style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-neuro); margin-bottom: 16px;">Cognitive Training</div>
+            <h3 style="font-size: 1.6rem; margin-bottom: 12px;">Mini-Games</h3>
+            <p style="font-size: 0.95rem; max-width: 40ch; margin-bottom: 30px;">Three games targeting reaction time, memory sequencing, and visual focus, each linked to a specific brain region.</p>
+          </div>
+          <button class="btn btn-primary" style="align-self: flex-start;" onclick="location.href='brain_games.html'">Play Now →</button>
+        </div>
+
+      </div>
+
+      <!-- What each game tests — quiet info row -->
+      <div style="margin-top: 50px; padding-top: 40px; border-top: 1px solid var(--border-subtle); display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;">
+        <div>
+          <div style="font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 0.95rem; color: var(--text-navy); margin-bottom: 6px;">Reaction Speed</div>
+          <p style="font-size: 0.85rem;">Tests your brainstem and cerebellum's ability to process and respond to sudden stimuli.</p>
+        </div>
+        <div>
+          <div style="font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 0.95rem; color: var(--text-navy); margin-bottom: 6px;">Memory Sequencing</div>
+          <p style="font-size: 0.85rem;">Exercises the hippocampus and prefrontal cortex through pattern recall and ordered repetition.</p>
+        </div>
+        <div>
+          <div style="font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 0.95rem; color: var(--text-navy); margin-bottom: 6px;">Visual Focus</div>
+          <p style="font-size: 0.85rem;">Engages the occipital lobe and attention networks to locate and click on moving visual targets.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <div style="border-top: 1px solid var(--border-subtle); padding-top: 30px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; font-size: 0.85rem;">
+        <span>&copy; 2026 NeuroPrint. All rights reserved.</span>
+        <span><a href="privacy.html">Privacy Policy</a> &nbsp;·&nbsp; <a href="terms.html">Terms of Service</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

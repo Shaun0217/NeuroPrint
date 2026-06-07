@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | NeuroPrint</title>
+  <meta name="description" content="NeuroPrint is a student-led neuroscience education project combining 3D-printed brain models with interactive digital learning.">
+  <link rel="icon" type="image/png" href="resized_logo.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <div class="logo-container">
+      <img src="resized_logo.png" alt="NeuroPrint Logo" class="logo-img">
+      <span class="logo-text">NeuroPrint</span>
+    </div>
+    <nav class="desktop-nav">
+      <a href="index.html">Home</a>
+      <a href="about.html" class="active">About</a>
+      <a href="explore_brain_nav.html">Brain Regions</a>
+      <a href="games_nav.html">Games</a>
+      <a href="request_model.html">Request a Model</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <button class="menu-button" id="menu-toggle" onclick="toggleMenu()">☰</button>
+  </header>
+
+  <div id="menu-overlay">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="explore_brain_nav.html">Brain Regions</a>
+    <a href="games_nav.html">Games</a>
+    <a href="request_model.html">Request a Model</a>
+    <a href="contact.html">Contact</a>
+    <a href="resources.html">For Teachers</a>
+  </div>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero" style="padding-bottom: 60px;">
+      <p style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent-neuro); margin-bottom: 20px;">About the Project</p>
+      <h1>Neuroscience in your hands.</h1>
+      <p>NeuroPrint was built on a simple premise: if you can hold something, you understand it better. We bridge the physical and digital to make the brain accessible to everyone.</p>
+    </section>
+
+    <div style="border-top: 1px solid var(--border-subtle); max-width: 1200px; margin: 0 auto;"></div>
+
+    <!-- MISSION — wide reading column, left-aligned -->
+    <section class="section">
+      <div style="display: grid; grid-template-columns: 1fr 1.6fr; gap: 100px; align-items: start;">
+        <div>
+          <p style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-neuro); margin-bottom: 12px;">Our Mission</p>
+          <h2 class="section-title">Why we built this</h2>
+        </div>
+        <div class="reading-column">
+          <p style="font-size: 1.15rem; color: var(--text-navy); font-weight: 500; margin-bottom: 25px; line-height: 1.7;">
+            This project integrates neuroscience and modern physical technology to develop a custom 3D-printed, tactile brain model designed to enhance understanding of the human brain's structure and function.
+          </p>
+          <p>
+            Each major brain region features a scannable smart node linked to a dedicated page, providing users with clear descriptions, interactive diagrams, and targeted exercises on that region's role in cognition, behavior, and movement.
+          </p>
+          <p>
+            By combining hands-on physical assembly with digital learning tools, NeuroPrint makes complex neurological concepts accessible and engaging for students, educators, patients, and curious minds everywhere.
+          </p>
+          <p>
+            The project highlights the intersection of biology and engineering, showing how multidisciplinary thinking can transform how we teach and learn science.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRINCIPLES — dense, information-rich, dark band -->
+    <div class="section-dark">
+      <div class="section" style="padding-top: 90px; padding-bottom: 90px;">
+        <div class="section-header">
+          <p style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-neuro); margin-bottom: 12px;">Design Principles</p>
+          <h2 class="section-title">Built around how people actually learn</h2>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; margin-top: 40px;">
+          <div style="padding: 30px; border: 1px solid var(--border-subtle-dark); border-radius: 6px;">
+            <div style="font-family: 'Outfit', sans-serif; font-size: 2rem; font-weight: 800; color: var(--accent-neuro); margin-bottom: 12px;">Tactile</div>
+            <p>Physical models create stronger memory encoding than diagrams alone. Holding a structure helps you understand its spatial relationships.</p>
+          </div>
+          <div style="padding: 30px; border: 1px solid var(--border-subtle-dark); border-radius: 6px;">
+            <div style="font-family: 'Outfit', sans-serif; font-size: 2rem; font-weight: 800; color: var(--accent-neuro); margin-bottom: 12px;">Layered</div>
+            <p>Every region offers two levels of explanation: one for curious beginners, one for students with more scientific background. Nobody is left behind.</p>
+          </div>
+          <div style="padding: 30px; border: 1px solid var(--border-subtle-dark); border-radius: 6px;">
+            <div style="font-family: 'Outfit', sans-serif; font-size: 2rem; font-weight: 800; color: var(--accent-neuro); margin-bottom: 12px;">Accessible</div>
+            <p>Free to scan. No app required. Works on any smartphone. Designed for classrooms, hospitals, libraries, and homes.</p>
+          </div>
+          <div style="padding: 30px; border: 1px solid var(--border-subtle-dark); border-radius: 6px;">
+            <div style="font-family: 'Outfit', sans-serif; font-size: 2rem; font-weight: 800; color: var(--accent-neuro); margin-bottom: 12px;">Active</div>
+            <p>Interactive quizzes and cognitive games reinforce learning after each region, turning passive reading into active understanding.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOUNDER -->
+    <section class="section">
+      <div class="section-header">
+        <p style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-neuro); margin-bottom: 12px;">The Team</p>
+        <h2 class="section-title">Meet the founder</h2>
+      </div>
+      <div style="display: grid; grid-template-columns: auto 1fr; gap: 50px; align-items: start; max-width: 750px;">
+        <img src="about_image.jpg" alt="Shaun Hafez" style="width: 130px; height: 130px; border-radius: 6px; object-fit: cover; border: 1px solid var(--border-subtle);">
+        <div>
+          <h3 style="font-size: 1.6rem; margin-bottom: 4px;">Shaun Hafez</h3>
+          <p style="color: var(--accent-neuro); font-weight: 600; font-size: 0.9rem; margin-bottom: 20px;">Founder &amp; Project Lead</p>
+          <p class="reading-column">Pioneering hands-on, high-fidelity neuroscience learning for K–12 classrooms and university programs. Shaun designed NeuroPrint to make professional-grade anatomical tools accessible to every student, regardless of background or resources.</p>
+          <div style="margin-top: 25px; display: flex; gap: 15px;">
+            <button class="btn btn-primary" onclick="location.href='contact.html'">Get in Touch</button>
+            <button class="btn btn-secondary" onclick="location.href='request_model.html'">Request a Model</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <div style="border-top: 1px solid var(--border-subtle); padding-top: 30px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; font-size: 0.85rem;">
+        <span>&copy; 2026 NeuroPrint. All rights reserved.</span>
+        <span><a href="privacy.html">Privacy Policy</a> &nbsp;·&nbsp; <a href="terms.html">Terms of Service</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

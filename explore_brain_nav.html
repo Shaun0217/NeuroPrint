@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brain Regions | NeuroPrint</title>
+  <meta name="description" content="Explore all eight brain regions: frontal lobe, temporal lobe, cerebellum, and more. Each with simple and scientific explanations.">
+  <link rel="icon" type="image/png" href="resized_logo.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <div class="logo-container">
+      <img src="resized_logo.png" alt="NeuroPrint Logo" class="logo-img">
+      <span class="logo-text">NeuroPrint</span>
+    </div>
+    <nav class="desktop-nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="explore_brain_nav.html" class="active">Brain Regions</a>
+      <a href="games_nav.html">Games</a>
+      <a href="request_model.html">Request a Model</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <button class="menu-button" id="menu-toggle" onclick="toggleMenu()">☰</button>
+  </header>
+
+  <div id="menu-overlay">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="explore_brain_nav.html">Brain Regions</a>
+    <a href="games_nav.html">Games</a>
+    <a href="request_model.html">Request a Model</a>
+    <a href="contact.html">Contact</a>
+    <a href="resources.html">For Teachers</a>
+  </div>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero" style="padding-bottom: 60px;">
+      <p style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent-neuro); margin-bottom: 20px;">Exhibition Directory</p>
+      <h1>The eight regions<br>of your brain.</h1>
+      <p>Select any region to explore its anatomy, understand what it does, and see what happens when it's damaged, explained in plain language and scientific depth.</p>
+    </section>
+
+    <div style="border-top: 1px solid var(--border-subtle); max-width: 1200px; margin: 0 auto;"></div>
+
+    <!-- REGION GRID — flat exhibition cards -->
+    <section class="section">
+      <div class="brain-regions">
+
+        <div class="region-link museum-card">
+          <div>
+            <div style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-neuro); margin-bottom: 8px;">Frontal Cortex</div>
+            <a href="frontal-lobe.html">Frontal Lobe</a>
+          </div>
+          <div class="hover-card">Controls planning, decision-making, impulse control, and personality. Home to the motor cortex.</div>
+        </div>
+
+        <div class="region-link museum-card">
+          <div>
+            <div style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-neuro); margin-bottom: 8px;">Sensory Integration</div>
+            <a href="parietal.html">Parietal Lobe</a>
+          </div>
+          <div class="hover-card">Processes touch, pressure, temperature, pain, and spatial awareness. Your brain's GPS system.</div>
+        </div>
+
+        <div class="region-link museum-card">
+          <div>
+            <div style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-neuro); margin-bottom: 8px;">Visual Processing</div>
+            <a href="occipital.html">Occipital Lobe</a>
+          </div>
+          <div class="hover-card">Interprets visual signals from the eyes: color, shape, motion, and object recognition.</div>
+        </div>
+
+        <div class="region-link museum-card">
+          <div>
+            <div style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-neuro); margin-bottom: 8px;">Memory &amp; Language</div>
+            <a href="temporal.html">Temporal Lobe</a>
+          </div>
+          <div class="hover-card">Handles hearing, language comprehension (Wernicke's area), face recognition, and long-term memory.</div>
+        </div>
+
+        <div class="region-link museum-card">
+          <div>
+            <div style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-neuro); margin-bottom: 8px;">Motor Coordination</div>
+            <a href="cerebellum.html">Cerebellum</a>
+          </div>
+          <div class="hover-card">Coordinates smooth, precise movement and balance. Stores procedural memories like riding a bike.</div>
+        </div>
+
+        <div class="region-link museum-card">
+          <div>
+            <div style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-neuro); margin-bottom: 8px;">Autonomic Control</div>
+            <a href="brainstem.html">Brainstem</a>
+          </div>
+          <div class="hover-card">Regulates heartbeat, breathing, sleep cycles, and reflex actions. The brain's life-support system.</div>
+        </div>
+
+        <div class="region-link museum-card">
+          <div>
+            <div style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-neuro); margin-bottom: 8px;">Voluntary Movement</div>
+            <a href="motor_cortex.html">Motor Cortex</a>
+          </div>
+          <div class="hover-card">Initiates and controls voluntary muscle movements, from fine finger dexterity to large body movements.</div>
+        </div>
+
+        <div class="region-link museum-card">
+          <div>
+            <div style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-neuro); margin-bottom: 8px;">Tactile Input</div>
+            <a href="somatosensory_cortex.html">Somatosensory Cortex</a>
+          </div>
+          <div class="hover-card">Decodes somatic sensory signals from the skin: touch, texture, temperature, and pain localization.</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ORIENTATION note — quiet, dense footer for the section -->
+    <div style="background: #f4f1ec; border-top: 1px solid var(--border-subtle);">
+      <div class="section" style="padding-top: 60px; padding-bottom: 60px;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start;">
+          <div>
+            <h3 style="margin-bottom: 12px; font-size: 1.2rem;">Two reading levels</h3>
+            <p>Each region page offers a simple, jargon-free explanation and a more detailed scientific breakdown. Switch between them with one tap.</p>
+          </div>
+          <div>
+            <h3 style="margin-bottom: 12px; font-size: 1.2rem;">Scan from the model</h3>
+            <p>If you have a physical NeuroPrint model, scan the QR code on any region to jump directly to that region's page.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <div style="border-top: 1px solid var(--border-subtle); padding-top: 30px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; font-size: 0.85rem;">
+        <span>&copy; 2026 NeuroPrint. All rights reserved.</span>
+        <span><a href="privacy.html">Privacy Policy</a> &nbsp;·&nbsp; <a href="terms.html">Terms of Service</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Somatosensory Cortex | NeuroPrint</title>
+  <meta name="description" content="Learn about the somatosensory cortex: touch, temperature, pain, and the sensory homunculus.">
+  <link rel="icon" type="image/png" href="resized_logo.png"><link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="logo-container"><img src="resized_logo.png" alt="NeuroPrint Logo" class="logo-img"><span class="logo-text">NeuroPrint</span></div>
+    <nav class="desktop-nav"><a href="index.html">Home</a><a href="about.html">About</a><a href="explore_brain_nav.html" class="active">Brain Regions</a><a href="games_nav.html">Games</a><a href="request_model.html">Request a Model</a><a href="contact.html">Contact</a></nav>
+    <button class="menu-button" id="menu-toggle" onclick="toggleMenu()">☰</button>
+  </header>
+  <div id="menu-overlay"><a href="index.html">Home</a><a href="about.html">About</a><a href="explore_brain_nav.html">Brain Regions</a><a href="games_nav.html">Games</a><a href="request_model.html">Request a Model</a><a href="contact.html">Contact</a><a href="resources.html">For Teachers</a></div>
+  <main>
+    <section class="hero" style="padding-bottom: 50px;">
+      <a href="explore_brain_nav.html" style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-neuro); margin-bottom: 20px; display: inline-flex; align-items: center; gap: 6px;">← Brain Regions</a>
+      <h1>Somatosensory Cortex</h1>
+      <p>Where every touch, temperature sensation, and pain signal is decoded and interpreted.</p>
+    </section>
+    <div style="border-top: 1px solid var(--border-subtle); max-width: 1200px; margin: 0 auto;"></div>
+    <section class="section">
+      <div style="display: grid; grid-template-columns: 1fr 300px; gap: 80px; align-items: start;">
+        <div>
+          <div class="toggle-buttons">
+            <button id="btn-simple" class="active" onclick="showText('simple')">Plain Language</button>
+            <button id="btn-complex" onclick="showText('complex')">Scientific Detail</button>
+          </div>
+          <div class="text-panel active reading-column" id="simple">
+            <p>The somatosensory cortex is the part of your brain that helps you feel. When you touch something hot, cold, rough, or smooth, your somatosensory cortex is busy figuring out what you're experiencing. It receives messages from all over your body and helps you understand what's happening around you.</p>
+            <p>Just like the motor cortex has a map of the body called the motor homunculus, the somatosensory cortex has its own map: the sensory homunculus. This map shows that areas of the body with the most sensitive touch receptors, like your fingertips and lips, have more brain space dedicated to them.</p>
+            <p>Without your somatosensory cortex, you wouldn't be able to feel anything at all: not the warmth of the sun on your skin, not the softness of a blanket, and not the pain that tells you to pull your hand away from something sharp.</p>
+          </div>
+          <div class="text-panel reading-column" id="complex">
+            <p>The primary somatosensory cortex (S1), located in the postcentral gyrus of the parietal lobe, is the principal cortical area for processing tactile information. It receives input from the thalamus representing sensory data from the entire body: touch, pressure, vibration, temperature, and pain.</p>
+            <p>The cortical representation of body parts follows a topographic map known as the somatosensory homunculus. Areas with high receptor density and fine discriminatory ability, such as the fingertips, lips, and tongue, are represented by disproportionately large cortical areas. This organization allows for precise localization and discrimination of tactile stimuli.</p>
+            <p>Adjacent to S1 is the secondary somatosensory cortex (S2), which contributes to more complex aspects of touch perception, including texture recognition, bilateral tactile processing, and tactile memory. Damage to S1 can result in astereognosis (inability to identify objects by touch), altered pain perception, or loss of fine discriminative touch on the contralateral side of the body.</p>
+          </div>
+          <div style="margin-top: 40px; display: flex; gap: 12px; flex-wrap: wrap;">
+            <button class="btn btn-primary" onclick="location.href='games_nav.html'">Test Your Knowledge</button>
+            <button class="btn btn-secondary" onclick="location.href='explore_brain_nav.html'">← All Regions</button>
+          </div>
+        </div>
+        <aside>
+          <div style="padding: 28px; border: 1px solid var(--border-subtle); border-radius: 6px; background: var(--bg-white);">
+            <div style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-neuro); margin-bottom: 16px;">Quick Facts</div>
+            <dl style="display: flex; flex-direction: column; gap: 16px;">
+              <div><dt style="font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 0.85rem; color: var(--text-navy); margin-bottom: 2px;">Location</dt><dd style="font-size: 0.85rem; color: var(--text-muted-light);">Postcentral gyrus, anterior parietal lobe</dd></div>
+              <div style="border-top: 1px solid var(--border-subtle); padding-top: 16px;"><dt style="font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 0.85rem; color: var(--text-navy); margin-bottom: 2px;">Primary Functions</dt><dd style="font-size: 0.85rem; color: var(--text-muted-light);">Touch, temperature, pain, proprioception, pressure</dd></div>
+              <div style="border-top: 1px solid var(--border-subtle); padding-top: 16px;"><dt style="font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 0.85rem; color: var(--text-navy); margin-bottom: 2px;">Key Structures</dt><dd style="font-size: 0.85rem; color: var(--text-muted-light);">Postcentral gyrus (S1), secondary somatosensory cortex (S2)</dd></div>
+              <div style="border-top: 1px solid var(--border-subtle); padding-top: 16px;"><dt style="font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 0.85rem; color: var(--text-navy); margin-bottom: 2px;">When damaged</dt><dd style="font-size: 0.85rem; color: var(--text-muted-light);">Astereognosis, altered pain perception, numbness</dd></div>
+            </dl>
+          </div>
+          <div style="margin-top: 12px; padding: 16px; border: 1px solid var(--border-subtle); border-radius: 6px; background: var(--bg-warm);">
+            <div style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-neuro); margin-bottom: 8px;">Connected Regions</div>
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+              <a href="parietal.html" style="font-size: 0.85rem; font-weight: 600;">Parietal Lobe →</a>
+              <a href="motor_cortex.html" style="font-size: 0.85rem; font-weight: 600;">Motor Cortex →</a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+  <footer><div style="max-width: 1200px; margin: 0 auto;"><div style="border-top: 1px solid var(--border-subtle); padding-top: 30px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; font-size: 0.85rem;"><span>&copy; 2026 NeuroPrint. All rights reserved.</span><span><a href="privacy.html">Privacy Policy</a> &nbsp;·&nbsp; <a href="terms.html">Terms of Service</a></span></div></div></footer>
+  <script src="main.js"></script>
+  <script>function showText(type){document.querySelectorAll('.text-panel').forEach(el=>el.classList.remove('active'));document.querySelectorAll('.toggle-buttons button').forEach(el=>el.classList.remove('active'));document.getElementById(type).classList.add('active');document.getElementById('btn-'+type).classList.add('active');}</script>
+</body>
+</html>

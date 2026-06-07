@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank You - NeuroPrint</title>
+  <link rel="icon" type="image/png" href="resized_logo.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Glassmorphic Header -->
+  <header>
+    <div class="logo-container">
+      <img src="resized_logo.png" alt="NeuroPrint Logo" class="logo-img">
+      <span class="logo-text">NeuroPrint</span>
+    </div>
+    <nav class="desktop-nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="explore_brain_nav.html">Brain Regions</a>
+      <a href="games_nav.html">Games</a>
+      <a href="request_model.html">Request a Model</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <button class="menu-button" id="menu-toggle" onclick="toggleMenu()">☰</button>
+  </header>
+
+  <!-- Mobile Drawer Menu Overlay -->
+  <div id="menu-overlay">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="explore_brain_nav.html">Brain Regions</a>
+    <a href="games_nav.html">Games</a>
+    <a href="request_model.html">Request a Model</a>
+    <a href="contact.html">Contact</a>
+    <a href="resources.html">For Teachers</a>
+  </div>
+
+  <main>
+    <section class="hero" style="height: 300px;">
+      <h1 class="gradient-text">Thank You!</h1>
+      <p>Your message or model request has been successfully dispatched to the NeuroPrint database.</p>
+    </section>
+
+    <section class="section" style="text-align: center; max-width: 600px;">
+      <div class="glass-panel" style="padding: 50px 40px;">
+        <div style="font-size: 4rem; margin-bottom: 20px;">✉️</div>
+        <h2 style="font-size: 1.8rem; margin-bottom: 15px;">Transmission Successful</h2>
+        <p style="color: var(--text-secondary); margin-bottom: 35px; font-size: 1rem; line-height: 1.6;">We appreciate you reaching out. Our development and support teams review incoming queues regularly and will contact you via email as soon as possible.</p>
+        <button class="btn btn-primary" onclick="location.href='index.html'" style="width: 100%;">Return to Home</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Glassmorphic Footer -->
+  <footer>
+    <p>&copy; 2026 NeuroPrint | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

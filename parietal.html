@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parietal Lobe | NeuroPrint</title>
+  <meta name="description" content="Explore the parietal lobe: touch processing, spatial awareness, and sensory integration.">
+  <link rel="icon" type="image/png" href="resized_logo.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <img src="resized_logo.png" alt="NeuroPrint Logo" class="logo-img">
+      <span class="logo-text">NeuroPrint</span>
+    </div>
+    <nav class="desktop-nav">
+      <a href="index.html">Home</a><a href="about.html">About</a>
+      <a href="explore_brain_nav.html" class="active">Brain Regions</a>
+      <a href="games_nav.html">Games</a><a href="request_model.html">Request a Model</a><a href="contact.html">Contact</a>
+    </nav>
+    <button class="menu-button" id="menu-toggle" onclick="toggleMenu()">☰</button>
+  </header>
+  <div id="menu-overlay">
+    <a href="index.html">Home</a><a href="about.html">About</a><a href="explore_brain_nav.html">Brain Regions</a>
+    <a href="games_nav.html">Games</a><a href="request_model.html">Request a Model</a><a href="contact.html">Contact</a><a href="resources.html">For Teachers</a>
+  </div>
+  <main>
+    <section class="hero" style="padding-bottom: 50px;">
+      <a href="explore_brain_nav.html" style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-neuro); margin-bottom: 20px; display: inline-flex; align-items: center; gap: 6px;">← Brain Regions</a>
+      <h1>Parietal Lobe</h1>
+      <p>Your brain's GPS, processing touch, spatial awareness, and where your body is in space.</p>
+    </section>
+    <div style="border-top: 1px solid var(--border-subtle); max-width: 1200px; margin: 0 auto;"></div>
+    <section class="section">
+      <div style="display: grid; grid-template-columns: 1fr 300px; gap: 80px; align-items: start;">
+        <div>
+          <div class="toggle-buttons">
+            <button id="btn-simple" class="active" onclick="showText('simple')">Plain Language</button>
+            <button id="btn-complex" onclick="showText('complex')">Scientific Detail</button>
+          </div>
+          <div class="text-panel active reading-column" id="simple">
+            <p>The parietal lobe is like your brain's GPS and touch center. It helps you feel things, like the texture of a soft blanket or the heat of a sunny day. This part of the brain processes all the sensations from your body and makes sense of them.</p>
+            <p>It also helps you understand where things are in space. For example, when you reach for a glass of water, your parietal lobe calculates the distance and tells your hand exactly where to go. It's like having a built-in map that keeps track of your surroundings.</p>
+            <p>Without your parietal lobe, it would be hard to feel, move, or know where things are around you. It's an important part of the brain that helps you interact with the world!</p>
+          </div>
+          <div class="text-panel reading-column" id="complex">
+            <p>The parietal lobe, located behind the frontal lobe and above the occipital lobe, plays a pivotal role in processing sensory information and integrating it with spatial awareness. This region receives input from the somatosensory cortex, allowing the brain to interpret sensations like touch, temperature, pain, and pressure. The parietal lobe helps you recognize textures, weights, and shapes through tactile feedback.</p>
+            <p>A critical function of the parietal lobe is spatial processing. It allows for accurate perception of your body's position in relation to the environment, enabling coordinated movement and navigation. For instance, when performing actions like catching a ball, the parietal lobe calculates the ball's trajectory and positions your hands accordingly.</p>
+            <p>In addition to sensory and spatial processing, the parietal lobe contributes to mathematical reasoning, language comprehension, and attention. Damage to this area can result in difficulties with spatial orientation, problems recognizing objects or faces (agnosia), and challenges in performing tasks that require precise hand-eye coordination. Its intricate connections with other brain areas highlight its essential role in integrating sensory input and guiding both motor functions and higher cognitive processes.</p>
+          </div>
+          <div style="margin-top: 40px; display: flex; gap: 12px; flex-wrap: wrap;">
+            <button class="btn btn-primary" onclick="location.href='games_nav.html'">Test Your Knowledge</button>
+            <button class="btn btn-secondary" onclick="location.href='explore_brain_nav.html'">← All Regions</button>
+          </div>
+        </div>
+        <aside>
+          <div style="padding: 28px; border: 1px solid var(--border-subtle); border-radius: 6px; background: var(--bg-white);">
+            <div style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-neuro); margin-bottom: 16px;">Quick Facts</div>
+            <dl style="display: flex; flex-direction: column; gap: 16px;">
+              <div><dt style="font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 0.85rem; color: var(--text-navy); margin-bottom: 2px;">Location</dt><dd style="font-size: 0.85rem; color: var(--text-muted-light);">Superior, behind the frontal lobe</dd></div>
+              <div style="border-top: 1px solid var(--border-subtle); padding-top: 16px;"><dt style="font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 0.85rem; color: var(--text-navy); margin-bottom: 2px;">Primary Functions</dt><dd style="font-size: 0.85rem; color: var(--text-muted-light);">Touch sensation, spatial awareness, body position sense</dd></div>
+              <div style="border-top: 1px solid var(--border-subtle); padding-top: 16px;"><dt style="font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 0.85rem; color: var(--text-navy); margin-bottom: 2px;">Key Structures</dt><dd style="font-size: 0.85rem; color: var(--text-muted-light);">Somatosensory cortex, posterior parietal cortex</dd></div>
+              <div style="border-top: 1px solid var(--border-subtle); padding-top: 16px;"><dt style="font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 0.85rem; color: var(--text-navy); margin-bottom: 2px;">When damaged</dt><dd style="font-size: 0.85rem; color: var(--text-muted-light);">Spatial disorientation, agnosia, poor hand-eye coordination</dd></div>
+            </dl>
+          </div>
+          <div style="margin-top: 12px; padding: 16px; border: 1px solid var(--border-subtle); border-radius: 6px; background: var(--bg-warm);">
+            <div style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-neuro); margin-bottom: 8px;">Connected Regions</div>
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+              <a href="somatosensory_cortex.html" style="font-size: 0.85rem; font-weight: 600;">Somatosensory Cortex →</a>
+              <a href="frontal-lobe.html" style="font-size: 0.85rem; font-weight: 600;">Frontal Lobe →</a>
+              <a href="occipital.html" style="font-size: 0.85rem; font-weight: 600;">Occipital Lobe →</a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+  <footer><div style="max-width: 1200px; margin: 0 auto;"><div style="border-top: 1px solid var(--border-subtle); padding-top: 30px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; font-size: 0.85rem;"><span>&copy; 2026 NeuroPrint. All rights reserved.</span><span><a href="privacy.html">Privacy Policy</a> &nbsp;·&nbsp; <a href="terms.html">Terms of Service</a></span></div></div></footer>
+  <script src="main.js"></script>
+  <script>
+    function showText(type) {
+      document.querySelectorAll('.text-panel').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.toggle-buttons button').forEach(el => el.classList.remove('active'));
+      document.getElementById(type).classList.add('active');
+      document.getElementById('btn-' + type).classList.add('active');
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+# macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon must end with two carriage returns
+Icon
+
+
+# Thumbnails
+._*
+
+# Files that might contain sensitive info or IDE settings
+.vscode/
+.idea/
+.gemini/
+.antigravity-ide/
+*.log

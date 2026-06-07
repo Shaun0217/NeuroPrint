@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cerebellum | NeuroPrint</title>
+  <meta name="description" content="Learn about the cerebellum: balance, motor coordination, and muscle memory.">
+  <link rel="icon" type="image/png" href="resized_logo.png"><link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="logo-container"><img src="resized_logo.png" alt="NeuroPrint Logo" class="logo-img"><span class="logo-text">NeuroPrint</span></div>
+    <nav class="desktop-nav"><a href="index.html">Home</a><a href="about.html">About</a><a href="explore_brain_nav.html" class="active">Brain Regions</a><a href="games_nav.html">Games</a><a href="request_model.html">Request a Model</a><a href="contact.html">Contact</a></nav>
+    <button class="menu-button" id="menu-toggle" onclick="toggleMenu()">☰</button>
+  </header>
+  <div id="menu-overlay"><a href="index.html">Home</a><a href="about.html">About</a><a href="explore_brain_nav.html">Brain Regions</a><a href="games_nav.html">Games</a><a href="request_model.html">Request a Model</a><a href="contact.html">Contact</a><a href="resources.html">For Teachers</a></div>
+  <main>
+    <section class="hero" style="padding-bottom: 50px;">
+      <a href="explore_brain_nav.html" style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-neuro); margin-bottom: 20px; display: inline-flex; align-items: center; gap: 6px;">← Brain Regions</a>
+      <h1>Cerebellum</h1>
+      <p>The body's master coordinator, keeping your movements smooth, precise, and balanced.</p>
+    </section>
+    <div style="border-top: 1px solid var(--border-subtle); max-width: 1200px; margin: 0 auto;"></div>
+    <section class="section">
+      <div style="display: grid; grid-template-columns: 1fr 300px; gap: 80px; align-items: start;">
+        <div>
+          <div class="toggle-buttons">
+            <button id="btn-simple" class="active" onclick="showText('simple')">Plain Language</button>
+            <button id="btn-complex" onclick="showText('complex')">Scientific Detail</button>
+          </div>
+          <div class="text-panel active reading-column" id="simple">
+            <p>The cerebellum, located at the back of your brain, is like a master coordinator. It helps control your movements and balance. Whenever you walk, run, or even catch a ball, the cerebellum ensures your movements are smooth and accurate. Think of it like a coach that guides your body, making sure you don't trip or stumble.</p>
+            <p>In addition to balance, the cerebellum helps you learn new physical skills, like riding a bike or playing an instrument. It stores these skills as "muscle memory," so you can perform them without thinking too hard. If you've ever repeated an action until it became second nature, that's thanks to your cerebellum working behind the scenes.</p>
+            <p>Even though it's small compared to the rest of the brain, the cerebellum plays a big role in making sure your body works in harmony. Without it, everyday tasks like standing or walking would be much more difficult!</p>
+          </div>
+          <div class="text-panel reading-column" id="complex">
+            <p>The cerebellum, located inferior to the occipital lobes and posterior to the brainstem, plays a critical role in motor control and coordination. While it does not initiate movement, it refines and fine-tunes voluntary and involuntary actions to ensure smoothness, precision, and balance. The cerebellum receives sensory input from the spinal cord, vestibular system, and cerebral cortex, integrating this data to adjust posture and coordination in real time.</p>
+            <p>One of its primary functions is maintaining equilibrium and coordinating complex movements. For example, when catching a ball, the cerebellum calculates the precise force, direction, and timing needed to move your hand to the right spot. Additionally, it contributes to motor learning, encoding repetitive physical actions into procedural memory.</p>
+            <p>Beyond motor functions, recent research has uncovered the cerebellum's role in cognitive processes, including spatial reasoning, language processing, and emotional regulation. Damage can lead to ataxia (loss of coordination), tremors, or difficulties performing rapid, alternating movements.</p>
+          </div>
+          <div style="margin-top: 40px; display: flex; gap: 12px; flex-wrap: wrap;">
+            <button class="btn btn-primary" onclick="location.href='games_nav.html'">Test Your Knowledge</button>
+            <button class="btn btn-secondary" onclick="location.href='explore_brain_nav.html'">← All Regions</button>
+          </div>
+        </div>
+        <aside>
+          <div style="padding: 28px; border: 1px solid var(--border-subtle); border-radius: 6px; background: var(--bg-white);">
+            <div style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-neuro); margin-bottom: 16px;">Quick Facts</div>
+            <dl style="display: flex; flex-direction: column; gap: 16px;">
+              <div><dt style="font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 0.85rem; color: var(--text-navy); margin-bottom: 2px;">Location</dt><dd style="font-size: 0.85rem; color: var(--text-muted-light);">Posterior, below the cerebrum</dd></div>
+              <div style="border-top: 1px solid var(--border-subtle); padding-top: 16px;"><dt style="font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 0.85rem; color: var(--text-navy); margin-bottom: 2px;">Primary Functions</dt><dd style="font-size: 0.85rem; color: var(--text-muted-light);">Motor coordination, balance, procedural memory, posture</dd></div>
+              <div style="border-top: 1px solid var(--border-subtle); padding-top: 16px;"><dt style="font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 0.85rem; color: var(--text-navy); margin-bottom: 2px;">Key Structures</dt><dd style="font-size: 0.85rem; color: var(--text-muted-light);">Cerebellar cortex, deep cerebellar nuclei, purkinje cells</dd></div>
+              <div style="border-top: 1px solid var(--border-subtle); padding-top: 16px;"><dt style="font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 0.85rem; color: var(--text-navy); margin-bottom: 2px;">When damaged</dt><dd style="font-size: 0.85rem; color: var(--text-muted-light);">Ataxia, tremors, poor coordination, balance problems</dd></div>
+            </dl>
+          </div>
+          <div style="margin-top: 12px; padding: 16px; border: 1px solid var(--border-subtle); border-radius: 6px; background: var(--bg-warm);">
+            <div style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-neuro); margin-bottom: 8px;">Connected Regions</div>
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+              <a href="brainstem.html" style="font-size: 0.85rem; font-weight: 600;">Brainstem →</a>
+              <a href="motor_cortex.html" style="font-size: 0.85rem; font-weight: 600;">Motor Cortex →</a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+  <footer><div style="max-width: 1200px; margin: 0 auto;"><div style="border-top: 1px solid var(--border-subtle); padding-top: 30px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; font-size: 0.85rem;"><span>&copy; 2026 NeuroPrint. All rights reserved.</span><span><a href="privacy.html">Privacy Policy</a> &nbsp;·&nbsp; <a href="terms.html">Terms of Service</a></span></div></div></footer>
+  <script src="main.js"></script>
+  <script>function showText(type){document.querySelectorAll('.text-panel').forEach(el=>el.classList.remove('active'));document.querySelectorAll('.toggle-buttons button').forEach(el=>el.classList.remove('active'));document.getElementById(type).classList.add('active');document.getElementById('btn-'+type).classList.add('active');}</script>
+</body>
+</html>

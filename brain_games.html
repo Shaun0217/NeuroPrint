@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brain Games - NeuroPrint</title>
+  <link rel="icon" type="image/png" href="resized_logo.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Glassmorphic Header -->
+  <header>
+    <div class="logo-container">
+      <img src="resized_logo.png" alt="NeuroPrint Logo" class="logo-img">
+      <span class="logo-text">NeuroPrint</span>
+    </div>
+    <nav class="desktop-nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="explore_brain_nav.html">Brain Regions</a>
+      <a href="games_nav.html" class="active">Games</a>
+      <a href="request_model.html">Request a Model</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <button class="menu-button" id="menu-toggle" onclick="toggleMenu()">☰</button>
+  </header>
+
+  <!-- Mobile Drawer Menu Overlay -->
+  <div id="menu-overlay">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="explore_brain_nav.html">Brain Regions</a>
+    <a href="games_nav.html">Games</a>
+    <a href="request_model.html">Request a Model</a>
+    <a href="contact.html">Contact</a>
+    <a href="resources.html">For Teachers</a>
+  </div>
+
+  <main>
+    <section class="hero" style="height: 250px;">
+      <h1 class="gradient-text">Cognitive Training Games</h1>
+      <p>Test your brain's performance across key regions, from motor reflexes to memory recall.</p>
+    </section>
+
+    <section class="section" style="max-width: 1000px;">
+      <!-- Reaction Time Test Panel -->
+      <div class="game-panel glass-panel" id="reaction-panel">
+        <h2 class="game-title">Reaction Time Test</h2>
+        <p class="game-desc">Tests motor reflex coordination and active conduction speed in your <a href="motor_cortex.html">motor cortex</a>.</p>
+        
+        <div class="game-stage">
+          <div class="reaction-arena" id="reaction-box">
+            <span class="reaction-text" id="reaction-box-text">Click to Initialize Test</span>
+          </div>
+          <div class="game-info-badge" id="reaction-badge">
+            Status: Standby
+          </div>
+        </div>
+        <div class="result" id="reaction-result" style="font-weight: 600; font-size: 1.1rem; margin-top: 10px;"></div>
+      </div>
+
+      <!-- Simon-Says Memory Test Panel -->
+      <div class="game-panel glass-panel" id="memory-panel" style="margin-top: 50px;">
+        <h2 class="game-title">Hippocampus Memory Recall</h2>
+        <p class="game-desc">Challenges spatial sequence memory and active long-term encoding in your temporal structures.</p>
+        
+        <div class="game-stage">
+          <div class="simon-grid" id="simon-board" style="display: none;">
+            <div class="simon-node node-blue" data-index="0"></div>
+            <div class="simon-node node-purple" data-index="1"></div>
+            <div class="simon-node node-cyan" data-index="2"></div>
+            <div class="simon-node node-magenta" data-index="3"></div>
+          </div>
+          
+          <div id="memory-start-gate" style="text-align: center;">
+            <p style="margin-bottom: 20px; font-size: 0.95rem; color: var(--text-secondary);">Memorize and mimic the flashing synaptic pathway sequence.</p>
+            <button class="btn btn-primary" onclick="startMemoryGame()">Start Memory Game</button>
+          </div>
+          
+          <div class="game-info-badge" id="memory-badge" style="display: none;">
+            Level: 1
+          </div>
+        </div>
+        <div class="result" id="memory-result" style="font-weight: 600; font-size: 1.1rem; margin-top: 10px;"></div>
+      </div>
+
+      <!-- Focus Active Neurons Panel -->
+      <div class="game-panel glass-panel" id="focus-panel" style="margin-top: 50px;">
+        <h2 class="game-title">Focus & Attention</h2>
+        <p class="game-desc">Stimulates alert tracking and visual selection managed by your <a href="parietal.html">parietal lobe</a>.</p>
+        
+        <div class="game-stage" style="padding: 10px;">
+          <div class="focus-board" id="focus-board" style="display: none;">
+            <!-- Floating nodes will be injected dynamically -->
+          </div>
+          
+          <div id="focus-start-gate" style="text-align: center;">
+            <p style="margin-bottom: 20px; font-size: 0.95rem; color: var(--text-secondary);">Rapidly tap as many glowing cyan "Active Neurons" (A) as possible. Ignore Distractors!</p>
+            <button class="btn btn-primary" onclick="startFocusGame()">Initialize Focus Scan</button>
+          </div>
+          
+          <div class="game-info-badge" id="focus-badge" style="display: none;">
+            Active Taps: 0 | Time: 10s
+          </div>
+        </div>
+        <div class="result" id="focus-result" style="font-weight: 600; font-size: 1.1rem; margin-top: 10px;"></div>
+      </div>
+
+      <!-- Pattern Matching Test Panel -->
+      <div class="game-panel glass-panel" id="pattern-panel" style="margin-top: 50px;">
+        <h2 class="game-title">Visual Pattern Decryption</h2>
+        <p class="game-desc">Exercises spatial shape interpretation and visual calculations in your posterior <a href="occipital.html">occipital lobe</a>.</p>
+        
+        <div class="game-stage">
+          <div id="pattern-start-gate" style="text-align: center;">
+            <p style="margin-bottom: 20px; font-size: 0.95rem; color: var(--text-secondary);">Decipher complex numerical and symbolic cognitive sequences.</p>
+            <button class="btn btn-primary" onclick="startPatternGame()">Begin Recognition</button>
+          </div>
+          
+          <div id="pattern-question-box" style="display: none; width: 100%;">
+            <p id="pattern-question-text" style="font-size: 1.3rem; font-weight: 700; margin-bottom: 25px;"></p>
+            <div id="pattern-choices-grid" style="display: flex; gap: 15px; flex-direction: column; max-width: 320px; margin: 0 auto;">
+              <!-- Option buttons will be injected dynamically -->
+            </div>
+          </div>
+        </div>
+        <div class="result" id="pattern-result" style="font-weight: 600; font-size: 1.1rem; margin-top: 10px;"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Glassmorphic Footer -->
+  <footer>
+    <p>&copy; 2026 NeuroPrint | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+  </footer>
+
+  <script src="main.js"></script>
+  <script>
+    // ----------------------------------------------------
+    // 1. REACTION TIME TEST MECHANICS
+    // ----------------------------------------------------
+    const rxBox = document.getElementById('reaction-box');
+    const rxText = document.getElementById('reaction-box-text');
+    const rxBadge = document.getElementById('reaction-badge');
+    const rxResult = document.getElementById('reaction-result');
+    
+    let rxState = 'idle'; // idle, waiting, ready, done
+    let rxStartTime = 0;
+    let rxTimer = null;
+    
+    rxBox.addEventListener('click', () => {
+      if (rxState === 'idle' || rxState === 'done') {
+        // Start waiting
+        rxState = 'waiting';
+        rxBox.className = 'reaction-arena state-waiting';
+        rxText.innerText = 'Await Neuronal Discharge...';
+        rxBadge.innerText = 'Status: Charging Synapses';
+        rxResult.innerText = '';
+        
+        const delay = Math.random() * 2500 + 1500; // 1.5s - 4s
+        rxTimer = setTimeout(() => {
+          rxState = 'ready';
+          rxBox.className = 'reaction-arena state-ready';
+          rxText.innerText = 'SPIKE! TAP NOW!';
+          rxBadge.innerText = 'Status: ACTION SPIKE';
+          rxStartTime = Date.now();
+        }, delay);
+      } else if (rxState === 'waiting') {
+        // Clicked too early!
+        clearTimeout(rxTimer);
+        rxState = 'done';
+        rxBox.className = 'reaction-arena';
+        rxText.innerText = 'Discharge Fail!';
+        rxBadge.innerText = 'Status: Standby (Too Early)';
+        rxResult.innerHTML = '<span style="color: #ef4444;">You reacted before the impulse fired. Try again!</span>';
+      } else if (rxState === 'ready') {
+        // Successful reaction!
+        const reactionTime = Date.now() - rxStartTime;
+        rxState = 'done';
+        rxBox.className = 'reaction-arena';
+        rxText.innerText = `impulses: ${reactionTime} ms`;
+        rxBadge.innerText = 'Status: Completed';
+        
+        let rank = '';
+        if (reactionTime < 180) rank = '<span style="color: #06b6d4;">Super-Charged Synapses (Reflex Master)!</span>';
+        else if (reactionTime < 250) rank = '<span style="color: #10b981;">Optimum Motor Response (Excellent).</span>';
+        else if (reactionTime < 350) rank = '<span style="color: #eab308;">Standard Conduction Delay (Good).</span>';
+        else rank = '<span style="color: #9ca3af;">Synaptic Drift Detected. Keep training!</span>';
+        
+        rxResult.innerHTML = `Your latency: ${reactionTime}ms <br>${rank}`;
+      }
+    });
+
+    // ----------------------------------------------------
+    // 2. SIMON-SAYS MEMORY RECALL MECHANICS
+    // ----------------------------------------------------
+    let simonSequence = [];
+    let userSequence = [];
+    let simonLevel = 1;
+    let simonActive = false;
+    
+    const simonBoard = document.getElementById('simon-board');
+    const memoryGate = document.getElementById('memory-start-gate');
+    const memoryBadge = document.getElementById('memory-badge');
+    const memoryResult = document.getElementById('memory-result');
+    const nodes = document.querySelectorAll('.simon-node');
+    
+    function startMemoryGame() {
+      memoryGate.style.display = 'none';
+      simonBoard.style.display = 'grid';
+      memoryBadge.style.display = 'inline-flex';
+      memoryResult.innerText = '';
+      simonSequence = [];
+      simonLevel = 1;
+      nextSimonRound();
+    }
+    
+    function nextSimonRound() {
+      userSequence = [];
+      memoryBadge.innerText = `Level: ${simonLevel}`;
+      simonSequence.push(Math.floor(Math.random() * 4));
+      playSimonSequence();
+    }
+    
+    function playSimonSequence() {
+      simonActive = false;
+      let i = 0;
+      const interval = setInterval(() => {
+        flashSimonNode(simonSequence[i]);
+        i++;
+        if (i >= simonSequence.length) {
+          clearInterval(interval);
+          setTimeout(() => {
+            simonActive = true;
+          }, 300);
+        }
+      }, 600);
+    }
+    
+    function flashSimonNode(index) {
+      const node = nodes[index];
+      node.classList.add('lit');
+      setTimeout(() => {
+        node.classList.remove('lit');
+      }, 300);
+    }
+    
+    nodes.forEach(node => {
+      node.addEventListener('click', (e) => {
+        if (!simonActive) return;
+        
+        const idx = parseInt(e.target.getAttribute('data-index'), 10);
+        flashSimonNode(idx);
+        userSequence.push(idx);
+        
+        // Validate user tap
+        const step = userSequence.length - 1;
+        if (userSequence[step] !== simonSequence[step]) {
+          // Game Over!
+          simonActive = false;
+          simonBoard.style.display = 'none';
+          memoryGate.style.display = 'block';
+          memoryBadge.style.display = 'none';
+          memoryResult.innerHTML = `<span style="color: #ef4444;">Synaptic Sequence Mismatch! You reached Level ${simonLevel}.</span>`;
+          return;
+        }
+        
+        if (userSequence.length === simonSequence.length) {
+          simonActive = false;
+          simonLevel++;
+          setTimeout(nextSimonRound, 800);
+        }
+      });
+    });
+
+    // ----------------------------------------------------
+    // 3. FOCUS ACTIVE NEURONS HUNTER
+    // ----------------------------------------------------
+    let focusScore = 0;
+    let focusTimeLeft = 10;
+    let focusInterval = null;
+    
+    const focusBoard = document.getElementById('focus-board');
+    const focusGate = document.getElementById('focus-start-gate');
+    const focusBadge = document.getElementById('focus-badge');
+    const focusResult = document.getElementById('focus-result');
+    
+    function startFocusGame() {
+      focusGate.style.display = 'none';
+      focusBoard.style.display = 'block';
+      focusBadge.style.display = 'inline-flex';
+      focusResult.innerText = '';
+      
+      focusScore = 0;
+      focusTimeLeft = 10;
+      focusBadge.innerText = `Active Taps: ${focusScore} | Time: ${focusTimeLeft}s`;
+      
+      spawnFocusNodes();
+      
+      focusInterval = setInterval(() => {
+        focusTimeLeft--;
+        focusBadge.innerText = `Active Taps: ${focusScore} | Time: ${focusTimeLeft}s`;
+        
+        if (focusTimeLeft <= 0) {
+          clearInterval(focusInterval);
+          endFocusGame();
+        }
+      }, 1000);
+    }
+    
+    function spawnFocusNodes() {
+      focusBoard.innerHTML = '';
+      const totalNodes = 12;
+      
+      for (let i = 0; i < totalNodes; i++) {
+        const node = document.createElement('div');
+        const isActive = Math.random() < 0.35; // 35% chance to be target A
+        
+        node.className = `focus-target ${isActive ? 'target-active' : 'target-distract'}`;
+        node.innerText = isActive ? 'A' : String.fromCharCode(65 + Math.floor(Math.random() * 26));
+        
+        // Random layout
+        node.style.top = `${Math.random() * 180 + 10}px`;
+        node.style.left = `${Math.random() * 85 + 5}%`;
+        node.style.animationDelay = `${Math.random() * 2}s`;
+        
+        node.addEventListener('click', (e) => {
+          if (isActive) {
+            focusScore++;
+            e.target.remove();
+            // Re-spawn to maintain density
+            spawnSingleFocusNode();
+          } else {
+            // Distractor penality
+            focusScore = Math.max(0, focusScore - 1);
+            e.target.style.background = 'rgba(239, 68, 68, 0.4)';
+            setTimeout(() => {
+              e.target.style.background = '';
+            }, 300);
+          }
+          focusBadge.innerText = `Active Taps: ${focusScore} | Time: ${focusTimeLeft}s`;
+        });
+        
+        focusBoard.appendChild(node);
+      }
+    }
+    
+    function spawnSingleFocusNode() {
+      const node = document.createElement('div');
+      const isActive = Math.random() < 0.4;
+      node.className = `focus-target ${isActive ? 'target-active' : 'target-distract'}`;
+      node.innerText = isActive ? 'A' : String.fromCharCode(65 + Math.floor(Math.random() * 26));
+      node.style.top = `${Math.random() * 180 + 10}px`;
+      node.style.left = `${Math.random() * 85 + 5}%`;
+      node.style.animationDelay = `${Math.random() * 2}s`;
+      
+      node.addEventListener('click', (e) => {
+        if (isActive) {
+          focusScore++;
+          e.target.remove();
+          spawnSingleFocusNode();
+        } else {
+          focusScore = Math.max(0, focusScore - 1);
+          e.target.style.background = 'rgba(239, 68, 68, 0.4)';
+          setTimeout(() => { e.target.style.background = ''; }, 300);
+        }
+        focusBadge.innerText = `Active Taps: ${focusScore} | Time: ${focusTimeLeft}s`;
+      });
+      focusBoard.appendChild(node);
+    }
+    
+    function endFocusGame() {
+      focusBoard.style.display = 'none';
+      focusGate.style.display = 'block';
+      focusBadge.style.display = 'none';
+      
+      let rank = '';
+      if (focusScore >= 12) rank = '<span style="color: #06b6d4;">Hyper-Focus (Brilliant Attention Span)!</span>';
+      else if (focusScore >= 7) rank = '<span style="color: #10b981;">Good Concentration.</span>';
+      else rank = '<span style="color: #9ca3af;">Focus Drifted. Try to block out distractions!</span>';
+      
+      focusResult.innerHTML = `Synthesized Score: ${focusScore} Active Cells Tapped. <br>${rank}`;
+    }
+
+    // ----------------------------------------------------
+    // 4. PATTERN MATCHING DECIPHER GAME
+    // ----------------------------------------------------
+    const patterns = [
+      { sequence: "Complete the sequence: 2, 4, 6, 8, ?", choices: ["9", "10", "11", "12"], answer: "10" },
+      { sequence: "Complete the sequence: 1, 3, 5, ?, 9", choices: ["6", "7", "8", "10"], answer: "7" },
+      { sequence: "Complete the sequence: A, B, C, ?, E", choices: ["D", "F", "X", "Z"], answer: "D" },
+      { sequence: "Determine sequence: 1, 4, 9, 16, ?", choices: ["20", "24", "25", "30"], answer: "25" },
+      { sequence: "Find matching gap: 10, 20, ?, 40, 50", choices: ["25", "30", "35", "38"], answer: "30" }
+    ];
+    
+    let currentPattern = null;
+    
+    const patternGate = document.getElementById('pattern-start-gate');
+    const patternBox = document.getElementById('pattern-question-box');
+    const patternText = document.getElementById('pattern-question-text');
+    const patternChoices = document.getElementById('pattern-choices-grid');
+    const patternResult = document.getElementById('pattern-result');
+    
+    function startPatternGame() {
+      patternGate.style.display = 'none';
+      patternBox.style.display = 'block';
+      patternResult.innerText = '';
+      
+      // Select random pattern
+      currentPattern = patterns[Math.floor(Math.random() * patterns.length)];
+      patternText.innerText = currentPattern.sequence;
+      
+      patternChoices.innerHTML = '';
+      currentPattern.choices.forEach(opt => {
+        const btn = document.createElement('button');
+        btn.className = 'btn btn-secondary';
+        btn.style.width = '100%';
+        btn.innerText = opt;
+        btn.addEventListener('click', () => submitPatternChoice(opt));
+        patternChoices.appendChild(btn);
+      });
+    }
+    
+    function submitPatternChoice(selected) {
+      patternBox.style.display = 'none';
+      patternGate.style.display = 'block';
+      
+      if (selected === currentPattern.answer) {
+        patternResult.innerHTML = '<span style="color: #10b981;">Correct! Impressive visual logic processing.</span>';
+      } else {
+        patternResult.innerHTML = `<span style="color: #ef4444;">Incorrect! The mathematical answer was ${currentPattern.answer}.</span>`;
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Brain Anatomy Quiz - NeuroPrint</title>
+  <link rel="icon" type="image/png" href="resized_logo.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Glassmorphic Header -->
+  <header>
+    <div class="logo-container">
+      <img src="resized_logo.png" alt="NeuroPrint Logo" class="logo-img">
+      <span class="logo-text">NeuroPrint</span>
+    </div>
+    <nav class="desktop-nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="explore_brain_nav.html">Brain Regions</a>
+      <a href="games_nav.html">Games</a>
+      <a href="request_model.html">Request a Model</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <button class="menu-button" id="menu-toggle" onclick="toggleMenu()">☰</button>
+  </header>
+
+  <!-- Mobile Drawer Menu Overlay -->
+  <div id="menu-overlay">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="explore_brain_nav.html">Brain Regions</a>
+    <a href="games_nav.html">Games</a>
+    <a href="request_model.html">Request a Model</a>
+    <a href="contact.html">Contact</a>
+    <a href="resources.html">For Teachers</a>
+  </div>
+
+  <main>
+    <section class="hero" style="height: 250px;">
+      <h1 class="gradient-text">Anatomy Quiz</h1>
+      <p>Challenge your neurological diagnostic skills and test your knowledge of structural anatomy.</p>
+    </section>
+
+    <section class="section" style="max-width: 700px; display: flex; flex-direction: column; align-items: center;">
+      
+      <!-- Homepage / Gate Container -->
+      <div class="quiz-card glass-panel" id="home-container" style="text-align: center; padding: 50px 40px; width: 100%;">
+        <h2 style="font-size: 2rem; margin-bottom: 15px;">Synaptic Diagnostic Exam</h2>
+        <p style="color: var(--text-secondary); margin-bottom: 35px;">Complete a series of randomized questions reviewing lobes, neurotransmitters, neurons, and autonomic functions.</p>
+        <button class="btn btn-primary" onclick="startQuiz()">Begin Diagnostic</button>
+      </div>
+
+      <!-- Live Quiz Container -->
+      <div class="quiz-card glass-panel" id="quiz-container" style="display: none; width: 100%;">
+        <div class="quiz-meta">
+          <span id="progress-text">Question 1 of 31</span>
+          <span style="color: var(--accent-cyan);" id="score-text">Current Score: 0</span>
+        </div>
+        
+        <div class="quiz-progress-container">
+          <div class="quiz-progress-bar" id="progress-bar"></div>
+        </div>
+
+        <h2 class="quiz-question" id="question-text">Which part of the brain controls vision?</h2>
+        
+        <div class="quiz-options" id="quiz-form">
+          <!-- Choice rows will be injected dynamically -->
+        </div>
+
+        <div style="display: flex; gap: 15px; justify-content: flex-end;">
+          <button class="btn btn-secondary" onclick="returnHome()">Exit</button>
+          <button class="btn btn-primary" id="next-btn" onclick="checkAnswer()">Next Pathway</button>
+          <button class="btn btn-primary" id="finish-btn" onclick="finishQuiz()" style="display: none;">Submit Diagnostic</button>
+        </div>
+      </div>
+
+      <!-- Result Screen -->
+      <div class="quiz-card glass-panel" id="result-container" style="display: none; text-align: center; padding: 50px 40px; width: 100%;">
+        <div style="font-size: 4rem; margin-bottom: 20px;" id="result-badge">🏆</div>
+        <h2 style="font-size: 2.2rem; margin-bottom: 15px;" id="result-rank-title">Synaptic Mastermind</h2>
+        <p style="color: var(--text-secondary); margin-bottom: 30px;" id="result-feedback">Perfect! You're a brain expert!</p>
+        
+        <div class="glass-panel" style="padding: 20px; max-width: 300px; margin: 0 auto 40px; border-color: rgba(6, 182, 212, 0.2);">
+          <span style="font-size: 0.85rem; color: var(--text-secondary); display: block; margin-bottom: 5px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;">Final Scorecard</span>
+          <span style="font-size: 2.5rem; font-weight: 800; font-family: 'Outfit', sans-serif;" id="result-score-text" class="gradient-text">31 / 31</span>
+        </div>
+
+        <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+          <button class="btn btn-secondary" id="redo-btn" onclick="redoQuiz()">Retake Exam</button>
+          <button class="btn btn-primary" id="home-btn" onclick="returnHome()">Back to Home</button>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- Glassmorphic Footer -->
+  <footer>
+    <p>&copy; 2026 NeuroPrint | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+  </footer>
+
+  <script src="main.js"></script>
+  <script>
+    const questions = [
+      {
+        question: "Which part of the brain controls vision?",
+        options: ["Frontal lobe", "Parietal lobe", "Occipital lobe", "Temporal lobe"],
+        correctAnswer: "Occipital lobe"
+      },
+      {
+        question: "What part of the brain is responsible for balance?",
+        options: ["Cerebellum", "Brain stem", "Hippocampus", "Thalamus"],
+        correctAnswer: "Cerebellum"
+      },
+      {
+        question: "Which part of the neuron receives incoming signals?",
+        options: ["Axon", "Dendrite", "Synapse", "Myelin sheath"],
+        correctAnswer: "Dendrite"
+      },
+      {
+        question: "Which neurotransmitter is associated with reward?",
+        options: ["Dopamine", "Serotonin", "GABA", "Glutamate"],
+        correctAnswer: "Dopamine"
+      },
+      {
+        question: "What lobe is involved in decision making?",
+        options: ["Temporal", "Frontal", "Parietal", "Occipital"],
+        correctAnswer: "Frontal"
+      },
+      {
+        question: "Which part connects the brain to the spinal cord?",
+        options: ["Cerebellum", "Brain stem", "Amygdala", "Thalamus"],
+        correctAnswer: "Brain stem"
+      },
+      {
+        question: "Which brain structure is crucial for forming new memories?",
+        options: ["Cerebellum", "Amygdala", "Hippocampus", "Thalamus"],
+        correctAnswer: "Hippocampus"
+      },
+      {
+        question: "What is the main function of the amygdala?",
+        options: ["Hearing", "Emotion", "Balance", "Vision"],
+        correctAnswer: "Emotion"
+      },
+      {
+        question: "Which lobe processes touch and spatial awareness?",
+        options: ["Temporal", "Parietal", "Frontal", "Occipital"],
+        correctAnswer: "Parietal"
+      },
+      {
+        question: "What does the myelin sheath do?",
+        options: ["Store neurotransmitters", "Transmit impulses", "Protect the brain", "Speed up signal transmission"],
+        correctAnswer: "Speed up signal transmission"
+      },
+      {
+        question: "Which part of the brain regulates heart rate and breathing?",
+        options: ["Cerebellum", "Medulla oblongata", "Hypothalamus", "Thalamus"],
+        correctAnswer: "Medulla oblongata"
+      },
+      {
+        question: "Which brain region regulates hunger and body temperature?",
+        options: ["Hypothalamus", "Cerebellum", "Pons", "Thalamus"],
+        correctAnswer: "Hypothalamus"
+      },
+      {
+        question: "Which neurotransmitter plays a role in mood and sleep?",
+        options: ["Dopamine", "Serotonin", "Acetylcholine", "Glutamate"],
+        correctAnswer: "Serotonin"
+      },
+      {
+        question: "What structure relays sensory signals to the cerebral cortex?",
+        options: ["Hypothalamus", "Thalamus", "Midbrain", "Amygdala"],
+        correctAnswer: "Thalamus"
+      },
+      {
+        question: "Which side of the brain is typically more involved in logic and language?",
+        options: ["Right", "Left", "Both equally", "Neither"],
+        correctAnswer: "Left"
+      },
+      {
+        question: "What is the gap between two neurons called?",
+        options: ["Axon", "Dendrite", "Node", "Synapse"],
+        correctAnswer: "Synapse"
+      },
+      {
+        question: "Which brain part is most associated with motor coordination?",
+        options: ["Cerebellum", "Thalamus", "Frontal lobe", "Occipital lobe"],
+        correctAnswer: "Cerebellum"
+      },
+      {
+        question: "Which brain wave type is most active during deep sleep?",
+        options: ["Alpha", "Beta", "Delta", "Theta"],
+        correctAnswer: "Delta"
+      },
+      {
+        question: "Which part of the brain is responsible for processing sound?",
+        options: ["Occipital lobe", "Frontal lobe", "Temporal lobe", "Parietal lobe"],
+        correctAnswer: "Temporal lobe"
+      },
+      {
+        question: "What type of cell supports and insulates neurons?",
+        options: ["Microglia", "Astrocyte", "Oligodendrocyte", "Glial cell"],
+        correctAnswer: "Glial cell"
+      },
+      {
+        question: "What does the corpus callosum do?",
+        options: ["Connects brain to spinal cord", "Processes memory", "Joins left and right hemispheres", "Regulates breathing"],
+        correctAnswer: "Joins left and right hemispheres"
+      },
+      {
+        question: "Which part of the brain is associated with fear responses?",
+        options: ["Hippocampus", "Amygdala", "Pons", "Cerebrum"],
+        correctAnswer: "Amygdala"
+      },
+      {
+        question: "What is neuroplasticity?",
+        options: ["Growth of neurons", "The brain’s ability to reorganize itself", "Brain degeneration", "Formation of the spinal cord"],
+        correctAnswer: "The brain’s ability to reorganize itself"
+      },
+      {
+        question: "Which structure controls voluntary muscle movements?",
+        options: ["Frontal lobe", "Cerebellum", "Motor cortex", "Thalamus"],
+        correctAnswer: "Motor cortex"
+      },
+      {
+        question: "What are the wrinkles on the brain’s surface called?",
+        options: ["Sulci", "Gyri", "Neurons", "Cortex"],
+        correctAnswer: "Gyri"
+      },
+      {
+        question: "Which part of the brain is involved in language comprehension?",
+        options: ["Broca’s area", "Wernicke’s area", "Temporal pole", "Occipital lobe"],
+        correctAnswer: "Wernicke’s area"
+      },
+      {
+        question: "Which brain region is associated with speech production?",
+        options: ["Temporal lobe", "Wernicke’s area", "Broca’s area", "Brain stem"],
+        correctAnswer: "Broca’s area"
+      },
+      {
+        question: "What is the outermost layer of the brain called?",
+        options: ["White matter", "Cortex", "Medulla", "Spinal cord"],
+        correctAnswer: "Cortex"
+      },
+      {
+        question: "Which of these protects the brain from toxins in the blood?",
+        options: ["Skull", "CSF", "Blood-brain barrier", "Meninges"],
+        correctAnswer: "Blood-brain barrier"
+      },
+      {
+        question: "Which neurotransmitter is most associated with muscle contraction?",
+        options: ["Dopamine", "Serotonin", "GABA", "Acetylcholine"],
+        correctAnswer: "Acetylcholine"
+      },
+      {
+        question: "Which part of the brain helps regulate the sleep-wake cycle?",
+        options: ["Pineal gland", "Cerebellum", "Pons", "Medulla"],
+        correctAnswer: "Pineal gland"
+      }
+    ];
+
+    let shuffledQuestions = [];
+    let currentQuestionIndex = 0;
+    let score = 0;
+    let selectedOptionValue = null;
+
+    function startQuiz() {
+      shuffledQuestions = [...questions].sort(() => Math.random() - 0.5);
+      currentQuestionIndex = 0;
+      score = 0;
+      selectedOptionValue = null;
+      
+      document.getElementById("home-container").style.display = "none";
+      document.getElementById("result-container").style.display = "none";
+      document.getElementById("quiz-container").style.display = "block";
+      document.getElementById("finish-btn").style.display = "none";
+      document.getElementById("next-btn").style.display = "inline-block";
+      
+      loadQuestion();
+    }
+
+    function loadQuestion() {
+      selectedOptionValue = null;
+      const current = shuffledQuestions[currentQuestionIndex];
+      
+      // Question Titles & Progress Metrics
+      document.getElementById("question-text").innerText = current.question;
+      document.getElementById("progress-text").innerText = `Question ${currentQuestionIndex + 1} of ${shuffledQuestions.length}`;
+      document.getElementById("score-text").innerText = `Score: ${score}`;
+      
+      // Update visual Progress Bar width
+      const progressPercent = (currentQuestionIndex / shuffledQuestions.length) * 100;
+      document.getElementById("progress-bar").style.width = `${progressPercent}%`;
+
+      // Render custom glowing choice items
+      const form = document.getElementById("quiz-form");
+      form.innerHTML = '';
+      
+      current.options.forEach(opt => {
+        const optionRow = document.createElement('div');
+        optionRow.className = 'quiz-option';
+        optionRow.innerHTML = `
+          <div class="quiz-option-indicator"></div>
+          <span class="quiz-option-text">${opt}</span>
+        `;
+        
+        optionRow.addEventListener('click', () => {
+          document.querySelectorAll('.quiz-option').forEach(el => el.classList.remove('selected'));
+          optionRow.classList.add('selected');
+          selectedOptionValue = opt;
+        });
+        
+        form.appendChild(optionRow);
+      });
+    }
+
+    function checkAnswer() {
+      if (!selectedOptionValue) {
+        // Replaces retro window.alert with custom glassmorphic alert
+        showCustomAlert("Input Needed", "Please select a brain cell pathway option before navigating forward!", "Continue Quiz");
+        return;
+      }
+
+      if (selectedOptionValue === shuffledQuestions[currentQuestionIndex].correctAnswer) {
+        score++;
+      }
+
+      currentQuestionIndex++;
+      if (currentQuestionIndex < shuffledQuestions.length) {
+        loadQuestion();
+      } else {
+        // Render Progress bar to 100% on final step
+        document.getElementById("progress-bar").style.width = '100%';
+        document.getElementById("next-btn").style.display = "none";
+        document.getElementById("finish-btn").style.display = "inline-block";
+      }
+    }
+
+    function finishQuiz() {
+      const total = shuffledQuestions.length;
+      const percentage = (score / total) * 100;
+      
+      let badge = "🌱";
+      let rank = "Synaptic Explorer";
+      let feedback = "Don't worry! Keep learning and try again!";
+      
+      if (percentage === 100) {
+        badge = "🏆";
+        rank = "Synaptic Mastermind";
+        feedback = "Outstanding! Perfect performance on all diagnostic fields!";
+      } else if (percentage >= 80) {
+        badge = "🧠";
+        rank = "Cerebrum Specialist";
+        feedback = "Exceptional! High neurological literacy.";
+      } else if (percentage >= 50) {
+        badge = "🔬";
+        rank = "Neuron Apprentice";
+        feedback = "Good effort! Keep studying to lock in pathways.";
+      }
+
+      document.getElementById("quiz-container").style.display = "none";
+      document.getElementById("result-container").style.display = "block";
+      
+      document.getElementById("result-badge").innerText = badge;
+      document.getElementById("result-rank-title").innerText = rank;
+      document.getElementById("result-feedback").innerText = feedback;
+      document.getElementById("result-score-text").innerText = `${score} / ${total}`;
+    }
+
+    function redoQuiz() {
+      startQuiz();
+    }
+
+    function returnHome() {
+      document.getElementById("quiz-container").style.display = "none";
+      document.getElementById("result-container").style.display = "none";
+      document.getElementById("home-container").style.display = "block";
+    }
+  </script>
+</body>
+</html>

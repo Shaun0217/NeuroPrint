@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Teacher Resources - NeuroPrint</title>
+  <link rel="icon" type="image/png" href="resized_logo.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Glassmorphic Header -->
+  <header>
+    <div class="logo-container">
+      <img src="resized_logo.png" alt="NeuroPrint Logo" class="logo-img">
+      <span class="logo-text">NeuroPrint</span>
+    </div>
+    <nav class="desktop-nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="explore_brain_nav.html">Brain Regions</a>
+      <a href="games_nav.html">Games</a>
+      <a href="request_model.html">Request a Model</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <button class="menu-button" id="menu-toggle" onclick="toggleMenu()">☰</button>
+  </header>
+
+  <!-- Mobile Drawer Menu Overlay -->
+  <div id="menu-overlay">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="explore_brain_nav.html">Brain Regions</a>
+    <a href="games_nav.html">Games</a>
+    <a href="request_model.html">Request a Model</a>
+    <a href="contact.html">Contact</a>
+    <a href="resources.html" class="active">For Teachers</a>
+  </div>
+
+  <main>
+    <section class="hero" style="height: 250px;">
+      <h1 class="gradient-text">Teacher Resources</h1>
+      <p>Printable sheets, active curriculum lesson plans, and pacing files to guide students in STEM biology.</p>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title">Educational Toolkit</h2>
+        <p class="section-subtitle">Download official printable modules and guide sheets specifically mapped to work hand-in-hand with our physical 3D model.</p>
+      </div>
+
+      <div class="features" style="justify-content: center;">
+        <div class="feature glass-panel" style="max-width: 320px; display: flex; flex-direction: column; justify-content: space-between; align-items: center; min-height: 280px; padding: 30px 20px;">
+          <div class="feature-icon-wrapper" style="margin-bottom: 15px;">
+            <img src="brain_icon.png" alt="PDF Icon" style="filter: hue-rotate(90deg);">
+          </div>
+          <h3>Anatomy Worksheets</h3>
+          <p style="margin-bottom: 20px; flex-grow: 1;">A comprehensive set of diagrams, region outlines, and fill-in-the-blank student activities.</p>
+          <a href="NeuroPrint_Resource_Kit.docx.pdf" download class="btn btn-primary" style="width: 100%; font-size: 0.9rem; padding: 10px 0;">Download PDF</a>
+        </div>
+
+        <div class="feature glass-panel" style="max-width: 320px; display: flex; flex-direction: column; justify-content: space-between; align-items: center; min-height: 280px; padding: 30px 20px;">
+          <div class="feature-icon-wrapper" style="margin-bottom: 15px; background: rgba(124, 58, 237, 0.1); border-color: rgba(124, 58, 237, 0.2);">
+            <img src="education_picture.png" alt="Docx Icon">
+          </div>
+          <h3>Official Teacher Guide</h3>
+          <p style="margin-bottom: 20px; flex-grow: 1;">Suggested lesson plans, pacing parameters, classroom labs, and 3D print file assembly instructions.</p>
+          <a href="NeuroPrint_Teacher_Guide.docx" download class="btn btn-primary" style="width: 100%; font-size: 0.9rem; padding: 10px 0; background: var(--grad-primary);">Download DOCX</a>
+        </div>
+
+        <div class="feature glass-panel" style="max-width: 320px; display: flex; flex-direction: column; justify-content: space-between; align-items: center; min-height: 280px; padding: 30px 20px;">
+          <div class="feature-icon-wrapper" style="margin-bottom: 15px; background: rgba(217, 70, 239, 0.1); border-color: rgba(217, 70, 239, 0.2);">
+            <img src="question-mark-brain-like-quiz-600nw-397593346.webp" alt="Quiz Icon" style="border-radius: 6px;">
+          </div>
+          <h3>Student Quiz (Editable)</h3>
+          <p style="margin-bottom: 20px; flex-grow: 1;">A ready-to-print diagnostic quiz covering primary neural structures and synaptic communication.</p>
+          <a href="NeuroPrint_Brain_Quiz.docx" download class="btn btn-primary" style="width: 100%; font-size: 0.9rem; padding: 10px 0; background: linear-gradient(135deg, var(--accent-magenta), var(--accent-purple)); box-shadow: 0 4px 15px rgba(217, 70, 239, 0.3);">Download DOCX</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Glassmorphic Footer -->
+  <footer>
+    <p>&copy; 2026 NeuroPrint | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

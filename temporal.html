@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Temporal Lobe | NeuroPrint</title>
+  <meta name="description" content="Explore the temporal lobe: auditory processing, language comprehension, memory formation, and face recognition.">
+  <link rel="icon" type="image/png" href="resized_logo.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="logo-container"><img src="resized_logo.png" alt="NeuroPrint Logo" class="logo-img"><span class="logo-text">NeuroPrint</span></div>
+    <nav class="desktop-nav">
+      <a href="index.html">Home</a><a href="about.html">About</a><a href="explore_brain_nav.html" class="active">Brain Regions</a><a href="games_nav.html">Games</a><a href="request_model.html">Request a Model</a><a href="contact.html">Contact</a>
+    </nav>
+    <button class="menu-button" id="menu-toggle" onclick="toggleMenu()">☰</button>
+  </header>
+  <div id="menu-overlay">
+    <a href="index.html">Home</a><a href="about.html">About</a><a href="explore_brain_nav.html">Brain Regions</a><a href="games_nav.html">Games</a><a href="request_model.html">Request a Model</a><a href="contact.html">Contact</a><a href="resources.html">For Teachers</a>
+  </div>
+  <main>
+    <section class="hero" style="padding-bottom: 50px;">
+      <a href="explore_brain_nav.html" style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-neuro); margin-bottom: 20px; display: inline-flex; align-items: center; gap: 6px;">← Brain Regions</a>
+      <h1>Temporal Lobe</h1>
+      <p>Where sound becomes language, and experience becomes memory.</p>
+    </section>
+    <div style="border-top: 1px solid var(--border-subtle); max-width: 1200px; margin: 0 auto;"></div>
+    <section class="section">
+      <div style="display: grid; grid-template-columns: 1fr 300px; gap: 80px; align-items: start;">
+        <div>
+          <div class="toggle-buttons">
+            <button id="btn-simple" class="active" onclick="showText('simple')">Plain Language</button>
+            <button id="btn-complex" onclick="showText('complex')">Scientific Detail</button>
+          </div>
+          <div class="text-panel active reading-column" id="simple">
+            <p>The temporal lobe is a part of your brain located on the sides of your head, near your ears. It helps you process sounds, understand language, and recognize voices. Whether you're listening to music, hearing a friend's voice, or learning a new word, your temporal lobe is hard at work.</p>
+            <p>Beyond sound, the temporal lobe also plays a big role in memory. It helps you remember things like your favorite songs, important conversations, and even the faces of people you know. When you recall a past event or recognize someone in a crowd, your temporal lobe is helping you retrieve those memories.</p>
+            <p>Additionally, this part of the brain is involved in emotions and associations. Certain sounds, smells, or words can trigger strong memories or feelings because of the way the temporal lobe connects sensory information with emotions. This is why hearing an old song can bring back powerful memories.</p>
+          </div>
+          <div class="text-panel reading-column" id="complex">
+            <p>The temporal lobe, located beneath the lateral fissure in both hemispheres, plays a crucial role in auditory processing, language comprehension, and memory formation. It houses the primary auditory cortex, which receives and interprets sound signals from the ears, allowing us to distinguish different tones, pitches, and rhythms.</p>
+            <p>One of the most important areas within the temporal lobe is Wernicke's area, found in the left hemisphere for most people. This region is responsible for language comprehension. Damage to Wernicke's area can result in Wernicke's aphasia: fluent but nonsensical speech.</p>
+            <p>Another critical structure is the hippocampus, which plays a fundamental role in memory formation and spatial navigation. The hippocampus converts short-term memories into long-term storage. Damage, often seen in Alzheimer's disease, results in severe memory loss.</p>
+            <p>The temporal lobe also contributes to face recognition through the fusiform gyrus, and emotional processing through its connections with the amygdala. Impairments can lead to prosopagnosia (face blindness) or altered emotional responses to stimuli.</p>
+          </div>
+          <div style="margin-top: 40px; display: flex; gap: 12px; flex-wrap: wrap;">
+            <button class="btn btn-primary" onclick="location.href='games_nav.html'">Test Your Knowledge</button>
+            <button class="btn btn-secondary" onclick="location.href='explore_brain_nav.html'">← All Regions</button>
+          </div>
+        </div>
+        <aside>
+          <div style="padding: 28px; border: 1px solid var(--border-subtle); border-radius: 6px; background: var(--bg-white);">
+            <div style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-neuro); margin-bottom: 16px;">Quick Facts</div>
+            <dl style="display: flex; flex-direction: column; gap: 16px;">
+              <div><dt style="font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 0.85rem; color: var(--text-navy); margin-bottom: 2px;">Location</dt><dd style="font-size: 0.85rem; color: var(--text-muted-light);">Lateral sides of the brain, near the temples</dd></div>
+              <div style="border-top: 1px solid var(--border-subtle); padding-top: 16px;"><dt style="font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 0.85rem; color: var(--text-navy); margin-bottom: 2px;">Primary Functions</dt><dd style="font-size: 0.85rem; color: var(--text-muted-light);">Hearing, language comprehension, memory, face recognition</dd></div>
+              <div style="border-top: 1px solid var(--border-subtle); padding-top: 16px;"><dt style="font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 0.85rem; color: var(--text-navy); margin-bottom: 2px;">Key Structures</dt><dd style="font-size: 0.85rem; color: var(--text-muted-light);">Wernicke's area, hippocampus, amygdala, fusiform gyrus</dd></div>
+              <div style="border-top: 1px solid var(--border-subtle); padding-top: 16px;"><dt style="font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 0.85rem; color: var(--text-navy); margin-bottom: 2px;">When damaged</dt><dd style="font-size: 0.85rem; color: var(--text-muted-light);">Memory loss, language comprehension deficits, prosopagnosia</dd></div>
+            </dl>
+          </div>
+          <div style="margin-top: 12px; padding: 16px; border: 1px solid var(--border-subtle); border-radius: 6px; background: var(--bg-warm);">
+            <div style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-neuro); margin-bottom: 8px;">Connected Regions</div>
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+              <a href="frontal-lobe.html" style="font-size: 0.85rem; font-weight: 600;">Frontal Lobe →</a>
+              <a href="occipital.html" style="font-size: 0.85rem; font-weight: 600;">Occipital Lobe →</a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+  <footer><div style="max-width: 1200px; margin: 0 auto;"><div style="border-top: 1px solid var(--border-subtle); padding-top: 30px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; font-size: 0.85rem;"><span>&copy; 2026 NeuroPrint. All rights reserved.</span><span><a href="privacy.html">Privacy Policy</a> &nbsp;·&nbsp; <a href="terms.html">Terms of Service</a></span></div></div></footer>
+  <script src="main.js"></script>
+  <script>function showText(type){document.querySelectorAll('.text-panel').forEach(el=>el.classList.remove('active'));document.querySelectorAll('.toggle-buttons button').forEach(el=>el.classList.remove('active'));document.getElementById(type).classList.add('active');document.getElementById('btn-'+type).classList.add('active');}</script>
+</body>
+</html>

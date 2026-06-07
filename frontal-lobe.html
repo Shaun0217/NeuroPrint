@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frontal Lobe | NeuroPrint</title>
+  <meta name="description" content="Learn about the frontal lobe: decision-making, planning, motor control, and personality. Simple and scientific explanations.">
+  <link rel="icon" type="image/png" href="resized_logo.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <div class="logo-container">
+      <img src="resized_logo.png" alt="NeuroPrint Logo" class="logo-img">
+      <span class="logo-text">NeuroPrint</span>
+    </div>
+    <nav class="desktop-nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="explore_brain_nav.html" class="active">Brain Regions</a>
+      <a href="games_nav.html">Games</a>
+      <a href="request_model.html">Request a Model</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <button class="menu-button" id="menu-toggle" onclick="toggleMenu()">☰</button>
+  </header>
+
+  <div id="menu-overlay">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="explore_brain_nav.html">Brain Regions</a>
+    <a href="games_nav.html">Games</a>
+    <a href="request_model.html">Request a Model</a>
+    <a href="contact.html">Contact</a>
+    <a href="resources.html">For Teachers</a>
+  </div>
+
+  <main>
+
+    <!-- REGION HERO -->
+    <section class="hero" style="padding-bottom: 50px;">
+      <a href="explore_brain_nav.html" style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-neuro); margin-bottom: 20px; display: inline-flex; align-items: center; gap: 6px;">
+        ← Brain Regions
+      </a>
+      <h1>Frontal Lobe</h1>
+      <p>The brain's command center: responsible for decisions, planning, personality, and voluntary movement.</p>
+    </section>
+
+    <div style="border-top: 1px solid var(--border-subtle); max-width: 1200px; margin: 0 auto;"></div>
+
+    <!-- CONTENT -->
+    <section class="section">
+      <div style="display: grid; grid-template-columns: 1fr 300px; gap: 80px; align-items: start;">
+
+        <!-- Main reading area -->
+        <div>
+          <div class="tab-container" style="max-width: none; margin: 0;">
+            <div class="toggle-buttons">
+              <button id="btn-simple" class="active" onclick="showText('simple')">Plain Language</button>
+              <button id="btn-complex" onclick="showText('complex')">Scientific Detail</button>
+            </div>
+
+            <div class="text-panel active reading-column" id="simple">
+              <p>The frontal lobe is located at the front of the brain and is responsible for many essential tasks, like decision-making, problem-solving, and controlling your movements. It's like the brain's "command center," helping you think, plan, and organize your actions. For example, when you decide what to eat for lunch or how to solve a puzzle, your frontal lobe is hard at work.</p>
+              <p>Besides helping you think, the frontal lobe plays a big role in emotions and social behavior. It helps you understand how others feel, control your impulses, and make decisions that consider long-term consequences. Without it, you might struggle with things like expressing emotions or staying focused on a goal.</p>
+              <p>Whether you're writing an essay, playing sports, or just having a conversation, the frontal lobe is constantly at work, keeping you in control and helping you achieve your goals. It's one of the most advanced parts of your brain and is key to what makes you, you!</p>
+            </div>
+
+            <div class="text-panel reading-column" id="complex">
+              <p>The frontal lobe, located in the anterior portion of the brain, is essential for higher cognitive functions and voluntary motor control. It houses the primary motor cortex, which directs precise movements, and the prefrontal cortex, which governs complex behaviors like decision-making, planning, and regulating emotions.</p>
+              <p>This lobe also manages executive functions, including working memory, attention, and multitasking. For instance, when solving a problem, the frontal lobe analyzes the situation, considers options, and chooses the best course of action. Additionally, it plays a critical role in language production through Broca's area, which is located in the left frontal lobe.</p>
+              <p>Damage to the frontal lobe can result in difficulties with motor skills, speech, and cognitive functions. For example, individuals may struggle with impulse control, memory retention, or understanding social cues. Despite these challenges, the frontal lobe's ability to adapt and reorganize itself underscores its importance in maintaining cognitive and emotional health, demonstrating its incredible flexibility and resilience.</p>
+            </div>
+          </div>
+
+          <div style="margin-top: 40px; display: flex; gap: 12px; flex-wrap: wrap;">
+            <button class="btn btn-primary" onclick="location.href='games_nav.html'">Test Your Knowledge</button>
+            <button class="btn btn-secondary" onclick="location.href='explore_brain_nav.html'">← All Regions</button>
+          </div>
+        </div>
+
+        <!-- Anatomy sidebar -->
+        <aside>
+          <div style="padding: 28px; border: 1px solid var(--border-subtle); border-radius: 6px; background: var(--bg-white);">
+            <div style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-neuro); margin-bottom: 16px;">Quick Facts</div>
+            <dl style="display: flex; flex-direction: column; gap: 16px;">
+              <div>
+                <dt style="font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 0.85rem; color: var(--text-navy); margin-bottom: 2px;">Location</dt>
+                <dd style="font-size: 0.85rem; color: var(--text-muted-light);">Anterior (front) of the cerebrum</dd>
+              </div>
+              <div style="border-top: 1px solid var(--border-subtle); padding-top: 16px;">
+                <dt style="font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 0.85rem; color: var(--text-navy); margin-bottom: 2px;">Primary Functions</dt>
+                <dd style="font-size: 0.85rem; color: var(--text-muted-light);">Decision-making, planning, personality, voluntary movement, language production</dd>
+              </div>
+              <div style="border-top: 1px solid var(--border-subtle); padding-top: 16px;">
+                <dt style="font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 0.85rem; color: var(--text-navy); margin-bottom: 2px;">Key Structures</dt>
+                <dd style="font-size: 0.85rem; color: var(--text-muted-light);">Prefrontal cortex, primary motor cortex, Broca's area</dd>
+              </div>
+              <div style="border-top: 1px solid var(--border-subtle); padding-top: 16px;">
+                <dt style="font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 0.85rem; color: var(--text-navy); margin-bottom: 2px;">When damaged</dt>
+                <dd style="font-size: 0.85rem; color: var(--text-muted-light);">Personality changes, poor impulse control, speech difficulties, motor deficits</dd>
+              </div>
+            </dl>
+          </div>
+          <div style="margin-top: 12px; padding: 16px; border: 1px solid var(--border-subtle); border-radius: 6px; background: var(--bg-warm);">
+            <div style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-neuro); margin-bottom: 8px;">Connected Regions</div>
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+              <a href="motor_cortex.html" style="font-size: 0.85rem; font-weight: 600;">Motor Cortex →</a>
+              <a href="parietal.html" style="font-size: 0.85rem; font-weight: 600;">Parietal Lobe →</a>
+              <a href="temporal.html" style="font-size: 0.85rem; font-weight: 600;">Temporal Lobe →</a>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <div style="border-top: 1px solid var(--border-subtle); padding-top: 30px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; font-size: 0.85rem;">
+        <span>&copy; 2026 NeuroPrint. All rights reserved.</span>
+        <span><a href="privacy.html">Privacy Policy</a> &nbsp;·&nbsp; <a href="terms.html">Terms of Service</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script>
+    function showText(type) {
+      document.querySelectorAll('.text-panel').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.toggle-buttons button').forEach(el => el.classList.remove('active'));
+      document.getElementById(type).classList.add('active');
+      document.getElementById('btn-' + type).classList.add('active');
+    }
+  </script>
+</body>
+</html>

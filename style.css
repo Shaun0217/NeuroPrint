@@ -1,0 +1,1287 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+  /* Color Palette - Museum Exhibit Theme */
+  --bg-warm: #faf8f5;          /* Warm organic off-white */
+  --bg-navy: #0c1222;          /* Deep scientific navy */
+  --bg-navy-light: #161e31;    /* Slightly lighter navy for cards */
+  --bg-white: #ffffff;
+  
+  --accent-neuro: #0a8491;     /* Disciplined neuroscience teal */
+  --accent-neuro-light: rgba(10, 132, 145, 0.1);
+  --accent-neuro-dark: #075f69;
+  
+  --text-navy: #0c1222;        /* High-contrast charcoal navy */
+  --text-warm: #faf8f5;        /* Warm text for dark backgrounds */
+  --text-muted-dark: #828a9b;  /* Muted text on dark backgrounds */
+  --text-muted-light: #64748b; /* Muted text on light backgrounds */
+  
+  --border-subtle: #e5e0d8;    /* Soft warm gray border */
+  --border-subtle-dark: rgba(255, 255, 255, 0.1);
+  
+  /* System Spacing */
+  --spacing-section-spacious: 120px;
+  --spacing-section-dense: 60px;
+  
+  /* Layout Transitions */
+  --transition-smooth: 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  --reading-width: 65ch;       /* Optimum legibility length */
+}
+
+/* Reset & Base Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-warm);
+  color: var(--text-navy);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.75;
+  overflow-x: hidden;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Base Typographic Rhythm */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Outfit', sans-serif;
+  color: var(--text-navy);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+}
+
+h2 {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+p {
+  color: var(--text-muted-light);
+}
+
+a {
+  color: var(--accent-neuro);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color var(--transition-smooth);
+}
+a:hover {
+  color: var(--accent-neuro-dark);
+}
+
+/* Layout Core Elements */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bg-navy);
+  border-bottom: 1px solid var(--border-subtle-dark);
+  z-index: 1000;
+  transition: background var(--transition-smooth);
+}
+
+header .logo-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+header .logo-img {
+  height: 38px;
+  width: auto;
+  border-radius: 4px;
+}
+
+header .logo-text {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--text-warm);
+  letter-spacing: -0.01em;
+}
+
+header nav.desktop-nav {
+  display: flex;
+  gap: 30px;
+}
+@media (max-width: 950px) {
+  header nav.desktop-nav {
+    display: none;
+  }
+}
+
+header nav.desktop-nav a {
+  color: var(--text-muted-dark);
+  font-weight: 500;
+  font-size: 0.95rem;
+  padding: 6px 0;
+  position: relative;
+}
+header nav.desktop-nav a:hover, header nav.desktop-nav a.active {
+  color: var(--text-warm);
+}
+header nav.desktop-nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent-neuro);
+  transition: width var(--transition-smooth);
+}
+header nav.desktop-nav a:hover::after, header nav.desktop-nav a.active::after {
+  width: 100%;
+}
+
+.menu-button {
+  background: transparent;
+  border: 1px solid var(--border-subtle-dark);
+  color: var(--text-warm);
+  width: 44px;
+  height: 44px;
+  border-radius: 6px;
+  display: none; /* hidden by default; shown only on mobile */
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  cursor: pointer;
+  z-index: 1100;
+  transition: all var(--transition-smooth);
+}
+@media (max-width: 950px) {
+  .menu-button {
+    display: flex;
+  }
+}
+.menu-button:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+.menu-button:focus {
+  outline: none;
+}
+
+/* Glass-free solid museum drawer */
+#menu-overlay {
+  position: fixed;
+  top: 0;
+  right: -320px;
+  width: 320px;
+  height: 100vh;
+  background: var(--bg-navy);
+  border-left: 1px solid var(--border-subtle-dark);
+  display: flex;
+  flex-direction: column;
+  padding: 100px 40px;
+  z-index: 1050;
+  transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+#menu-overlay.active {
+  right: 0;
+}
+
+#menu-overlay a {
+  color: var(--text-muted-dark);
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 15px 0;
+  transition: all var(--transition-smooth);
+}
+#menu-overlay a:hover {
+  color: var(--text-warm);
+  padding-left: 10px;
+}
+
+main {
+  margin-top: 80px;
+}
+
+/* Spacious visual layout sections */
+.section {
+  padding: var(--spacing-section-spacious) 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+@media (max-width: 768px) {
+  .section {
+    padding: var(--spacing-section-dense) 20px;
+  }
+}
+
+/* Alternate dark layout sections for museum exhibit pacing */
+.section-dark {
+  background-color: var(--bg-navy);
+  color: var(--text-warm);
+}
+.section-dark h1, .section-dark h2, .section-dark h3, .section-dark h4 {
+  color: var(--text-warm);
+}
+.section-dark p {
+  color: var(--text-muted-dark);
+}
+
+.section-header {
+  text-align: left; /* Left alignment over centered defaults */
+  max-width: 800px;
+  margin-bottom: 60px;
+}
+.section-header h2 {
+  margin-bottom: 20px;
+}
+
+/* Section title / subtitle utility (used by multiple pages) */
+.section-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: var(--text-navy);
+  margin-bottom: 15px;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+.section-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-muted-light);
+  max-width: 65ch;
+  line-height: 1.7;
+}
+
+/* gradient-text → flat teal accent (no rainbow) */
+.gradient-text {
+  color: var(--accent-neuro);
+}
+
+/* glass-panel compatibility shim → now maps to museum-card styling */
+.glass-panel {
+  background: var(--bg-white);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+}
+
+/* CTA strip section (dark navy band) */
+.cta {
+  background: var(--bg-navy);
+  padding: 100px 40px;
+}
+.cta-content {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: left;
+}
+.cta-content h2 {
+  color: var(--text-warm);
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  margin-bottom: 20px;
+}
+.cta-content p {
+  color: var(--text-muted-dark);
+  font-size: 1.1rem;
+  max-width: 55ch;
+  margin-bottom: 35px;
+}
+@media (max-width: 768px) {
+  .cta {
+    padding: 70px 20px;
+  }
+}
+
+/* Impact note small caption */
+.impact-note {
+  font-size: 0.9rem;
+  color: var(--text-muted-light);
+  text-align: left;
+  margin-top: 10px;
+}
+
+/* Asymmetric Grid Layout Utilities */
+.asymmetric-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 60px;
+  align-items: center;
+}
+@media (max-width: 900px) {
+  .asymmetric-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+/* Educational Reading Column for WCAG legibility */
+.reading-column {
+  max-width: var(--reading-width);
+  margin-bottom: 30px;
+}
+.reading-column p {
+  margin-bottom: 25px;
+  font-size: 1.05rem;
+}
+
+/* Flat, solid bordered museum placards (No Glassmorphism, No excessive shadow) */
+.museum-card {
+  background: var(--bg-white);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  padding: 40px;
+  transition: border-color var(--transition-smooth), transform var(--transition-smooth);
+}
+.museum-card:hover {
+  border-color: var(--accent-neuro);
+  transform: translateY(-2px);
+}
+
+.section-dark .museum-card {
+  background: var(--bg-navy-light);
+  border-color: var(--border-subtle-dark);
+}
+.section-dark .museum-card:hover {
+  border-color: var(--accent-neuro);
+}
+
+/* Flat Buttons (No rainbow gradients, solid clean layouts) */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 28px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all var(--transition-smooth);
+  border: none;
+  outline: none;
+}
+
+.btn-primary {
+  background: var(--accent-neuro);
+  color: var(--text-warm);
+}
+.btn-primary:hover {
+  background: var(--accent-neuro-dark);
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 1px solid var(--border-subtle);
+  color: var(--text-navy);
+}
+.btn-secondary:hover {
+  background: rgba(12, 18, 34, 0.03);
+  border-color: var(--text-navy);
+}
+
+.section-dark .btn-secondary {
+  border-color: var(--border-subtle-dark);
+  color: var(--text-warm);
+}
+.section-dark .btn-secondary:hover {
+  background: rgba(250, 248, 245, 0.05);
+  border-color: var(--text-warm);
+}
+
+/* Spaciously Asymmetric Hero (Museum Entryway) */
+.hero {
+  padding: 120px 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start; /* Asymmetric left alignment */
+  text-align: left;
+}
+.hero h1 {
+  max-width: 800px;
+  margin-bottom: 25px;
+}
+.hero p {
+  font-size: 1.25rem;
+  max-width: 600px;
+  margin-bottom: 40px;
+  color: var(--text-muted-light);
+}
+@media (max-width: 768px) {
+  .hero {
+    padding: 80px 20px;
+  }
+}
+
+/* Feature grid components */
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 40px;
+}
+
+.feature {
+  padding: 40px;
+}
+
+.feature-icon-wrapper {
+  width: 56px;
+  height: 56px;
+  border-radius: 6px;
+  background: var(--accent-neuro-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.feature-icon-wrapper svg {
+  width: 24px;
+  height: 24px;
+  stroke: var(--accent-neuro);
+  stroke-width: 2px;
+  fill: none;
+}
+
+.feature h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+/* Dense science data counter sheet */
+.impact-report {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  margin: 40px 0;
+}
+
+.impact-item {
+  padding: 30px;
+  border-radius: 6px;
+  border-left: 3px solid var(--accent-neuro);
+}
+
+.impact-item h3 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: var(--accent-neuro);
+  margin-bottom: 5px;
+}
+
+.impact-item p {
+  color: var(--text-muted-light);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.section-dark .impact-item p {
+  color: var(--text-muted-dark);
+}
+
+/* Team Bios Profiles (Asymmetric alignments) */
+.team-members {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.team-member {
+  padding: 40px;
+  text-align: left;
+}
+
+.team-member img {
+  width: 100px;
+  height: 100px;
+  border-radius: 6px;
+  object-fit: cover;
+  margin-bottom: 25px;
+  border: 1px solid var(--border-subtle);
+}
+
+.team-member h3 {
+  font-size: 1.3rem;
+  margin-bottom: 6px;
+}
+
+.team-member p.role {
+  color: var(--accent-neuro);
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+}
+
+/* Lobe page tab slider selector (warm light layout style) */
+.tab-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.toggle-buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 40px;
+  background: var(--border-subtle);
+  padding: 6px;
+  border-radius: 8px;
+  width: fit-content;
+}
+
+.toggle-buttons button {
+  background: transparent;
+  border: none;
+  color: var(--text-muted-light);
+  padding: 10px 24px;
+  border-radius: 6px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--transition-smooth);
+}
+.toggle-buttons button:hover {
+  color: var(--text-navy);
+}
+.toggle-buttons button.active {
+  background: var(--bg-warm);
+  color: var(--text-navy);
+}
+
+.text-panel {
+  display: none;
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+.text-panel.active {
+  display: block;
+  animation: fadeIn var(--transition-smooth);
+}
+
+.text-panel p {
+  margin-bottom: 20px;
+}
+
+.text-panel p:first-of-type {
+  font-size: 1.2rem;
+  color: var(--text-navy);
+  font-weight: 500;
+}
+
+/* Exhibition Directory layout grid */
+.brain-regions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+}
+
+.region-link {
+  padding: 30px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 180px;
+}
+
+.region-link a {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--text-navy);
+}
+
+.region-link:hover a {
+  color: var(--accent-neuro);
+}
+
+/* Hover cards (flat, no glassmorphism, no shadow) */
+.hover-card {
+  margin-top: 15px;
+  font-size: 0.85rem;
+  color: var(--text-muted-light);
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 15px;
+}
+
+/* Flat Forms for contact & model request */
+.form-container {
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 25px;
+}
+
+.form-group label {
+  display: block;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-bottom: 8px;
+  color: var(--text-navy);
+}
+
+.form-control {
+  width: 100%;
+  background: var(--bg-white);
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+  padding: 14px 16px;
+  color: var(--text-navy);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color var(--transition-smooth);
+}
+.form-control:focus {
+  border-color: var(--accent-neuro);
+}
+
+textarea.form-control {
+  min-height: 140px;
+  resize: vertical;
+}
+
+/* Flat kiosk diagnostic applications (Games & Quiz) */
+.game-panel {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 40px;
+  border-radius: 8px;
+  background: var(--bg-white);
+  border: 1px solid var(--border-subtle);
+}
+
+.game-title {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  text-align: left;
+}
+.game-desc {
+  font-size: 0.95rem;
+  color: var(--text-muted-light);
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.game-stage {
+  width: 100%;
+  min-height: 280px;
+  border-radius: 6px;
+  background: var(--bg-warm);
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 25px;
+  padding: 25px;
+  position: relative;
+}
+
+.game-info-badge {
+  background: var(--bg-navy);
+  color: var(--text-warm);
+  padding: 6px 14px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  font-family: 'Outfit', sans-serif;
+  margin-top: 15px;
+}
+
+/* Flat Latency Sensor board */
+.reaction-arena {
+  width: 100%;
+  height: 200px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+  transition: all var(--transition-smooth);
+  background: var(--bg-white);
+  border: 1px solid var(--border-subtle);
+}
+.reaction-arena.state-waiting {
+  background: #fef2f2;
+  border-color: #fca5a5;
+  color: #ef4444;
+}
+.reaction-arena.state-ready {
+  background: #ecfdf5;
+  border-color: #6ee7b7;
+  color: #059669;
+}
+.reaction-text {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: inherit;
+}
+
+/* Flat Circle opaque Simon segments */
+.simon-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  width: 220px;
+  height: 220px;
+}
+.simon-node {
+  border-radius: 8px;
+  border: 1px solid var(--border-subtle);
+  cursor: pointer;
+  transition: all 0.1s ease;
+  opacity: 0.4;
+}
+.simon-node:hover {
+  opacity: 0.6;
+}
+.simon-node:active, .simon-node.lit {
+  opacity: 1;
+  transform: scale(0.96);
+}
+.simon-node.node-blue { background: #0066cc; }
+.simon-node.node-purple { background: #6600cc; }
+.simon-node.node-cyan { background: #009999; }
+.simon-node.node-magenta { background: #cc0066; }
+
+/* Typographic Focus board */
+.focus-board {
+  width: 100%;
+  height: 250px;
+  position: relative;
+  overflow: hidden;
+  cursor: crosshair;
+}
+.focus-target {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  font-size: 0.95rem;
+  cursor: pointer;
+  user-select: none;
+  animation: floatNode 3.5s infinite alternate ease-in-out;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-white);
+  color: var(--text-muted-light);
+}
+.focus-target.target-active {
+  background: var(--accent-neuro);
+  color: var(--text-warm);
+  border-color: var(--accent-neuro);
+}
+
+/* Spacious Quiz Deck Placard */
+.quiz-card {
+  max-width: 650px;
+  width: 100%;
+  padding: 50px 40px;
+}
+
+.quiz-progress-container {
+  width: 100%;
+  height: 4px;
+  background: var(--border-subtle);
+  border-radius: 2px;
+  margin-bottom: 30px;
+  overflow: hidden;
+}
+.quiz-progress-bar {
+  height: 100%;
+  width: 0%;
+  background: var(--accent-neuro);
+  transition: width var(--transition-smooth);
+}
+
+.quiz-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: var(--text-muted-light);
+  font-weight: 700;
+  font-family: 'Outfit', sans-serif;
+  margin-bottom: 15px;
+}
+
+.quiz-question {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 35px;
+}
+
+.quiz-options {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 35px;
+}
+
+.quiz-option {
+  display: flex;
+  align-items: center;
+  padding: 16px 20px;
+  border-radius: 6px;
+  background: var(--bg-warm);
+  border: 1px solid var(--border-subtle);
+  cursor: pointer;
+  transition: all var(--transition-smooth);
+  user-select: none;
+}
+.quiz-option:hover {
+  background: var(--bg-white);
+  border-color: var(--text-navy);
+}
+.quiz-option input[type="radio"] {
+  display: none;
+}
+.quiz-option-indicator {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid var(--border-subtle);
+  margin-right: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-smooth);
+  flex-shrink: 0;
+  background: var(--bg-white);
+}
+.quiz-option-text {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-muted-light);
+}
+
+.quiz-option:hover .quiz-option-text {
+  color: var(--text-navy);
+}
+
+.quiz-option.selected {
+  border-color: var(--accent-neuro);
+  background: var(--bg-white);
+}
+.quiz-option.selected .quiz-option-indicator {
+  border-color: var(--accent-neuro);
+  background: var(--accent-neuro);
+}
+.quiz-option.selected .quiz-option-indicator::after {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: var(--bg-warm);
+  border-radius: 50%;
+}
+.quiz-option.selected .quiz-option-text {
+  color: var(--text-navy);
+  font-weight: 700;
+}
+
+/* Custom Overlay dialogue (Flat solid placards, high contrast) */
+.custom-modal-backdrop {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(12, 18, 34, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.custom-modal {
+  max-width: 420px;
+  width: 90%;
+  padding: 40px;
+  text-align: center;
+  border-radius: 8px;
+  background: var(--bg-white);
+  border: 1px solid var(--border-subtle);
+  animation: scaleUp 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.custom-modal h3 {
+  font-size: 1.5rem;
+  margin-bottom: 12px;
+}
+.custom-modal p {
+  color: var(--text-muted-light);
+  font-size: 0.95rem;
+  margin-bottom: 30px;
+}
+
+/* Scientific Museum Footer */
+footer {
+  border-top: 1px solid var(--border-subtle);
+  background: var(--bg-white);
+  padding: 60px 40px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--text-muted-light);
+}
+footer a {
+  color: var(--text-muted-light);
+  margin: 0 12px;
+}
+footer a:hover {
+  color: var(--text-navy);
+}
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleUp {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes floatNode {
+  0% { transform: translateY(0) rotate(0deg); }
+  100% { transform: translateY(-8px) rotate(3deg); }
+}
+
+.loader-wrapper {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: var(--bg-warm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  transition: opacity var(--transition-smooth);
+}
+.loader {
+  width: 40px;
+  height: 40px;
+  border: 2px solid var(--border-subtle);
+  border-radius: 50%;
+  border-top-color: var(--accent-neuro);
+  animation: spin 0.8s infinite linear;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ============================================================
+   LEGACY VARIABLE ALIASES
+   Maps old colour names used in early pages to the new system
+   ============================================================ */
+:root {
+  --text-secondary:   var(--text-muted-light);
+  --bg-tertiary:      var(--bg-warm);
+  --grad-primary:     var(--accent-neuro);
+  --accent-magenta:   var(--accent-neuro);
+  --accent-purple:    var(--accent-neuro-dark);
+}
+
+/* ============================================================
+   FORM SELECT ELEMENT STYLING
+   ============================================================ */
+select.form-control {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2364748b' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  padding-right: 40px;
+  cursor: pointer;
+  background-color: var(--bg-white);
+}
+select.form-control option {
+  background: var(--bg-white);
+  color: var(--text-navy);
+}
+
+/* ============================================================
+   MOBILE MENU BACKDROP (tap outside to close)
+   ============================================================ */
+#menu-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(12, 18, 34, 0.5);
+  z-index: 1040;
+}
+#menu-backdrop.active {
+  display: block;
+}
+
+/* ============================================================
+   HEADER — tighter padding on small screens
+   ============================================================ */
+@media (max-width: 600px) {
+  header {
+    padding: 0 20px;
+  }
+  header .logo-text {
+    font-size: 1.2rem;
+  }
+}
+
+/* ============================================================
+   FOOTER — responsive
+   ============================================================ */
+@media (max-width: 768px) {
+  footer {
+    padding: 40px 20px;
+  }
+}
+
+/* ============================================================
+   IMPACT GRID — 2-column on very small screens
+   ============================================================ */
+@media (max-width: 600px) {
+  .impact-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .impact-item h3 {
+    font-size: 2.5rem;
+  }
+}
+
+/* ============================================================
+   REGION PAGES — content + sidebar collapse on mobile
+   ============================================================ */
+@media (max-width: 900px) {
+  .region-page-grid {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+  }
+  .region-page-grid aside {
+    order: 2;
+  }
+  /* Inline grids on region pages that don't use class */
+  section.section > div[style*="grid-template-columns: 1fr 300px"] {
+    display: block !important;
+  }
+  section.section > div[style*="grid-template-columns: 1fr 300px"] > div,
+  section.section > div[style*="grid-template-columns: 1fr 300px"] > aside {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-bottom: 30px;
+  }
+}
+
+/* ============================================================
+   GAMES PAGE — 2-col card grid collapses
+   ============================================================ */
+@media (max-width: 700px) {
+  div[style*="grid-template-columns: 1fr 1fr"][style*="gap: 30px"] {
+    display: block !important;
+  }
+  div[style*="grid-template-columns: 1fr 1fr"][style*="gap: 30px"] > div {
+    margin-bottom: 20px;
+  }
+  div[style*="grid-template-columns: repeat(3, 1fr)"] {
+    display: block !important;
+  }
+  div[style*="grid-template-columns: repeat(3, 1fr)"] > div {
+    margin-bottom: 24px;
+  }
+}
+
+/* ============================================================
+   INDEX PAGE — Brain Regions Preview + For Teachers
+   ============================================================ */
+@media (max-width: 900px) {
+  /* "Eight regions" section (1fr 1.4fr) */
+  div[style*="grid-template-columns: 1fr 1.4fr"] {
+    display: block !important;
+  }
+  div[style*="grid-template-columns: 1fr 1.4fr"] > div {
+    width: 100% !important;
+    margin-bottom: 30px;
+  }
+  /* The 2-column region tile grid inside */
+  div[style*="grid-template-columns: 1fr 1fr"][style*="gap: 15px"] {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+  }
+  /* "For Teachers" section (1.4fr 1fr) */
+  div[style*="grid-template-columns: 1.4fr 1fr"] {
+    display: block !important;
+  }
+  div[style*="grid-template-columns: 1.4fr 1fr"] > div {
+    width: 100% !important;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 500px) {
+  /* Small phones: region tile grid collapses to 1 col */
+  div[style*="grid-template-columns: 1fr 1fr"][style*="gap: 15px"] {
+    grid-template-columns: 1fr !important;
+  }
+  /* Motor Cortex span 2 tile */
+  a[style*="grid-column: span 2"] {
+    grid-column: span 1 !important;
+  }
+}
+
+/* ============================================================
+   ABOUT PAGE — mission grid (1fr 1.6fr) collapses
+   ============================================================ */
+@media (max-width: 900px) {
+  div[style*="grid-template-columns: 1fr 1.6fr"] {
+    display: block !important;
+  }
+  div[style*="grid-template-columns: 1fr 1.6fr"] > div {
+    width: 100% !important;
+    margin-bottom: 25px;
+  }
+  /* Principles grid (repeat(auto-fit, minmax(260px,1fr))) — already responsive */
+}
+
+/* ============================================================
+   EXPLORE NAV — orientation footer 2-col grid
+   ============================================================ */
+@media (max-width: 700px) {
+  div[style*="grid-template-columns: 1fr 1fr"][style*="gap: 60px"] {
+    display: block !important;
+  }
+  div[style*="grid-template-columns: 1fr 1fr"][style*="gap: 60px"] > div {
+    margin-bottom: 25px;
+  }
+}
+
+/* ============================================================
+   TOGGLE BUTTONS — full width on mobile
+   ============================================================ */
+@media (max-width: 600px) {
+  .toggle-buttons {
+    width: 100%;
+    display: flex;
+  }
+  .toggle-buttons button {
+    flex: 1;
+    padding: 10px 10px;
+    font-size: 0.82rem;
+  }
+}
+
+/* ============================================================
+   FEATURES GRID — enforce single col on phones
+   ============================================================ */
+@media (max-width: 600px) {
+  .features {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================================
+   HERO — button row wraps properly on mobile
+   ============================================================ */
+@media (max-width: 600px) {
+  .hero {
+    padding: 70px 20px 50px;
+  }
+  .hero h1 {
+    font-size: 2rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+}
+
+/* ============================================================
+   FORM PAGES — full-width container, reduced padding
+   ============================================================ */
+@media (max-width: 700px) {
+  .form-container {
+    max-width: 100%;
+  }
+  .glass-panel {
+    padding: 28px 20px;
+    border-radius: 8px;
+  }
+}
+
+/* ============================================================
+   REQUEST MODEL — address city/state row stacks
+   ============================================================ */
+@media (max-width: 600px) {
+  .address-city-state {
+    flex-direction: column !important;
+  }
+}
+
+/* ============================================================
+   SECTION general spacing on mobile
+   ============================================================ */
+@media (max-width: 600px) {
+  .section-subtitle {
+    max-width: 100%;
+    font-size: 1rem;
+  }
+  .section-header {
+    margin-bottom: 30px;
+  }
+  h3 {
+    font-size: 1.2rem;
+  }
+}
+
+/* ============================================================
+   QUIZ / GAME PANELS
+   ============================================================ */
+@media (max-width: 700px) {
+  .game-panel,
+  .quiz-card {
+    padding: 28px 18px;
+  }
+}
+
+/* ============================================================
+   BRAIN REGIONS GRID on explore page
+   ============================================================ */
+@media (max-width: 500px) {
+  .brain-regions {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================================
+   CTA BAND
+   ============================================================ */
+@media (max-width: 500px) {
+  .cta-content h2 {
+    font-size: 1.5rem;
+  }
+}

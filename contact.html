@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | NeuroPrint</title>
+  <meta name="description" content="Get in touch with the NeuroPrint team. Ask questions, share feedback, or connect with our development team.">
+  <link rel="icon" type="image/png" href="resized_logo.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <div class="logo-container">
+      <img src="resized_logo.png" alt="NeuroPrint Logo" class="logo-img">
+      <span class="logo-text">NeuroPrint</span>
+    </div>
+    <nav class="desktop-nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="explore_brain_nav.html">Brain Regions</a>
+      <a href="games_nav.html">Games</a>
+      <a href="request_model.html">Request a Model</a>
+      <a href="contact.html" class="active">Contact</a>
+    </nav>
+    <button class="menu-button" id="menu-toggle" onclick="toggleMenu()" aria-label="Open navigation menu" aria-expanded="false">☰</button>
+  </header>
+
+  <div id="menu-overlay">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="explore_brain_nav.html">Brain Regions</a>
+    <a href="games_nav.html">Games</a>
+    <a href="request_model.html">Request a Model</a>
+    <a href="contact.html">Contact</a>
+    <a href="resources.html">For Teachers</a>
+  </div>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero" style="padding-bottom: 50px;">
+      <p style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent-neuro); margin-bottom: 20px;">Get in Touch</p>
+      <h1>We'd love to hear from you.</h1>
+      <p>Have a question about the project, want to collaborate, or just want to say hello? Fill out the form and we'll get back to you.</p>
+    </section>
+
+    <div style="border-top: 1px solid var(--border-subtle); max-width: 1200px; margin: 0 auto;"></div>
+
+    <!-- FORM SECTION -->
+    <section class="section">
+      <div style="display: grid; grid-template-columns: 1fr 1.6fr; gap: 80px; align-items: start;" class="contact-layout-grid">
+
+        <!-- Left: contact info -->
+        <div>
+          <p style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-neuro); margin-bottom: 12px;">Contact</p>
+          <h2 class="section-title" style="margin-bottom: 20px;">How to reach us</h2>
+          <p style="margin-bottom: 30px;">Our team reviews incoming messages regularly. We'll respond as soon as possible, typically within a few days.</p>
+          <div style="display: flex; flex-direction: column; gap: 20px;">
+            <div style="display: flex; align-items: center; gap: 14px;">
+              <div style="width: 40px; height: 40px; background: var(--accent-neuro-light); border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-neuro)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div>
+                <div style="font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 0.85rem; color: var(--text-navy); margin-bottom: 2px;">Email</div>
+                <div style="font-size: 0.85rem; color: var(--text-muted-light);">Responded via Formspree</div>
+              </div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 14px;">
+              <div style="width: 40px; height: 40px; background: var(--accent-neuro-light); border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-neuro)" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+              </div>
+              <div>
+                <div style="font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 0.85rem; color: var(--text-navy); margin-bottom: 2px;">Response Time</div>
+                <div style="font-size: 0.85rem; color: var(--text-muted-light);">Typically within 2 to 4 days</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: form -->
+        <div class="form-container">
+          <form action="https://formspree.io/f/xpwwbagv" method="POST">
+            <div class="form-group">
+              <label for="name">Name <span style="color: var(--accent-neuro);">*</span></label>
+              <input type="text" id="name" name="name" class="form-control" required placeholder="Your full name">
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email address <span style="color: var(--accent-neuro);">*</span></label>
+              <input type="email" id="email" name="_replyto" class="form-control" required placeholder="you@example.com">
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Phone number <span style="color: var(--text-muted-light); font-weight: 400;">(optional)</span></label>
+              <input type="tel" id="phone" name="phone" class="form-control" placeholder="(555) 000-0000">
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message <span style="color: var(--accent-neuro);">*</span></label>
+              <textarea id="message" name="message" class="form-control" required placeholder="Write your message here..."></textarea>
+            </div>
+
+            <input type="hidden" name="_redirect" value="thank-you.html">
+
+            <button type="submit" class="btn btn-primary" style="width: 100%; padding: 14px 0; margin-top: 10px;">Send Message</button>
+          </form>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; margin-bottom: 40px;">
+        <span style="font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 1.1rem; color: var(--text-navy);">NeuroPrint</span>
+        <nav style="display: flex; gap: 30px; flex-wrap: wrap;">
+          <a href="about.html">About</a>
+          <a href="explore_brain_nav.html">Brain Regions</a>
+          <a href="games_nav.html">Games</a>
+          <a href="resources.html">For Teachers</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+      <div style="border-top: 1px solid var(--border-subtle); padding-top: 30px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; font-size: 0.85rem;">
+        <span>&copy; 2026 NeuroPrint. All rights reserved.</span>
+        <span><a href="privacy.html">Privacy Policy</a> &nbsp;·&nbsp; <a href="terms.html">Terms of Service</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <style>
+    @media (max-width: 900px) {
+      .contact-layout-grid { display: block !important; }
+      .contact-layout-grid > div { margin-bottom: 40px; }
+    }
+  </style>
+</body>
+</html>
