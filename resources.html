@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Teacher Resources - NeuroPrint</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Teacher Resources | NeuroPrint</title>
+  <meta name="description"
+    content="Download free NeuroPrint classroom resources: anatomy worksheets, teacher guides, and editable student quizzes designed to pair with our 3D brain models.">
   <link rel="icon" type="image/png" href="resized_logo.png">
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-  <!-- Glassmorphic Header -->
   <header>
     <div class="logo-container">
       <img src="resized_logo.png" alt="NeuroPrint Logo" class="logo-img">
@@ -26,7 +29,6 @@
     <button class="menu-button" id="menu-toggle" onclick="toggleMenu()">☰</button>
   </header>
 
-  <!-- Mobile Drawer Menu Overlay -->
   <div id="menu-overlay">
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
@@ -38,53 +40,165 @@
   </div>
 
   <main>
-    <section class="hero" style="height: 250px;">
-      <h1 class="gradient-text">Teacher Resources</h1>
-      <p>Printable sheets, active curriculum lesson plans, and pacing files to guide students in STEM biology.</p>
+
+    <!-- HERO -->
+    <section class="hero" style="padding-bottom: 60px;">
+      <p style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent-neuro); margin-bottom: 20px;">For Educators</p>
+      <h1>Resources built for the classroom.</h1>
+      <p>Everything you need to pair NeuroPrint with your curriculum. Download worksheets, pacing guides, and editable assessments, all free and ready to print.</p>
     </section>
 
+    <div style="border-top: 1px solid var(--border-subtle); max-width: 1200px; margin: 0 auto;"></div>
+
+    <!-- CONTEXT BAND — dark, why these resources matter -->
+    <div class="section-dark">
+      <div class="section" style="padding-top: 90px; padding-bottom: 90px;">
+        <div style="display: grid; grid-template-columns: 1fr 1.6fr; gap: 100px; align-items: start;">
+          <div>
+            <p style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-neuro); margin-bottom: 12px;">Curriculum Aligned</p>
+            <h2 class="section-title">Designed to work alongside the physical model.</h2>
+          </div>
+          <div class="reading-column">
+            <p style="font-size: 1.15rem; color: var(--text-warm); font-weight: 500; margin-bottom: 25px; line-height: 1.7;">
+              Each resource in this kit was developed to complement, not replace, hands-on exploration. Students engage first with the physical 3D model, then deepen their understanding through structured written activities.
+            </p>
+            <p style="color: var(--text-muted-dark);">
+              All materials are standards-referenced for K-12 life science and biology. They require no special software, are printable from any device, and are editable so you can adapt them to your class.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DOWNLOAD CARDS -->
     <section class="section">
       <div class="section-header">
-        <h2 class="section-title">Educational Toolkit</h2>
-        <p class="section-subtitle">Download official printable modules and guide sheets specifically mapped to work hand-in-hand with our physical 3D model.</p>
+        <p style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-neuro); margin-bottom: 12px;">Educational Toolkit</p>
+        <h2 class="section-title">Three resources. One complete classroom kit.</h2>
+        <p class="section-subtitle">Download individually or use all three together for a full unit on human brain anatomy and function.</p>
       </div>
 
-      <div class="features" style="justify-content: center;">
-        <div class="feature glass-panel" style="max-width: 320px; display: flex; flex-direction: column; justify-content: space-between; align-items: center; min-height: 280px; padding: 30px 20px;">
-          <div class="feature-icon-wrapper" style="margin-bottom: 15px;">
-            <img src="brain_icon.png" alt="PDF Icon" style="filter: hue-rotate(90deg);">
+      <div class="features">
+
+        <!-- Card 1 -->
+        <div class="feature museum-card" style="display: flex; flex-direction: column; justify-content: space-between; gap: 30px;">
+          <div>
+            <div class="feature-icon-wrapper" style="margin-bottom: 30px;">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                <polyline points="14 2 14 8 20 8" />
+                <line x1="16" y1="13" x2="8" y2="13" />
+                <line x1="16" y1="17" x2="8" y2="17" />
+                <polyline points="10 9 9 9 8 9" />
+              </svg>
+            </div>
+            <h3>Anatomy Worksheet Pack</h3>
+            <p style="margin-top: 15px; line-height: 1.75;">A comprehensive set of region diagrams, structural outlines, and fill-in-the-blank student activities. Covers all eight brain regions featured on the NeuroPrint model.</p>
+            <ul style="margin-top: 20px; padding-left: 20px; display: flex; flex-direction: column; gap: 8px;">
+              <li style="font-size: 0.9rem; color: var(--text-muted-light);">Labeled and unlabeled diagram versions</li>
+              <li style="font-size: 0.9rem; color: var(--text-muted-light);">Function matching exercises</li>
+              <li style="font-size: 0.9rem; color: var(--text-muted-light);">Region-by-region guided notes</li>
+            </ul>
           </div>
-          <h3>Anatomy Worksheets</h3>
-          <p style="margin-bottom: 20px; flex-grow: 1;">A comprehensive set of diagrams, region outlines, and fill-in-the-blank student activities.</p>
-          <a href="NeuroPrint_Resource_Kit.docx.pdf" download class="btn btn-primary" style="width: 100%; font-size: 0.9rem; padding: 10px 0;">Download PDF</a>
+          <div>
+            <div style="padding: 16px 0; border-top: 1px solid var(--border-subtle); margin-bottom: 20px; display: flex; align-items: center; gap: 12px;">
+              <span style="font-size: 0.8rem; font-weight: 700; font-family: 'Outfit', sans-serif; color: var(--text-muted-light); text-transform: uppercase; letter-spacing: 0.05em;">Format</span>
+              <span style="font-size: 0.85rem; color: var(--text-navy); font-weight: 600;">PDF &mdash; Print Ready</span>
+            </div>
+            <a href="NeuroPrint_Resource_Kit.docx.pdf" download class="btn btn-primary" style="width: 100%; text-align: center;">Download Worksheet Pack</a>
+          </div>
         </div>
 
-        <div class="feature glass-panel" style="max-width: 320px; display: flex; flex-direction: column; justify-content: space-between; align-items: center; min-height: 280px; padding: 30px 20px;">
-          <div class="feature-icon-wrapper" style="margin-bottom: 15px; background: rgba(124, 58, 237, 0.1); border-color: rgba(124, 58, 237, 0.2);">
-            <img src="education_picture.png" alt="Docx Icon">
+        <!-- Card 2 -->
+        <div class="feature museum-card" style="display: flex; flex-direction: column; justify-content: space-between; gap: 30px;">
+          <div>
+            <div class="feature-icon-wrapper" style="margin-bottom: 30px;">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+              </svg>
+            </div>
+            <h3>Official Teacher Guide</h3>
+            <p style="margin-top: 15px; line-height: 1.75;">Suggested lesson pacing, classroom lab activities, and assembly instructions for integrating the 3D model into your existing biology or STEM curriculum.</p>
+            <ul style="margin-top: 20px; padding-left: 20px; display: flex; flex-direction: column; gap: 8px;">
+              <li style="font-size: 0.9rem; color: var(--text-muted-light);">3-day and 5-day pacing options</li>
+              <li style="font-size: 0.9rem; color: var(--text-muted-light);">Discussion questions per region</li>
+              <li style="font-size: 0.9rem; color: var(--text-muted-light);">QR scanning activity walkthroughs</li>
+            </ul>
           </div>
-          <h3>Official Teacher Guide</h3>
-          <p style="margin-bottom: 20px; flex-grow: 1;">Suggested lesson plans, pacing parameters, classroom labs, and 3D print file assembly instructions.</p>
-          <a href="NeuroPrint_Teacher_Guide.docx" download class="btn btn-primary" style="width: 100%; font-size: 0.9rem; padding: 10px 0; background: var(--grad-primary);">Download DOCX</a>
+          <div>
+            <div style="padding: 16px 0; border-top: 1px solid var(--border-subtle); margin-bottom: 20px; display: flex; align-items: center; gap: 12px;">
+              <span style="font-size: 0.8rem; font-weight: 700; font-family: 'Outfit', sans-serif; color: var(--text-muted-light); text-transform: uppercase; letter-spacing: 0.05em;">Format</span>
+              <span style="font-size: 0.85rem; color: var(--text-navy); font-weight: 600;">DOCX &mdash; Editable</span>
+            </div>
+            <a href="NeuroPrint_Teacher_Guide.docx" download class="btn btn-primary" style="width: 100%; text-align: center;">Download Teacher Guide</a>
+          </div>
         </div>
 
-        <div class="feature glass-panel" style="max-width: 320px; display: flex; flex-direction: column; justify-content: space-between; align-items: center; min-height: 280px; padding: 30px 20px;">
-          <div class="feature-icon-wrapper" style="margin-bottom: 15px; background: rgba(217, 70, 239, 0.1); border-color: rgba(217, 70, 239, 0.2);">
-            <img src="question-mark-brain-like-quiz-600nw-397593346.webp" alt="Quiz Icon" style="border-radius: 6px;">
+        <!-- Card 3 -->
+        <div class="feature museum-card" style="display: flex; flex-direction: column; justify-content: space-between; gap: 30px;">
+          <div>
+            <div class="feature-icon-wrapper" style="margin-bottom: 30px;">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="12" r="10" />
+                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+                <line x1="12" y1="17" x2="12.01" y2="17" />
+              </svg>
+            </div>
+            <h3>Student Quiz (Editable)</h3>
+            <p style="margin-top: 15px; line-height: 1.75;">A ready-to-print diagnostic quiz covering primary neural structures, region functions, and synaptic communication. Fully editable so you can customize for your class level.</p>
+            <ul style="margin-top: 20px; padding-left: 20px; display: flex; flex-direction: column; gap: 8px;">
+              <li style="font-size: 0.9rem; color: var(--text-muted-light);">Multiple choice and short answer</li>
+              <li style="font-size: 0.9rem; color: var(--text-muted-light);">Two difficulty tiers included</li>
+              <li style="font-size: 0.9rem; color: var(--text-muted-light);">Answer key provided separately</li>
+            </ul>
           </div>
-          <h3>Student Quiz (Editable)</h3>
-          <p style="margin-bottom: 20px; flex-grow: 1;">A ready-to-print diagnostic quiz covering primary neural structures and synaptic communication.</p>
-          <a href="NeuroPrint_Brain_Quiz.docx" download class="btn btn-primary" style="width: 100%; font-size: 0.9rem; padding: 10px 0; background: linear-gradient(135deg, var(--accent-magenta), var(--accent-purple)); box-shadow: 0 4px 15px rgba(217, 70, 239, 0.3);">Download DOCX</a>
+          <div>
+            <div style="padding: 16px 0; border-top: 1px solid var(--border-subtle); margin-bottom: 20px; display: flex; align-items: center; gap: 12px;">
+              <span style="font-size: 0.8rem; font-weight: 700; font-family: 'Outfit', sans-serif; color: var(--text-muted-light); text-transform: uppercase; letter-spacing: 0.05em;">Format</span>
+              <span style="font-size: 0.85rem; color: var(--text-navy); font-weight: 600;">DOCX &mdash; Editable</span>
+            </div>
+            <a href="NeuroPrint_Brain_Quiz.docx" download class="btn btn-primary" style="width: 100%; text-align: center;">Download Student Quiz</a>
+          </div>
         </div>
+
       </div>
     </section>
+
+    <!-- CTA — get a physical model -->
+    <div class="cta">
+      <div class="cta-content">
+        <p style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-neuro); margin-bottom: 16px;">Ready to go further?</p>
+        <h2>Bring a physical model to your classroom.</h2>
+        <p>Resources work best when paired with the 3D-printed model. Request one for your school, at no cost for qualifying programs.</p>
+        <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+          <button class="btn btn-primary" onclick="location.href='request_model.html'">Request a Model</button>
+          <button class="btn btn-secondary" onclick="location.href='contact.html'">Ask a Question</button>
+        </div>
+      </div>
+    </div>
+
   </main>
 
-  <!-- Glassmorphic Footer -->
   <footer>
-    <p>&copy; 2026 NeuroPrint | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; margin-bottom: 40px;">
+        <span style="font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 1.1rem; color: var(--text-navy);">NeuroPrint</span>
+        <nav style="display: flex; gap: 30px; flex-wrap: wrap;">
+          <a href="about.html">About</a>
+          <a href="explore_brain_nav.html">Brain Regions</a>
+          <a href="resources.html">Resources</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+      <div style="border-top: 1px solid var(--border-subtle); padding-top: 30px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; font-size: 0.85rem;">
+        <span>&copy; 2026 NeuroPrint. All rights reserved.</span>
+        <span><a href="privacy.html">Privacy Policy</a> &nbsp;·&nbsp; <a href="terms.html">Terms of Service</a></span>
+      </div>
+    </div>
   </footer>
 
   <script src="main.js"></script>
 </body>
+
 </html>
